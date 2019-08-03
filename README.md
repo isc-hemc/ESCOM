@@ -14,6 +14,10 @@ This repository contains everything I did during the 4 years I studied at ESCOM,
 |           Tecnologias para la web           |   Jose Antonio Ortiz Ramirez  |       10      |
 |      Procesamiento de lenguaje natural      |        Olga Kolesnikova       |       10      |
 
+Don't forget to starred and fork this repo to have your own copy.
+
+![How to starred this repository] (https://github-readmecontent.s3.us-east-2.amazonaws.com/ESCOM/starred.png)
+
 ## Authors
 
 * **David Martinez** - [Davestring](https://github.com/Davestring)
