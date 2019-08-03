@@ -1,0 +1,91 @@
+\subsection{Function A:}
+
+Calculate the complexity order of the following algorithm in the best $(\Omega)$ and the worst $(O)$
+case (it's not necessary to do the analysis line-per-line, in this case, you can apply
+properties of the algorithms ):\hfill \break
+
+{{\bfseries\color{Violet}{Function A}} ( n even ):
+\begin{lstlisting}[mathescape]
+	i = 0
+	while i < n  do
+		to j = 1 until j = 10 do 
+			Action(i)
+			j++;
+	i+=2;
+	Supose that action $\in \theta ( 1 )$
+\end{lstlisting} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Maroon}{Demonstration:}} 
+\end{itemize} 
+
+{\bfseries\itshape\color{armygreen}{Observation:}} {\itshape\color{armygreen}{Best case: Let n = 0.}} 
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Analyzing the complexity of each line:}} 
+\begin{enumerate} 
+\item Line 1 = $\theta\ (\ 1\ )$.
+\item Line 2 = $\theta\ (\ 1\ )$.
+\end{enumerate}
+\end{itemize} \hfill
+
+{\bfseries\itshape\color{armygreen}{Observation:}} {\itshape\color{armygreen}{When n = 0, the code only evaluate the condition of the while loop, then, because n = i, the condition isn't fulfilled, so the code inside the while it's not executed, thus.}} 
+
+\begin{ceqn}
+\begin{align}
+T\ (\ n\ )\ =\ \theta\ (\ 1\ +\ 1\ )\ =\ \theta\ (\ 1\ )\
+\end{align}
+\end{ceqn} \hfill 
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Finally:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+Function\ A\ \in\ \Omega\ (\ 1\ )
+\end{align}
+\end{ceqn}
+
+\pagebreak
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Maroon}{Demonstration:}} 
+\end{itemize} 
+
+{\bfseries\itshape\color{armygreen}{Observation:}} {\itshape\color{armygreen}{Analyzing the worst case:}} 
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Analyzing the complexity of each line:}}
+\begin{enumerate}
+\item Line 1 = $\theta\ (\ 1\ )$.
+\item Line 2 = $\theta\ (\ n\ )$.
+\begin{tasks}
+\task Line 3 = $\theta\ (\ 1\ )$.
+\task Line 4 = $\theta\ (\ 1\ )$.
+\task Line 5 = $\theta\ (\ 1\ )$.
+\task Line 6 = $\theta\ (\ 1\ )$.
+\end{tasks}
+\end{enumerate}
+\end{itemize} 
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Then, from Line 1 and 2:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+T\ (\ n\ )\ =\ \theta\ (\ n\ +\ 1\ )\ =\ \theta\ (\ n\ )\
+\end{align}
+\end{ceqn} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Finally:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+Function\ A\ \in\ O\ (\ n\ )
+\end{align}
+\end{ceqn}
+\pagebreak

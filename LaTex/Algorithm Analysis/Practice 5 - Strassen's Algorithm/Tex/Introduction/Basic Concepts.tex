@@ -1,0 +1,92 @@
+\section{Basic Concepts:}
+
+The {\bfseries\itshape Strassen's} algorithm, implements the divide-and-conquer paradigm.
+
+\subsection{Divide-and-Conquer Paradigm:}
+
+The divide-and-conquer paradigm involves three steps at each level of the recursion:
+
+\begin{itemize}
+\item {\bfseries\itshape Divide:} Divide the problem into a number of sub-problems that are smaller instances of the same problem.
+\item {\bfseries\itshape Conquer:} Conquer the sub-problems by solving them recursively. If the sub-problem sizes are small enough, however, just solve the sub-problems in a straightforward manner.
+\item {\bfseries\itshape Combine:} Combine the solutions to the sub-problems into the solution for the original problem.
+\end{itemize}
+
+\subsection{Strassen's Algorithm:}
+
+The key to {\bfseries\itshape Strassen's} method is to make the recursion tree slightly less bushy. That is, instead of performing eight recursive multiplications of {\bfseries\itshape $\frac{n}{2}\ x\ \frac{n}{2}$} matrices, it performs only seven. The {\bfseries\itshape Strassen's} has four steps: \hfill \break
+
+\begin{enumerate}
+\item Divide the input matrices A and B and output matrix C into {\bfseries\itshape $\frac{n}{2}\ x\ \frac{n}{2}$} sub-matrices. This steep takes $\theta\ (\ 1\ )$ time by index calculation. \hfill \break
+
+\item 	Create 10 matrices: {\bfseries\itshape $S_{1}\ +\ S_{2}\ +\ ...\ +\ S_{10}$} each of which is {\bfseries\itshape $\frac{n}{2}\ x\ \frac{n}{2}$} and is the sum or difference of two matrices created in step 1. We can create all 10 matrices in $\theta\ (\ n^{2}\ )$ time. \hfill \break
+
+\item Using the sub-matrices created in step 1 and the 10 matrices created in step 2, recursively compute seven matrix products: {\bfseries\itshape $P_{1}\ +\ P_{2}\ +\ ...\ +\ P_{7}$}. Each matrix $P_{i}$ it's also {\bfseries\itshape $\frac{n}{2}\ x\ \frac{n}{2}$}. \hfill \break
+
+\item Compute the desired sub-matrices: {\bfseries\itshape $C_{11},\ C_{12},\ C_{21},\ C_{22}$}. Of the result matrix C by adding and subtracting various combinations of the $P_{i}$ matrices. We can compute all four sub-matrices in $\theta\ (\ n^{2}\ )$ time.
+\end{enumerate} \hfill
+
+Let us assume that once the matrix {\bfseries\itshape size n} gets down to 1, we perform a simple scalar multiplication. When {\bfseries n $>$ 1} steps 1, 2, and 4 take a total of $\theta\ (\ n^{2}\ )$ time, and step 3 requires us to perform seven multiplications of $\frac{n}{2}\ x\ \frac{n}{2}$. Hence, we obtain the following recurrence for the running time {\bfseries\itshape T ( n )} of {\bfseries\itshape Strassen's} algorithm: \hfill \break
+
+\begin{ceqn}
+\begin{align}
+T( n ) = \left\{
+\begin{array}{ll}
+\theta ( 1 ) & \mathrm {if\ } n = 1 \\
+7\ T\ (\frac{n}{2}) + \theta\ (\ n^{2}\ ) & \mathrm {if\ } n > 1 \\
+\end{array}
+\right.
+\end{align}
+\end{ceqn} \hfill
+
+We have traded off one matrix multiplication for a constant number of matrix additions. Once we understand recurrences and their solutions, we shall see that this trade-off actually leads to a lower asymptotic running time. \hfill \break
+
+We now proceed to describe the details. In step 2, we create the following 10 matrices: \hfill \break
+
+\begin{ceqn}
+\begin{align*}
+S_{1}\ =\ B_{12}\ -\ B_{22} \\
+S_{2}\ =\ A_{11}\ +\ A_{12} \\
+S_{3}\ =\ A_{21}\ +\ A_{22} \\
+S_{4}\ =\ B_{21}\ -\ B_{11} \\
+S_{5}\ =\ A_{11}\ +\ A_{22} \\
+S_{6}\ =\ B_{11}\ +\ B_{22} \\
+S_{7}\ =\ A_{12}\ -\ A_{22} \\
+S_{8}\ =\ B_{21}\ +\ B_{22} \\
+S_{9}\ =\ A_{11}\ -\ A_{21} \\
+S_{10}\ =\ B_{11}\ +\ B_{12}
+\end{align*}
+\end{ceqn} \hfill
+
+Since we must add or subtract $\frac{n}{2}\ x\ \frac{n}{2}$ matrices 10 times, this step does indeed take $\theta\ (\ n^{2}\ )$ time. \hfill \break
+
+In step 3, we recursively multiply $\frac{n}{2}\ x\ \frac{n}{2}$ matrices seven times to compute the following $\frac{n}{2}\ x\ \frac{n}{2}$ matrices, each of which is the sum or difference of products of A and B sub-matrices: \hfill \break
+
+\begin{ceqn}
+\begin{align*}
+P_{1}\ &=\ A_{11}\ \cdot\ S_{1}\ =\ A_{11}\ \cdot\ B_{12}\ - A_{11}\ \cdot\ B_{22} \\
+P_{2}\ &=\ S_{2}\ \cdot\ B_{22}\ =\ A_{11}\ \cdot\ B_{22}\ +\ A_{12}\ \cdot\ B_{22} \\
+P_{3}\ &=\ S_{3}\ \cdot\ B_{11}\ =\ A_{21}\ \cdot\ B_{11}\ +\ A_{22}\ \cdot\ B_{11} \\
+P_{4}\ &=\ A_{22}\ \cdot\ S_{4}\ =\ A_{22}\ \cdot\ B_{21}\ -\ A_{22}\ \cdot\ B_{11} \\
+P_{5}\ &=\ S_{5}\ \cdot\ S_{6}\ =\ (\ A_{11}\ +\ A_{22}\ )\ \cdot\ (\ B_{11}\ +\ B_{22}\ ) \\
+P_{6}\ &=\ S_{7}\ \cdot\ S_{8}\ =\ (\ A_{12}\ -\ A_{22}\ )\ \cdot\ (\ B_{21}\ +\ B_{22}\ ) \\
+P_{7}\ &=\ S_{9}\ \cdot\ S_{10}\ =\ (\ A_{11}\ -\ A_{21}\ )\ \cdot\ (\ B_{11}\ +\ B_{12}\ )
+\end{align*}
+\end{ceqn} \hfill
+
+Note that the only multiplications we need to perform are those in the middle column of the above equations. The right-hand column just shows what these products equal in terms of the original sub-matrices created in step 1. \hfill \break
+
+Step 4 adds and subtracts the $P_{i}$ matrices created in step 3 to construct the four $\frac{n}{2}\ x\ \frac{n}{2}$ sub-matrices of the product C . We start with: \hfill \break
+
+\begin{ceqn}
+\begin{align*}
+C_{11}\ &=\ P_{5}\ +\ P_{4}\ -\ P_{2}\ +\ P_{6} \\
+C_{12}\ &=\ P_{1}\ +\ P_{2} \\
+C_{21}\ &=\ P_{3}\ +\ P_{4} \\
+C_{22}\ &=\ P_{5}\ +\ P_{1}\ -\ P_{3}\ -\ P_{7}
+\end{align*}
+\end{ceqn} \hfill
+
+Thus, we see that {\bfseries\itshape Strassen's} algorithm, comprising steps 1 $-$ 4, produces the correct matrix product and that recurrence (2) characterizes its running time. Finally we can conclude that {\bfseries\itshape Strassen's} algorithm runs in $\theta\ (\ n^{2.81}\ )$.
+
+\pagebreak

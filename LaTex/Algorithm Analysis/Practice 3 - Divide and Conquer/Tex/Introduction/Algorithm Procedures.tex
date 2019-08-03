@@ -1,0 +1,60 @@
+\section{Algorithms:}
+
+The following section will explain the procedure of {\bfseries\itshape Merge} and {\bfseries\itshape Merge-Sort} algorithms.
+
+\subsection{Merge Procedure:}
+
+Our {\bfseries\itshape MERGE} procedure takes time $\theta ( n )$, where {\bfseries\itshape n = r - p + 1} is the total number of elements being merged, and it works as follows. Returning to our card playing motif, suppose we have two piles of cards face up on a table. Each pile is sorted, with the smallest cards on top. We wish to merge the two piles into a single sorted output pile, which is to be face down on the table. Our basic step consists of choosing the smaller of the two cards on top of the face-up piles, removing it from its pile (which exposes a new top card), and placing this card face down onto the output pile. We repeat this step until one input pile is empty, at which time we just take the remaining input pile and place it face down onto the output pile. Computationally, each basic step takes constant time, since we are comparing just the two top cards. Since we perform at most {\bfseries\itshape n} basic steps, merging takes $\theta ( n )$ time. \hfill \break
+
+The following pseudocode implements the above idea, but with an additional twist that avoids having to check whether either pile is empty in each basic step. We place on the bottom of each pile a {\bfseries\itshape sentinel} card, which contains a special value that we use to simplify our code. Here, we use $\inf$ as the sentinel value, so that whenever a card with $\inf$ is exposed, it cannot be the smaller card unless both piles have their sentinel cards exposed. But once that happens, all the nonsentinel cards have already been placed onto the output pile. Since we know in advance that exactly {\bfseries\itshape r - p + 1} cards will be placed onto the output pile, we can stop once we have performed that many basic steps. \hfill \break
+
+{{\bfseries\color{Violet}{function}} MERGE ( A, p, q, r ):
+\begin{lstlisting}
+	n1 = q - p + 1
+	n2 = r - q
+	let L [ 1, ..., n1 + 1 ] and R [ 1, ..., n2 + 1 ] be new arrays
+	for i = 1 to n1 do
+		L [ i ] = A [ p + i - 1 ]
+	for j = 1 to n2 do 
+		R [ j ] = A [ q + j ]
+	L [ n1 + 1 ] =  inf
+	R [ n2 + 1 ] = inf
+	i = 1
+	j = 1
+	for k = p to r do
+		if L [ i ] <= R [ j ]
+			A [ k ] = L [ i ]
+			i++
+		else A [ k ] = R [ j ]
+			j++
+\end{lstlisting} \hfill
+
+In detail, the MERGE procedure works as follows. Line 1 computes the length $n_{1}$ of the subarray A [ p ... q ] and line 2 computes the length $n_{2}$ of the subarray A [ q + 1 ... r ], We create arrays L and R ( “left” and “right” ) of length $n_{1}$ + 1 and $n_{2}$ + 1, respectively, in line 3; the extra position in each array will hold the sentinel. The {\bfseries\itshape for} loop of lines 4 - 5 copies the subarray A [ p ... q ] into L [ 1 ... $n_{1}$ ], and the {\bfseries\itshape for} loop of lines 6 - 7 copies the subarray A [ q + 1 ... r ] into R [ 1 ... $n_{2}$ ]. Lines 8 - 9 put the sentinels at the ends of the arrays {\bfseries\itshape L} and {\bfseries\itshape R}. Lines 10 - 17, illustrated in Figure 3.1.0, performes r - p + 1 basic steps by maintaining the following loop invariant: 
+
+\begin{center}
+At the start of each iteration of the {\bfseries\itshape for} loop of lines 12 - 17, the sub-array \\ A [ p ... k - 1 ], contains the k - p smallest element of L [ 1 ... $n_{1}$ + 1 ] and \\ R [ 1 ... $n_{2}$ + 1 ] in sorted order. Moreover, L [ i ] and R [ j ] are the small\\est elements of their arrays that have not been copied back into A. \\
+\end{center}
+
+\begin{figure}[H]
+\includegraphics[scale=.7]{procedure.png}
+\centering \linebreak \linebreak Figure 3.1.0: Merge algorithm procedure.
+\end{figure} 
+
+We must show that this loop invariant holds prior to the first iteration of the {\bfseries\itshape for} loop of lines 12 - 17, that each iteration of the loop maintains the invariant, and that the invariant provides a useful property to show correctness when the loop terminates. 
+
+\subsection{Merge-Sort Procedure:}
+
+The procedure MERSE-SORT ( A, p, r ), sorts the elements in the subarray A [ p ... r ] if $p \geq r$ the subarray has at most one element and is therefore already sorted. Otherwise, the divide step simply computes an index {\bfseries\itshape q} that partitions A [ p ... r ] into two subarrays: A [ p ... r ], contains [ $\frac{n}{2}$ ] elements, and A [ q + 1 ... r ] , containing [ $\frac{n}{2}$ ] elements. \hfill \break
+
+{\bfseries\color{Violet}{function}} MERSE-SORT ( A, p, r ):
+\begin{lstlisting}
+if ( p < r )
+	q = ( p + r ) / 2
+	MERSE-SORT ( A, p, r )
+	MERSE-SORT ( A, q + 1, r )
+	MERSE ( A, p, q, r )
+\end{lstlisting} \hfill
+
+To sort the entire sequence A = ( A [ 1 ], A [ 2 ], ..., A [ n ] ), we make the initial call MERGE-SORT ( A, 1, A.length ), where {\bfseries\itshape A.length = n}. Figure 1.1.0 illustrate the operation of the procedure bottom-up when {\bfseries\itshape n} is a power of 2. The algorithm consists of merging pairs of 1-item sequences to form sorted sequences of length 2, merging pairs of sequences of length 2 to form sorted sequences of length 4, and so on, until two sequences of length $\frac{n}{2}$ are merged to form the final sorted sequence of length {\bfseries\itshape n}.
+
+\pagebreak

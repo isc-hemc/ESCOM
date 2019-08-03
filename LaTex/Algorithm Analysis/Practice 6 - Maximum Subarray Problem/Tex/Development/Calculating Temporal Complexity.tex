@@ -1,0 +1,151 @@
+\subsection{Calculating The Temporal Complexity:}
+
+To calculate the temporal complexity of the 3 algorithms it's necessary to put a counter in each line of the codes and store the results in a list, where each element it's a tuple that in its first element stores the size of the arrays and in the second element stores the counter. In {\bfseries\itshape global$\_$variables.py} are declared the variables that we will use for this purpose: \hfill
+
+\begin{tasks}
+\task {\bfseries parameters$\_$1}: List that stores the parameters of the points to plot for the Brute-Force Maximum Subarray Algorithm. Each element it's a tuple that stores the size of the Array and the temporal complexity in its first and second element respectively.
+
+\task {\bfseries parameters$\_$2}: List that stores the parameters of the points to plot for the Maximum Crossing Subarray Algorithm. Each element it's a tuple that stores the size of the Array and the temporal complexity in its first and second element respectively.
+
+\task {\bfseries parameters$\_$3}: List that stores the parameters of the points to plot for the Maximum Subarray Algorithm using Recursion. Each element it's a tuple that stores the size of the Array and the temporal complexity in its first and second element respectively.
+
+\task {\bfseries time}: Variable that stores the temporal complexity of each algorithm.
+\end{tasks} \hfill
+
+As we can see, the following codes are exactly the same showed in section 3.2 but with the counter {\bfseries time} placed in each line: \hfill \break
+
+\begin{lstlisting}
+def brute_force ( A ):
+    gb.time += 1
+    sums = [ 0 ]
+    gb.time += 1
+    for i in A:
+        gb.time += 1
+        sums.append ( sums [ -1 ] + i )
+        gb.time += 1
+    gb.time += 1
+    max_sum = int ( -1e100 )
+    gb.time += 1
+    left_index = -1
+    gb.time += 1
+    right_index = -1
+    gb.time += 1
+    for i in range ( len ( A ) ):
+        gb.time += 1
+        for j in range ( i, len ( A ) ):
+            gb.time += 1
+            if ( sums [ j + 1 ] - sums [ i ] > max_sum ):
+                gb.time += 1
+                max_sum = sums [ j + 1 ] - sums [ i ]
+                gb.time += 1
+                left_index = i
+                gb.time += 1
+                right_index = j
+                gb.time += 1
+            gb.time += 1
+        gb.time += 1
+    # Return statement.
+    gb.time += 1
+    return left_index, right_index, max_sum
+\end{lstlisting} \hfill
+
+\begin{lstlisting}
+def crossing ( A, low, mid, high ):
+    gb.time += 1
+    max_left, max_right = 0, 0
+    gb.time += 1
+    left_sum = int ( -1e100 )
+    gb.time += 1
+    _sum = 0
+    gb.time += 1
+    for i in range ( mid - 1, low - 1, -1 ):
+        gb.time += 1
+        _sum = _sum + A [ i ]
+        gb.time += 1
+        if ( _sum > left_sum ):
+            gb.time += 1
+            left_sum = _sum
+            gb.time += 1
+            max_left = i
+        gb.time += 1
+
+    gb.time += 1
+    right_sum = int ( -1e100 )
+    gb.time += 1
+    _sum = 0
+    gb.time += 1
+    for i in range ( mid, high ):
+        gb.time += 1
+        _sum = _sum + A [ i ]
+        gb.time += 1
+        if ( _sum > right_sum ):
+            gb.time += 1
+            right_sum = _sum
+            gb.time += 1
+            max_right = i
+        gb.time += 1
+    # Return statement.
+    gb.time += 1
+    return max_left, max_right, right_sum + left_sum
+\end{lstlisting} \hfill
+
+\begin{lstlisting}
+def recurrence ( A, low, high ):
+    gb.time += 1
+    if ( high == low + 1 ):
+        gb.time += 1
+        return low, high, A [ low ]
+    else:
+        gb.time += 1
+        mid = int ( ( low + high ) / 2 )
+        gb.time += 1
+        left_low, left_high, left_sum = recurrence ( A, low, mid )
+        gb.time += 1
+        right_low, right_high, right_sum = recurrence ( A, mid, high )
+        gb.time += 1
+        cross_low, cross_high, cross_sum = crossing ( A, low, mid, high )
+        gb.time += 1
+        if ( left_sum >= right_sum and left_sum >= cross_sum ):
+            gb.time += 1
+            return left_low, left_high, left_sum
+        elif ( right_sum >= left_sum and right_sum >= cross_sum ):
+            gb.time += 1
+            return right_low, right_high, right_sum
+        else:
+            gb.time += 1
+            return cross_low, cross_high, cross_sum
+\end{lstlisting}
+
+\pagebreak
+
+With the counter now set, the main method needs to be modified too. In line 2 prevails the call to the method {\itshape create ( )} which return an array {\bfseries A} of random positive and negative integers of size A [ low ... high ]. In lines 4, 10 and 18 there are 3 {\bfseries for} loops that will run from 0 to {\itshape high}. In lines 5, 13 and 20 the program call the algorithms {\itshape brute$\_$force ( ... )}, {\itshape crossing ( ... )} and {\itshape recurrence ( ... )} respectively, but, if we see in the parameters of each function we send {\bfseries A} but as a subarray A [ 0 ... i ] where {\itshape i} it's the {\bfseries for} variable, this will allow us to find the plot points for each size of the array until reaching the original highest position. In lines 6, 14 and 21 the sizes of this subarrays and the temporal time calculated will be stored in the lists {\bfseries\itshape parameters$\_\alpha$} as a tuple, where $\alpha$ can be 1, 2 or 3 with respect to which algorithm its evaluating. Then in lines 7, 15, and 22 the counter {\bfseries time} is reset. \hfill \break
+
+\begin{lstlisting}
+if ( __name__ == "__main__" ):
+    A = create ( )
+    # Find the maximum subarray using a Brute-Force Algorithm.
+    for i in range ( len ( A ) ):
+        max_left, max_right, result = brute_force ( A [ :i ] )
+        gb.parameters_1.append ( ( len ( A [ :i ] ), gb.time ) )
+        gb.time = 0
+    printer ( A, max_left, max_right, result, 1 )
+    # Find the maximum subarray usign a Crossing Algorithm.
+    for i in range ( len ( A ) ):
+        high = int ( len ( A [ :i ] ) )
+        mid = int ( high / 2 )
+        max_left, max_right, result = crossing ( A [ :i ], 0, mid, high )
+        gb.parameters_2.append ( ( len ( A [ :i ] ), gb.time ) )
+        gb.time = 0
+    printer ( A, max_left, max_right, result, 2 )
+    # Find the maximum subarray usign a Recurrence Algorithm.
+    for i in range ( 1, len ( A ) ):
+        high = int ( len ( A [ :i ] ) )
+        max_left, max_right, result = recurrence ( A [ :i ], 0, high )
+        gb.parameters_3.append ( ( len ( A [ :i ] ), gb.time ) )
+        gb.time = 0
+    printer ( A, max_left, max_right, result, 3 )
+    plot ( )
+\end{lstlisting}
+
+\pagebreak
+

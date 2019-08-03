@@ -1,0 +1,49 @@
+\subsection{Graph.py}
+
+When this point is reached, on screen the user will visualize two graphs, the left one will be the temporal complexity for {\bfseries\itshape Quicksort} and the right one for {\bfseries\itshape Partition}. Both are comparing {\bfseries\itshape time} of execution vs {\bfseries\itshape length}. \hfill \break
+
+ In line 22 starts the code for {\bfseries\itshape Quicksort} graph. As we can see in line  27, we use the 'list' {\bfseries\itshape parameters}, as we said, this is a 'list' of tuples, and in every tuple we will have 2 elements a {\itshape length} and a {\itshape time}, well, this tuples will be the points to plot, so, the only thing rest to do is divide {\itshape parameters} into two lists, one for the computational time, and another one for all sizes, this process it's performed in the lines 27 and 29 respectably. \hfill \break
+
+\begin{lstlisting}
+def graph ( ):
+    labels ( )
+    # Window title.
+    plt.figure ( "Quicksort Algorithm", figsize = ( 14, 7 ) )
+
+    # Right graph: Temporal complexity of Partition.
+    plt.subplot ( 1, 2, 2 )
+    # Figure title.
+    plt.title ( "Partition ( " + str ( gb._parameters [ -1 ] [ 0 ] + 1 ) + ", " + str ( gb._parameters [ -1 ] [ 1 ] ) + " )" )
+    # Parameter Time ( t ).
+    _t = list ( map ( lambda x: x [ 1 ], gb._parameters ) )
+    # Parameter Size ( n ).
+    _s = list ( map ( lambda x: x [ 0 ] + 1, gb._parameters ) )
+    # Axes names.
+    plt.xlabel ( "Size ( n )", color = ( 0.3, 0.4, 0.6 ), family = "cursive", size = "large" )
+    plt.ylabel ( "Partition Time ( t )", color = ( 0.3, 0.4, 0.6 ), family = "cursive", size = "large" )
+    # Plot.
+    plt.plot ( _s, _t, "#778899", linewidth = 3, label = function1 )
+    plt.plot ( _s, g1, "#800000", linestyle = "--", label = proposed1 )
+    plt.legend ( loc = "upper left" )
+
+    # Left graph: Temporal complexity of Quicksort.
+    plt.subplot ( 1, 2, 1 )
+    # Figure title.
+    plt.title ( "Quicksort ( " + str ( gb.parameters [ -1 ] [ 0 ] ) + ", " + str ( gb.parameters [ -1 ] [ 1 ] ) + " )" )
+    # Parameter Time ( t ).
+    t = list ( map ( lambda x: x [ 1 ], gb.parameters ) )
+    # Parameter Size ( n ).
+    s = list ( map ( lambda x: x [ 0 ], gb.parameters ) )
+    # Axes names.
+    plt.xlabel ( "Size ( n )", color = ( 0.3, 0.4, 0.6 ), family = "cursive", size = "large" )
+    plt.ylabel ( "Quicksort Time ( t )", color = ( 0.3, 0.4, 0.6 ), family = "cursive", size = "large" )
+    # Plot.
+    plt.plot ( s, t, "#778899", linewidth = 3, label = function2 )
+    plt.plot ( s, g2, "#800000", linestyle = "--", label = proposed2 )
+    plt.legend ( loc = "upper left" )
+    plt.show ( )
+\end{lstlisting} \hfill
+
+Similar for the graph of {\bfseries\itshape Partition}, in line 6 starts the code that will describe the plot. As we can see in line 11, we use the 'list' {\bfseries\itshape $\_$parameters} (this one stores the computational time only for Partition). For plotting, we will repeat the process of separating {\bfseries\itshape $\_$parameters} into two lists. This process it's performed in the lines 11 and 13. \hfill \break
+
+\pagebreak

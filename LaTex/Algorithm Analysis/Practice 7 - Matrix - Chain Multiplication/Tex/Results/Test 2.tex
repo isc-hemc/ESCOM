@@ -1,0 +1,38 @@
+\subsection{Matrix-Chain of Size n = 3:}
+
+The second test consist in calculate the optimal parenthesization for the matrices in Table 3, The output of our program it's captured in Figure 4.2.0. \hfill \break
+
+\begin{center}
+\begin{tabular}{c c c c}
+\toprule
+\toprule
+\hspace{20px} Matrix \hspace{20px} & \hspace{50px} $A_{1}$ \hspace{50px} & \hspace{50px} $A_{2}$ \hspace{50px} & \hspace{50px} $A_{3}$ \hspace{50px} \\
+\toprule
+\toprule
+Dimensions & 3 x 5 & 5 x 2 & 2 x 2 \\
+\bottomrule
+\end{tabular}
+\linebreak \linebreak Table 3: Matrix-chain of n = 3.
+\end{center} \hfill
+
+\begin{figure}[H]
+\includegraphics[height = 8cm, width = 16.5cm]{3.png}
+\centering \linebreak \linebreak {\itshape\small Figure 4.2.0: Console output for Table 3 matrices.}
+\end{figure} \hfill
+
+As we can see in Figure 4.2.0 we have 2 tables; {\itshape m} and {\itshape s}. As we have explained in section 3, the table {\itshape s} are the pivots for the optimal parenthesization and table {\itshape m} it's the one that contains the minimum cost. This minimum cost it's stored in row 2, column 4 which is {\itshape 42}. Finally in the bottom we can visualize the correct parenthesization. 
+
+\pagebreak
+
+Also for this test, we don't capture the others parenthesizations as in Figure 4.2.0, but we captured all the costs for all configurations as we can see in Figure 4.2.1, and also we corroborate that the configuration in Figure 4.2.0 it's the optimal. \hfill \break
+
+\begin{figure}[H]
+\includegraphics[height = 8cm, width = 16.5cm]{t2-1.png}
+\centering \linebreak \linebreak {\itshape\small Figure 4.2.1: All configurations output.}
+\end{figure} \hfill \break
+
+In this example it's more evident that in Figure 4.2.1 are displayed all the scalar product for all the configurations. From table 3 lets make the product of the first 2 matrices, the scalar operations are: {\bfseries 3 x 5 x 2 = 30} which resulting matrix it's of size {\bfseries 3 x 2}. Then, lets multiply this resulting matrix with $A_{3}$ which scalar operations are {\bfseries 3 x 2 x2 = 12} and its resulting matrix it's of size {\bfseries 3 x 2}, and the total of scalar operations for this configurations are {\bfseries 30 + 12 = 42}. We can find this configuration in Figure 4.2.1 in the row 2, i.e. ( ( $A_{1}$ $A_{2}$ ) $A_{3}$ ). \hfill \break
+
+Then, the other configuration it's ( $A_{1}$ ( $A_{2}$ $A_{3}$ ) ), so lets multiply first $A_{2}$ and $A_{3}$ which scalar operations are {\bfseries 5 x 2 x 2 = 20} and the resulting matrix it's of size {\bfseries 5 x 2}. Then, let's multiply this resulting matrix with $A_{1}$, which scalar operations are {\bfseries 3 x 5 x 2 = 30}, and the total of scalar operations for this configurations are {\bfseries 30 + 20 = 50}. We can find this configuration in Figure 4.2.1 in the row 4.
+
+\pagebreak

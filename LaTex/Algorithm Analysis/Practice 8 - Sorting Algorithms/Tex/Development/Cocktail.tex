@@ -1,0 +1,99 @@
+\subsection{Cocktail-Sort Algorithm:}
+
+For the following algorithm we create a {\itshape Class} with the name of the algorithm, in its constructor will receive as parameters the list to sort, this list has the name of {\itshape dimensions} and the start/ end indexes as we can see in line 3, in line 4 the program corroborates that the length of {\itshape dimensions} it's bigger than 1, in case that do not accomplish the condition then the program stops running because there is no need of sorting, otherwise the program continues running and in line 6 stores in a instance of the class the length of {\itshape dimensions}, this four variables are going to be used along the execution. \hfill \break
+
+Cocktail Sort is a variation of Bubble sort. The Bubble sort algorithm always traverses elements from left and moves the largest element to its correct position in first iteration and second largest in second iteration and so on. Cocktail Sort traverses through a given array in both directions alternatively. Each iteration of the algorithm is broken up into 2 stages:
+
+\begin{enumerate}
+\item The first stage loops through the array from left to right, just like the Bubble Sort as we can see in lines 17 - 22. During the loop, adjacent items are compared and if value on the left is greater than the value on the right, then values are swapped. At the end of first iteration, largest number will reside at the end of the array.
+
+\item The second stage loops through the array in opposite direction starting from the item just before the most recently sorted item as we can see in lines 34 - 39, and moving back to the start of the array. Here also, adjacent items are compared and are swapped if required. 
+\end{enumerate}
+
+During each iteration the {\itshape start} and {\itshape end} indexes decrease and increase respectively, this because during the sorting process the elements stored on this indexes are already sorted. \hfill \break
+
+\pagebreak
+
+\begin{lstlisting}
+class Cocktail:
+    # Class constructor.
+    def __init__ ( self, dimensions, start, end ):
+        assert len ( dimensions ) > 1
+        self.dimensions = dimensions
+        self.n = len ( dimensions )
+        self.swapped = True
+        self.start = start
+        self.end = end
+
+    def cocktail ( self ):
+        while ( self.swapped ):
+            # Reset the swapped flag because it might be true in the next iteration.
+            self.swapped = False
+
+            # Loop from left to right.
+            for i in range ( self.start, self.end ):
+                if ( self.dimensions [ i ] > self.dimensions [ i + 1 ] ):
+                    aux = self.dimensions [ i ]
+                    self.dimensions [ i ] = self.dimensions [ i + 1 ]
+                    self.dimensions [ i + 1 ] = aux
+                    self.swapped = True
+                    
+            # If nothing were moved then the array it's sorted.
+            if ( self.swapped == False ):
+                break
+            # Otherwise, reset the flag so can be used in the next stage.
+            self.swapped = False
+            # Move the end back in one unit, because the previous loop
+            # moved the greater number to its rightfull spot.
+            self.end = self.end - 1
+
+            # Loop from right to left.
+            for i in range ( self.end - 1, self.start - 1, -1 ):
+                if ( self.dimensions [ i ] > self.dimensions [ i + 1 ] ):
+                    aux = self.dimensions [ i ]
+                    self.dimensions [ i ] = self.dimensions [ i + 1 ]
+                    self.dimensions [ i + 1 ] = aux
+                    self.swapped = True
+
+            # Increase the starting point, because the previous loop
+            # moved the next smallest number to its rightfull spot.
+            self.start = self.start + 1
+\end{lstlisting} \hfill \break
+
+The sorting works as follows: Consider the following list {\itshape dimensions = [ 5, 1, 4, 2, 8, 0, 2 ]}. From lines 17 - 22 will make the forward pass. \hfill \break
+
+\begin{flushleft}
+{\bfseries First Forward Pass:} \hfill \break
+
+[ {\bfseries 5 1} 4 2 8 0 2 ] $\Rightarrow$ [ {\bfseries 1 5} 4 2 8 0 2 ] -Swap since 5 $>$ 1-. \hfill \break
+[ 1 {\bfseries 5 4} 2 8 0 2 ] $\Rightarrow$ [ 1 {\bfseries 4 5} 2 8 0 2 ] -Swap since 5 $>$ 4-. \hfill \break
+[ 1 4 {\bfseries 5 2} 8 0 2 ] $\Rightarrow$ [ 1 4 {\bfseries 2 5} 8 0 2 ] -Swap since 5 $>$ 2-. \hfill \break
+[ 1 4 2 {\bfseries 5 8} 0 2 ] $\Rightarrow$ [ 1 4 2 {\bfseries 5 8} 0 2 ] \hfill \break
+[ 1 4 2 5 {\bfseries 8 0} 2 ] $\Rightarrow$ [ 1 4 2 5 {\bfseries 0 8} 2 ] -Swap since 8 $>$ 0-. \hfill \break
+[ 1 4 2 5 0 {\bfseries 8 2} ] $\Rightarrow$ [ 1 4 2 5 0 {\bfseries 2 8} ] -Swap since 8 $>$ 2-. \hfill \break
+
+After first forward pass, greatest element of the array will be present at the last index of array. Now, from lines 34 - 39 the program will make the backward pass. \pagebreak
+
+{\bfseries First Backward Pass:} \hfill \break
+
+[ 1 4 2 5 {\bfseries 0 2} 8 ] $\Rightarrow$ [ 1 4 2 5 {\bfseries 0 2} 8 ] \hfill \break
+[ 1 4 2 {\bfseries 5 0} 2 8 ] $\Rightarrow$ [ 1 4 2 {\bfseries 0 5} 2 8 ] -Swap since 5 $>$ 0-. \hfill \break
+[ 1 4 {\bfseries 2 0} 5 2 8 ] $\Rightarrow$ [ 1 4 {\bfseries 0 2} 5 2 8 ] -Swap since 3 $>$ 0-. \hfill \break
+[ 1 {\bfseries 4 0} 2 5 2 8 ] $\Rightarrow$ [ 1 {\bfseries 0 4} 2 5 2 8 ] -Swap since 4 $>$ 0-. \hfill \break
+[ {\bfseries 1 0} 4 2 5 2 8 ] $\Rightarrow$ [ {\bfseries 0 1} 4 2 5 2 8 ] -Swap since 1 $>$ 0-. \hfill \break
+
+After first backward pass, smallest element of the array will be present at the first index of the array. Then. the process it's repeated. \hfill \break
+
+{\bfseries Second Forward Pass:} \hfill \break
+
+[ 0 {\bfseries 1 4} 2 5 2 8 ] $\Rightarrow$ [ 0 {\bfseries 1 4} 2 5 2 8 ] \hfill \break
+[ 0 1 {\bfseries 4 2} 5 2 8 ] $\Rightarrow$ [ 0 1 {\bfseries 2 4} 5 2 8 ] -Swap since 4 $>$ 2-. \hfill \break
+[ 0 1 2 {\bfseries 4 5} 2 8 ] $\Rightarrow$ [ 0 1 2 {\bfseries 4 5} 2 8 ] \hfill \break
+[ 0 1 2 4 {\bfseries 5 2} 8 ] $\Rightarrow$ [ 0 1 2 4 {\bfseries 2 5} 8 ] -Swap since 5 $>$ 2-. \hfill \break
+
+Finally: \hfill \break
+
+{\bfseries Second Backward Pass:} \hfill \break
+
+[ 0 1 2 {\bfseries 4 2} 5 8 ] $\Rightarrow$ [ 0 1 2 {\bfseries 2 4} 5 8  -Swap since 4 $>$ 2-.
+\end{flushleft}

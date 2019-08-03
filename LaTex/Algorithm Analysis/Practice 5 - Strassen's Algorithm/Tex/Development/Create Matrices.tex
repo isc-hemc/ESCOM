@@ -1,0 +1,15 @@
+\subsection{Create$\_$matrices.py}
+
+This module it's very simple, only has one method that its only function is create the input matrices A and B, for later apply the Strassen's algorithm and obtain the product of {\bfseries A $\cdot$ B}. In line 3 the program will ask to the user to enter the power of 2, and  will store the integer in the variable {\itshape power}, then, will calculate $2^{k}$ where k = {\itshape power} and the result will be stored in the variable {\bfseries n} where {\itshape n x n} is the size of the matrices. In lines 5 and 6 the matrices will be created storing values from 0 to 9 randomly. Finally in line 7, the method will return A and B. \hfill \break
+
+\begin{lstlisting}
+def create ( ):
+    # Size of the matrices: 2^n.
+    power = int ( input ( "\n\tAdd an nth-power: " ) )
+    n = int ( math.pow ( 2, power ) )
+    A = [ [ rnd.randint ( 0, 9 ) for i in range ( n ) ] for j in range ( n ) ]
+    B = [ [ rnd.randint ( 0, 9 ) for i in range ( n ) ] for j in range ( n ) ]
+    return A, B
+\end{lstlisting} \hfill
+
+{\bfseries\itshape\color{carmine}{Observation:}} {\itshape\color{carmine}{In line 5 and 6 the matrices are created using a method called {\bfseries List-Compression}.}} \hfill \break

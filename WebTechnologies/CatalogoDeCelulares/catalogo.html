@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat&aacute;logo de Celulares</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/fontawesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="./css/catalogo.css">
+
+  </head>
+  <body>
+      <section class="header" id="header">
+        <header>
+          <nav class="navbar navbar-expand-md sticky-top" role="navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white"></i>
+          </button>
+          <a class="navbar-brand text-white mx-auto text-center"  href="./catalogo.html"><i class="fas fa-mobile-alt"></i> Cat&aacute;logo de celulares</a>
+          <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="nav navbar-nav ml-auto d-block">
+              <li class="nav-item">
+                <form class="form-inline">
+                  <input id="campo-busqueda" class="form-control js-shuffle-search" type="search" placeholder="Buscar" aria-label="¿Qu&eacute; est&aacute;s buscando?">
+                </form>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        </header>
+      </section>
+      <section id="main" class="content">
+        <div class="container">
+            <div class="btn-toolbar mx-auto d-block text-center w-100">
+              <div class="gallery-sorting list-inline btn-group mr-2" role="groups" aria-label="First group">
+                  <button type="button" data-groups="all" class="btn btn-secondary active">*</button>
+              </div>
+            </div>
+          <ul class="dispositivos gallery-items list-unstyled" id="grid">
+            <li class='col-lg-3 col-md-4 col-sm-6 col-12 shuffle_sizer'></li>
+          </ul>
+          <div class="row">
+            <div class="mensaje col-12">
+              <h1 class="text-center">No se encontraron resultados :C</h1>
+            </div>
+          </div>
+          <div class="modals"></div>
+        </div>
+      </section>
+
+      <section id="contactoFooter" class="footer">
+      <footer class="page-footer font-small">
+      <div class="footer-copyright text-center bg-danger text-white py-3">
+          &copy; 2018 Tecnolog&iacute;as para la Web ESCOM
+        </div>
+      </footer>
+    </section>
+
+      <script src="./js/jquery.min.js"></script>
+      <script src="./js/bootstrap.min.js"></script>
+      <script src="./js/jquery.shuffle.min.js"></script>
+      <script src="./js/catalogo.js"></script>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+\subsection{Analog-To-Digital Converter:}
+
+According to the counter that the {\bfseries ADC0804} has, if the analog-voltage ( $V_{a}$ ) it's higher than the digital-voltage ( $V_{b}$ ) then the counter will have an {\itshape positive-edge} and the binary-output will increase in one unit, the process will stop until the following condition it's accomplish: $V_{b}\ \geq \ V_{a}$. \hfill \break
+
+So, we will use a $V_{ref}$ = 2.5 V which the $V_{b}$ will increase $\frac{2.5}{2^{8}}\ \cong\ 9.79 x 10^{-3}$ per iteration. \hfill \break
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item For the first iteration:
+\end{itemize}}} \hfill
+
+When the binary-output it's equals to "0000 0000" $V_{b}$ = 0 V then, the $V_{a}$ which it's equals to 2.5 V it's higher, so the counter will increase in 1 unit. \hfill \break
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item For the second iteration:
+\end{itemize}}} \hfill
+
+When the binary-output it's equals to "0000 0001" $V_{b}$ = $\frac{2.5}{2^{8}}\ \cong\ 9.79 x 10^{-3}$ V then, the $V_{a}$ which it's equals to 2.5 V it's higher, so the counter will increase in 1 unit. \hfill \break
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item For the third iteration:
+\end{itemize}}} \hfill
+
+When the binary-output it's equals to "0000 0010" $V_{b}$ = 0.019 V then, the $V_{a}$ which it's equals to 2.5 V it's higher, so the counter will increase in 1 unit. \hfill \break
+
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item For the fourth iteration:
+\end{itemize}}} \hfill
+
+When the binary-output it's equals to "0000 0011" $V_{b}$ = 0.029 V then, the $V_{a}$ which it's equals to 2.5 V it's higher, so the counter will increase in 1 unit. \hfill \break
+
+If we repeat this process consecutively we will have results showed in Table 3. \hfill \break
+
+\begin{center}
+\begin{tabular}{c c c c}
+\toprule \toprule
+\hspace{40px} Iteration \hspace{40px} & \hspace{30px} $V_{b}$ \hspace{30px} & \hspace{30px} Binary Combination \hspace{30px} \\
+\midrule \midrule
+1 & 0 V & 0000 0000 & \\
+\midrule
+2 & $9.79 x 10^{-3}$ V & 0000 0001 & \\
+\midrule
+3 & 0.019 V & 0000 0010 & \\
+\midrule
+4 & 0.029 V & 0000 0011 & \\
+\midrule
+5 & 0.039 V & 0000 0100 & \\
+\midrule
+6 & 0.048 V & 0000 0101 & \\
+\midrule
+7 & 0.058 V & 0000 0110 & \\
+\midrule
+8 & 0.068 V & 0000 0111 & \\
+\midrule
+9 & 0.078 V & 0000 1000 & \\
+\bottomrule
+\end{tabular}
+\centering
+\end{center}
+
+\pagebreak
+
+\begin{center}
+\begin{tabular}{c c c c}
+\toprule \toprule
+\hspace{40px} Iteration \hspace{40px} & \hspace{30px} $V_{b}$ \hspace{30px} & \hspace{30px} Binary Combination \hspace{30px} \\
+\midrule \midrule
+10 & 0.087 V & 0000 1001 & \\
+\midrule
+11 & 0.097 V & 0000 1010 & \\
+\midrule
+12 & 0.10 V & 0000 1011& \\
+\midrule
+13 & 0.11 V & 0000 1100 & \\
+\midrule
+14 & 0.12 V & 0000 1101 & \\
+\midrule
+15 & 0.13 V & 0000 1110 & \\
+\midrule
+16 & 0.14 V & 0000 1111 & \\
+\midrule
+17 & 0.15 V & 0001 0000 & \\
+\midrule
+18 & 0.16 V & 0001 0001 & \\
+\midrule
+19 & 0.17 V & 0001 0010 & \\
+\midrule
+20 & 0.18 V & 0001 0011 & \\
+\midrule
+21 & 0.19 V & 0001 0100 & \\
+\midrule
+22 & 0.20 V & 0001 0101 & \\
+\midrule
+23 & 0.21 V & 0001 0110 & \\
+\midrule
+24 & 0.22 V & 0001 0111 & \\
+\midrule
+25 & 0.23 V & 0001 1000 & \\
+\midrule
+26 & 0.24 V & 0001 1001 & \\
+\midrule
+27 & 0.25 V & 0001 1010 & \\
+\midrule
+28 & 0.26 V & 0001 1011 & \\
+\midrule
+29 & 0.27 V & 0001 1100 & \\
+\midrule
+30 & 0.28 V & 0001 1101 & \\
+\midrule
+31 & 0.29 V & 0001 1110 & \\
+\midrule
+32 & 0.30 V & 0001 1111 & \\
+\midrule
+33 & 0.31 V & 0010 0000 & \\
+\midrule
+34 & 0.32 V & 0010 0001 & \\
+\midrule
+35 & 0.33 V & 0010 0010 & \\
+\midrule
+36 & 0.34 V & 0010 0011 & \\
+\midrule
+37 & 0.35 V & 0010 0100 & \\
+\midrule
+38 & 0.36 V & 0010 0101 & \\
+\midrule
+39 & 0.37 V & 0010 0110 & \\
+\midrule
+40 & 0.38 V & 0010 0111 & \\
+\midrule
+41 & 0.39 V & 0010 1000 & \\
+\midrule
+42 & 0.40 V & 0010 1001 & \\
+\midrule
+43 & 0.41 V & 0010 1010 & \\
+\midrule
+44 & 0.42 V & 0010 1011 & \\
+\bottomrule
+\end{tabular}
+\centering \linebreak \linebreak Table 3: Theoretical results.
+\end{center} \hfill \break
+
+Finally, if we search for the development's sensor-voltages we can visualize that the binary-combination generated it's exactly the same. 
+
+\pagebreak

@@ -1,0 +1,61 @@
+\subsection{Plot.py}
+
+This module plot the temporal complexity of the algorithms, which for the {\itshape Brute-Force} it's $\theta\ (\ n^{2}\ )$, {\itshape Crossing} is $\theta\ (\ n\ )$ and {\itshape Recurrence} has $\theta\ (\ n \cdot log_{2}\ (\ n\ )\ )$. The procedure works as follows, in line 18 makes a call to the function {\itshape initialize ( )}, this function returns the lists where $s\_1$, $s\_2$, $s\_3$ are the sizes of the array, $t\_1$, $t\_2$, $t\_3$ are the computational time and $p\_1$, $p\_2$, $p\_3$ are the proposed functions for brute-force, crossing and recurrence respectively. This parameters are extracted from the lists of tuples $parameters\_1$, $parameters\_2$ and $parameters\_3$ as we can see in lines 3 - 13. Lines 23, 34 and 45 divide the plot into subplots which the first will be for {\itshape Brute-Force}, the second for {\itshape Crossing} and finally the third for {\itshape Recurrence}. Once the parameters are set, lines 28 - 29, 39 - 40 and 49 - 50 plot the temporal complexity for each algorithm. \hfill \break
+
+\begin{lstlisting}
+def initialize ( ):
+    # Parameters S ( n ) -size-.
+    s_1 = list ( map ( lambda x:x [ 0 ], gb.parameters_1 ) )
+    s_2 = list ( map ( lambda x:x [ 0 ], gb.parameters_2 ) )
+    s_3 = list ( map ( lambda x:x [ 0 ], gb.parameters_3 ) )
+    # Parameters T ( t ) -time-.
+    t_1 = list ( map ( lambda x:x [ 1 ], gb.parameters_1 ) )
+    t_2 = list ( map ( lambda x:x [ 1 ], gb.parameters_2 ) )
+    t_3 = list ( map ( lambda x:x [ 1 ], gb.parameters_3 ) )
+    # Proposed functions.
+    p_1 = list ( map ( lambda x: ( 10/8 ) * x, t_1 ) )
+    p_2 = list ( map ( lambda x: ( 10/8 ) * x, t_2 ) )
+    p_3 = list ( map ( lambda x: ( 10/8 ) * x, t_3 ) )
+    return s_1, s_2, s_3, t_1, t_2, t_3, p_1, p_2, p_3
+    
+def plot ( ):
+    # Initialize the plot points.
+    s_1, s_2, s_3, t_1, t_2, t_3, p_1, p_2, p_3 = initialize ( )
+    plt.figure ( "Maximum Subarray Problem", figsize = ( 14, 7 ) )
+
+    # BRUTE-FORCE MAXIMUM SUBARRAY ALGORITHM PLOT.
+
+    plt.subplot ( 1, 3, 1 )
+    # Figure title.
+    plt.title ( "Brute-Force Max Subarray ( {}, {} )".format ( gb.parameters_1 [ -1 ] [ 0 ], 
+    	gb.parameters_1 [ -1 ] [ 1 ] ), size = "small" )
+    plt.ylabel ( "Time ( t )", color = ( 0.3, 0.4, 0.6 ), family = "cursive" )
+    plt.plot ( s_1, p_1, "#000000", linestyle = "--", label = "3/2 n^2" )
+    plt.plot ( s_1, t_1, "#0B3B0B", linewidth = 3, label = "n^2" )
+    plt.legend ( loc = "upper left" )
+
+    # MAXIMUM CROSSING SUBARRAY ALGORITHM PLOT.
+
+    plt.subplot ( 1, 3, 2 )
+    # Figure title.
+    plt.title ( "Max Crossing Subarray ( {}, {} )".format ( gb.parameters_2 [ -1 ] [ 0 ], 
+    	gb.parameters_2 [ -1 ] [ 1 ] ), size = "small" )
+    plt.xlabel ( "Size ( n )", color = ( 0.3, 0.4, 0.6 ), family = "cursive" )
+    plt.plot ( s_2, p_2, "#000000", linestyle = "--", label = "3/2 n" )
+    plt.plot ( s_2, t_2, "#610B0B", linewidth = 3, label = "n" )
+    plt.legend ( loc = "upper left" )
+
+    # MAXIMUM SUBARRAY RECURENCE ALGORITHM PLOT.
+
+    plt.subplot ( 1, 3, 3 )
+    # Figure title.
+    plt.title ( "Max Subarray ( {}, {} )".format ( gb.parameters_3 [ -1 ] [ 0 ], 
+    	gb.parameters_3 [ -1 ] [ 1 ] ), size = "small" )
+    plt.plot ( s_3, p_3, "#000000", linestyle = "--", label = "3/2 n log ( n )" )
+    plt.plot ( s_3, t_3, "#4C0B5F", linewidth = 3, label = "n log ( n )" )
+    plt.legend ( loc = "upper left" )
+
+    plt.show ( )
+\end{lstlisting}
+
+\pagebreak

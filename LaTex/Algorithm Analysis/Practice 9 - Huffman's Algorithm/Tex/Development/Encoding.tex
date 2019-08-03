@@ -1,0 +1,13 @@
+\subsubsection{Encoding:}
+
+Once we have the codes dictionary created, the last thing to do it's substitute each {\itshape symbol} with its respective code, so, if we have initially the input string {\bfseries aaaabbbcc} then, the result should be {\bfseries 0-0-0-0-10-10-10-111-111-110} but, there is a problem, we don't want a string type, we want a bit string. So, we need to "cast" the result into a Integer, but if we do this, all the left "0's" will be "eliminated", so, for solving this we add to the resulting string a "1" on the first element, so then: {\bfseries 1-0-0-0-0-10-10-10-111-111-110}. With this we can "cast" this string into an integer without losing information. The following code make the procedure previously explained. \hfill \break
+
+\begin{lstlisting}
+def encode ( self ):
+        for char in self.txtin:
+            code = self.codes [ char ]
+            self.result = self.result + code
+        # Add a 1 to the left and the END marker.
+        self.result = "1" + self.result + self.codes [ "end" ]
+        self.result = int ( self.result, 2 )
+\end{lstlisting}

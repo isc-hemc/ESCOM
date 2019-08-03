@@ -1,0 +1,26 @@
+\section{Annexes:}
+
+In the following section we will formally demonstrate the complexity of section's 2 equation ( 2 ) using the substitution method. \hfill \break
+
+\begin{flushleft}
+{\bfseries\itshape\color{carmine}{Solution:}}
+\end{flushleft} \hfill
+
+Let assume that P( k ) $\geq$ $c2^{k}$ for all k $<$ n. Let us prove that P( k ) $\geq$ $c2^{n}$. For n $>$ 1. \hfill \break
+
+\begin{ceqn}
+\begin{align*}
+P(\ n\ )\ =\ \sum_{k = 1}^{n - 1}\ P(\ k\ )P(\ n\ -\ k\ )\ &\geq\ \sum_{k = 1}^{n - 1}\ c2^{k} \cdot c2^{n-k} \\
+&=\ \sum_{k = 1}^{n - 1}\ c^{2}2^{n} \\
+&=\ (\ n\ -\ 1\ )\ \cdot\ c^{2}2^{n} \\
+&\geq\ c2^{n}.
+\end{align*}
+\end{ceqn} \hfill
+
+{\bfseries\itshape\color{airforceblue}{Note:}} {\itshape\color{airforceblue}{Provided that {\bfseries ( n - 1 ) $\cdot$ c $>$ 1}.}} \hfill \break
+
+\begin{center}
+{\bfseries\itshape\color{carmine}{Finally:}} {\itshape\color{carmine}{P( n ) is $\Omega$ ( $2^{n}$ ).}}
+\end{center}
+
+\pagebreak

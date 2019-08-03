@@ -1,0 +1,140 @@
+\subsection{Instrumentation Amplifier:}
+
+\setcounter{equation}{0}
+
+The circuit that we are going to analyze it's the one in Figure 3.2.0 using the following parameters: \hfill \break
+
+{\bfseries
+\begin{itemize}
+\item With a $V_{o}$ = 0.8 V.
+\item With a $V_{o}$ = 3.9 V.
+\item With a $V_{o}$ = 11.2 V.
+\item $R_{g}$ = 10K$\Omega$.
+\item R = 100K$\Omega$.
+\item $E_{2}$ = 6 V.
+\end{itemize}} \hfill
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item For $E_{1}$:
+\end{itemize}}} \hfill
+
+With the $V_{o}$ already calculated in the development, we want to know the variation in the resistance of the {\itshape thermistor}, so, we clear $R_{t}$ from the following voltage divider. \hfill \break \break
+
+\begin{flushright}
+{\bfseries\itshape\color{carmine}{Formula: $E_{1}$ =  $\frac{(\ V_{i}\ )(\ R_{t}\ )}{R_{1}\ +\ R_{t}}$.}} \hfill \break
+\end{flushright}
+
+\begin{ceqn}
+\begin{align*}
+E_{1}\ &=\ \frac{(\ 12 V\ )(\ R_{t}\ )}{10K\Omega\ +\ R_{t}} \\ \\
+12V \cdot R_{t}\ &=\ (\ E_{1} \cdot 10K\Omega\ )\ +\ (\ E_{1} \cdot R_{t}\ ) \\ \\
+\frac{E_{1} \cdot 10K\Omega}{R_{t}}\ &=\ 12V\ -\ E_{1}.
+\end{align*}
+\end{ceqn} \hfill \break
+
+Finally:
+
+\begin{ceqn}
+\begin{align}
+R_{t}\ &=\ \frac{E_{1} \cdot 10K\Omega}{12V\ -\ E_{1}}.
+\end{align}
+\end{ceqn} \hfill \break
+
+Then, we need to find $E_{1}$, so, from the following formula we clear this value: \hfill \break
+
+\begin{flushright}
+{\bfseries\itshape\color{carmine}{Formula: $V_{o}$ =  $[\ 1\ +\ \frac{2R}{R_{g}}\ ]\ (\ E_{2}\ -\ E_{1}\ )$.}} \hfill \break
+\end{flushright}
+
+\begin{ceqn}
+\begin{align*}
+V_{o} &=  [\ 1\ +\ \frac{2R}{R_{g}}\ ]\ (\ E_{2}\ -\ E_{1}\ ) \\ \\
+V_{o} &=  [\ \frac{2R\ +\ R_{g}}{R_{g}}\ ]\ (\ E_{2}\ -\ E_{1}\ ) \\ \\
+-E_{1}\ &=\ \frac{R_{g} \cdot V_{o}}{R_{g}\ +\ 2R}\ -\ E_{2}.
+\end{align*}
+\end{ceqn} \hfill \break
+
+Finally:
+
+\begin{ceqn}
+\begin{align}
+E_{1}\ =	\ E_{2}\ -\ \frac{R_{g} \cdot V_{o}}{R_{g}\ +\ 2R}.
+\end{align}
+\end{ceqn} \hfill \break
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item From equation ( 2 ), we substitute $V_{o}$ = 0.8 V:
+\end{itemize}}} 
+
+\begin{ceqn}
+\begin{align*}
+E_{1}\ &=\ 6 V\ -\ \frac{10K\Omega \cdot 0.8 V}{10K\Omega\ +\ 2 \cdot 100K\Omega} \\ \\
+&= 5.96 V.
+\end{align*}
+\end{ceqn} \hfill \break
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item From equation ( 2 ), we substitute $V_{o}$ = 3.9 V:
+\end{itemize}}} 
+
+\begin{ceqn}
+\begin{align*}
+E_{1}\ &=\ 6 V\ -\ \frac{10K\Omega \cdot 3.9 V}{10K\Omega\ +\ 2 \cdot 100K\Omega} \\ \\
+&= 5.81 V.
+\end{align*}
+\end{ceqn} \hfill \break
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item From equation ( 2 ), we substitute $V_{o}$ = 11.2 V:
+\end{itemize}}} 
+
+\begin{ceqn}
+\begin{align*}
+E_{1}\ &=\ 6 V\ -\ \frac{10K\Omega \cdot 11.2 V}{10K\Omega\ +\ 2 \cdot 100K\Omega} \\ \\
+&= 5.48 V.
+\end{align*}
+\end{ceqn} \hfill \break
+
+Then, for $R_{t}$ we substitute the previous $E_{1}$ calculated values: \hfill \break
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item From equation ( 1 ), we substitute $E_{1}$ = 5.96 V:
+\end{itemize}}} 
+
+\begin{ceqn}
+\begin{align*}
+R_{t}\ &=\ \frac{5.96 V \cdot 10K\Omega}{12V\ -\ 5.96 V} \\ \\
+&=\ 9867.5\Omega.
+\end{align*}
+\end{ceqn} \hfill \break
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item From equation ( 1 ), we substitute $E_{1}$ = 5.81 V:
+\end{itemize}}} 
+
+\begin{ceqn}
+\begin{align*}
+R_{t}\ &=\ \frac{5.81 V \cdot 10K\Omega}{12V\ -\ 5.81 V} \\ \\
+&=\ 9386.1\Omega.
+\end{align*}
+\end{ceqn} \hfill \break
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item From equation ( 1 ), we substitute $E_{1}$ = 5.48 V:
+\end{itemize}}} 
+
+\begin{ceqn}
+\begin{align*}
+R_{t}\ &=\ \frac{5.48 V \cdot 10K\Omega}{12V\ -\ 5.48 V} \\ \\
+&=\ 8404.9\Omega.
+\end{align*}
+\end{ceqn} \hfill \break
+
+\pagebreak

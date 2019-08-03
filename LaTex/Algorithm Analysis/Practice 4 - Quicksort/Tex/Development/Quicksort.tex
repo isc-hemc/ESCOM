@@ -1,0 +1,27 @@
+\subsection{Quicksort.py}
+
+Principal algorithm, based on the index returned by {\bfseries\itshape Partition}, rearrange the array {\bfseries\itshape A [p...r]} into two subarrays {\bfseries\itshape A [p...q-1]} and {\bfseries\itshape A [q+1...r]} as we can see in lines 4 y 5. If the {\bfseries\itshape if} sentence it's true, the algorithm will repeat the split process. \hfill \break 
+
+\begin{lstlisting}
+def quicksort ( n, p, r ):
+    if ( p < r ):
+        q = partition ( n, p, r )
+        quicksort ( n, p, q - 1 )
+        quicksort ( n, q + 1, r )
+\end{lstlisting} \hfill
+
+For calculate the temporal complexity of this algorithm, similar to section 3.5, it's necessary to put the counter {\bfseries\itshape time} in each line of the code. \hfill \break
+
+\begin{lstlisting}
+def quicksort ( n, p, r ):
+    gb.time += 1
+    if ( p < r ):
+        q = partition ( n, p, r )
+        gb.time += 1
+        quicksort ( n, p, q - 1 )
+        gb.time += 1
+        quicksort ( n, q + 1, r )
+        gb.time += 1
+\end{lstlisting} \hfill
+
+\pagebreak

@@ -1,0 +1,10 @@
+Note: Execute first "CreateNamedPipes.c" to create two pipe and comunicate our programs.
+
+1.- Execute in a shell FirstUser.c.
+2.- Open a different shell and re-name the process ( exameple: gcc SecondUser.c -o Second && ./Second ).
+3.- Send messages from the shell of FirstUser.c.
+
+This program creates two different processes, those process create each one two threads, those threads are connected by 
+the pipes created before, from FirstUser.c shell you can write message and SecondUser.c will receive those message, will 
+inverst the string ( message ) and will re-send it to "FirstUser.c" shell, in the output standard you will ve able to see the interaction 
+between this 2 processes.

@@ -1,0 +1,16 @@
+\section{Development:}
+
+Based on the procedure explained in sub-section 2.2, in the following sub-sections we will implement the {\bfseries\itshape Strassen's} algorithm. I divided the program in 8 python modules, to have a better control of the code.
+
+\begin{itemize}
+\item {\bfseries\itshape main.py:} Control the sequence of execution.
+\item {\bfseries\itshape strassen.py:} This module implements the {\bfseries\itshape Strassen's} algorithm.
+\item {\bfseries\itshape create$\_$matrices.py:} Creates the matrices {\bfseries A} and {\bfseries B}.
+\item {\bfseries\itshape sub$\_$matrices.py:} Divide the matrices {\bfseries A} and {\bfseries B} in sub-matrices ( step 1 in Section 2.2 ).
+\item {\bfseries\itshape matrix$\_$operations.py:} Has the methods {\bfseries add} and {\bfseries subtract}.
+\item {\bfseries\itshape ijk$\_$product.py:} Implements the usual matrix product algorithm.
+\item {\bfseries\itshape plot.py:} Plot the computational time of this algorithm.
+\item {\bfseries\itshape global$\_$variables.py:} As the name of the module, stores the global variables of the program.
+\end{itemize}
+
+{\bfseries\itshape\color{carmine}{Observation:}} {\itshape\color{carmine}{The code that we will show bellow doesn't include the counter in each line of the algorithm, this because to make notice only the essential parts.}}

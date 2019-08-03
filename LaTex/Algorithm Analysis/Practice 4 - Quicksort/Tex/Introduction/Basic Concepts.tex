@@ -1,0 +1,23 @@
+\section{Basic Concepts:}
+
+The {\bfseries\itshape Quicksort} algorithm has a worst-case running time of $\theta\ (\ n^{2}\ )$ on an input array of n numbers. Despite this slow worst-case running time, {\bfseries\itshape Quicksort} is often the best practical choice for sorting because it is remarkably efficient on the average: its expected running time is $\theta\ (\ n\ log\ (\ n\ )\ )$, and the constant factors hidden in the $\theta\ (\ n\ log\ (\ n\ )\ )$ notation are quite small. It also has the advantage of sorting in place and it works well even in virtual-memory environments.
+
+\subsection{Divide-and-Conquer Paradigm:}
+
+The divide-and-conquer paradigm involves three steps at each level of the recursion:
+
+\begin{itemize}
+\item {\bfseries\itshape Divide:} Divide the problem into a number of sub-problems that are smaller instances of the same problem.
+\item {\bfseries\itshape Conquer:} Conquer the sub-problems by solving them recursively. If the sub-problem sizes are small enough, however, just solve the sub-problems in a straightforward manner.
+\item {\bfseries\itshape Combine:} Combine the solutions to the sub-problems into the solution for the original problem.
+\end{itemize}
+
+\subsection{Quicksort Algorithm:}
+
+\begin{itemize}
+\item {\bfseries\itshape Divide:} Partition (rearrange) the array {\bfseries\itshape A [p...r]} into two (possibly empty) subarrays {\bfseries\itshape A [p...q-1]} and {\bfseries\itshape A [q+1...r]} such that each element of {\bfseries\itshape A [p...q-1]} is less than or equal to {\bfseries\itshape A [q]} , which is, in turn, less than or equal to each element of {\bfseries\itshape A [q+1...r]}. Compute the index q as part of this partitioning procedure.
+\item {\bfseries\itshape Conquer:} Sort the two subarrays {\bfseries\itshape A [p...q-1]} and {\bfseries\itshape A [q+1...r]} by recursive calls to {\bfseries\itshape Quicksort}.
+\item {\bfseries\itshape Combine:} Because the subarrays are already sorted, no work is needed to combine them: the entire array {\bfseries\itshape A [p ... r]} is now sorted.
+\end{itemize}
+
+\pagebreak

@@ -1,0 +1,107 @@
+\subsection{Function B:}
+
+Calculate the complexity order of the following algorithm in the best $(\Omega)$ and the worst $(O)$
+case (it's not necessary to do the analysis line-per-line, in this case, you can apply
+properties of the algorithms ):\hfill \break
+
+{{\bfseries\color{Violet}{Function B}}  ( $A[0,...,n-1],\ x\ integer$ ):
+
+\begin{lstlisting}
+	for i = 0 i < n do 
+		if(A[i] < x)
+			A[i] = min(A[0,...,n-1])
+		else if (A [i] > x)
+			A[i] = max(A[0,...,n-1])
+		else
+			exit
+\end{lstlisting} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Maroon}{Demonstration:}} 
+\end{itemize} 
+
+{\bfseries\itshape\color{armygreen}{Observation:}} {\itshape\color{armygreen}{Best case: Let 'x' be in the first position of A.}} 
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Analyzing the complexity of each line:}}
+\begin{enumerate}
+\item Line 1 = $\theta\ (\ 1\ )$.
+\begin{tasks}
+\task Line 2 = $\theta\ (\ 1\ )$.
+\task Line 4 = $\theta\ (\ 1\ )$.
+\task Line 6 = $\theta\ (\ 1\ )$.
+\task Line 7 = $\theta\ (\ 1\ )$.
+\end{tasks}
+\end{enumerate}
+\end{itemize} 
+
+{\bfseries\itshape\color{armygreen}{Observation:}} {\itshape\color{armygreen}{The lines 3 and 5 doesn't count because 'x' doesn't fulfill the condition.}} 
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Then, from all lines we can conclude:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+T\ (\ n\ )\ =\ \theta\ (\ 1\ )\
+\end{align}
+\end{ceqn} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Finally:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+Function\ B\ \in\ \Omega\ (\ 1\ )
+\end{align}
+\end{ceqn}
+\pagebreak
+
+\pagebreak
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Maroon}{Demonstration:}} 
+\end{itemize} 
+
+{\bfseries\itshape\color{armygreen}{Observation:}} {\itshape\color{armygreen}{Worst case: Let 'x' be in the position [ n - 1 ] or isn't be in A.}} 
+
+\begin{multicols}{2}
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Analyzing the complexity of each line:}}
+\begin{enumerate}
+
+\item Line 1 = $\theta\ (\ n\ )$.
+\begin{tasks}
+\task Line 2, 3 = $\theta\ (\ n_{1}\ )$.
+\task Line 4, 5 = $\theta\ (\ n_{2}\ )$.
+\task Line 6, 7 = $\theta\ (\ 1\ )$.
+\end{tasks}
+\end{enumerate}
+\hfill \break \break \break \break \break  
+\end{itemize} 
+\end{multicols} \hfill
+
+{\bfseries\itshape\color{armygreen}{Observation:}} {\itshape\color{armygreen}{Line 6 and 7 are $\theta ( 1 )$ if 'x' it's in the position [ n - 1 ].}} 
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Then, from all lines:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+T\ (\ n\ )\ =\ \theta\ (\ n\ (\ n_{1}\ +\ n_{2}\ +\ 1\ )\ )\ =\ \theta\ (\ n^{2}\ )\
+\end{align}
+\end{ceqn} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Finally:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+Function\ B\ \in\ O\ (\ n^{2}\ )
+\end{align}
+\end{ceqn}
+
+\pagebreak

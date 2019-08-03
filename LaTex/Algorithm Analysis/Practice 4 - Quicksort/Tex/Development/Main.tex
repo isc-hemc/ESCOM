@@ -1,0 +1,21 @@
+\subsection{Main.py:}
+
+This module controls the structural sequence of execution. When the call to {\bfseries\itshape menu ( )} ends, the program will have the list to sort {\bfseries\itshape A} created ( {\bfseries\itshape A} it's stored in 'gb.py' as a global variable ), then the program will send it to {\bfseries\itshape quicksort ( ... )} to begin the sorting process. But the program will not send the complete 'list' at the first time, as we can see in the code showed bellow, in line 3 there is a {\itshape for} loop, and will iterate from {\bfseries\itshape 0 to 'n'} where {\bfseries\itshape 'n'} it's the size of {\bfseries\itshape A}, in each {\itshape iteration} the loop will "split" {\bfseries\itshape A} in a sublist {\bfseries\itshape B} of size {\bfseries\itshape i}, where {\bfseries\itshape i} will be the index of the loop. In other words {\bfseries\itshape B = A [ 0, ..., i ]} and {\bfseries\itshape B} will be the 'list' that {\bfseries\itshape quicksort ( ... )} will receive as parameters. This process has a reason to be, as we can see in line 6, the list {\bfseries\itshape parameters} stores a {\itshape tuple}, where the first element it's the {\bfseries\itshape length} of the list {\bfseries\itshape B} and the second element it's the {\bfseries\itshape computation time} that the algorithm takes to sort that 'list' {\bfseries\itshape ( [ Length ( n ), Time ( t ) ] )}. This {\itshape parameters} will help later to plot {\bfseries\itshape length} against {\bfseries\itshape time}. \hfill \break
+
+\begin{lstlisting}
+def main ( ):
+    menu ( )
+    for i in range ( len ( gb.n ) + 1 ):
+        m, gb.time = gb.n [ :i ], 0
+        quicksort ( m, 0, len ( m ) - 1 )
+        gb.parameters.append ( ( len ( m ), gb.time ) )
+    print ( "\n\tSorted list: ", m, "\n" )
+    print ( "\n\tQuicksort Parameters: ", gb.parameters )
+    print ( "\n\tPartition Parameters: ", gb._parameters )
+    graph ( )
+main ( )
+\end{lstlisting} \hfill
+
+{\bfseries\itshape\color{armygreen}{Observation:}} {\itshape\color{armygreen}{In our program, the list {\bfseries\itshape A} and {\bfseries\itshape B} has the name {\bfseries\itshape n} and {\bfseries\itshape m} respectively.}} 
+
+\pagebreak

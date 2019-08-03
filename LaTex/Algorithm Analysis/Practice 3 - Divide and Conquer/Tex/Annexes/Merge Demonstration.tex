@@ -1,0 +1,83 @@
+\subsection{Merge Demonstration:}
+
+Demonstrate that Merge algorithm has {\bfseries\itshape linear} order:  \hfill \break
+
+{{\bfseries\color{Violet}{function}} MERGE ( A, p, q, r ):
+\begin{lstlisting}
+	n1 = q - p + 1
+	n2 = r - q
+	Let L [ 1, ..., n1 + 1 ] and R [ 1, ..., n2 + 1 ] be new arrays.
+	for i = 1 to n1 do
+		L [ i ] = A [ p + i - 1 ]
+	for j = 1 to n2 do 
+		R [ j ] = A [ q + j ]
+	i = 0
+	j = 0
+	for k = p to r do
+		if L [ i ] <= R [ j ]
+			A [ k ] = L [ i ]
+			i++
+		else A [ k ] = R [ j ]
+			j++
+\end{lstlisting} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Maroon}{Demonstration:}} 
+\end{itemize} 
+
+\begin{multicols}{2}
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Analyzing the complexity of each line:}}
+\begin{enumerate}
+\item Line 1, 2, 3 = $\theta\ (\ 1\ )$.
+\item Line 4 = $\theta\ (\ n_{1}\ )$.
+\begin{tasks}
+\task Line 5 = $\theta\ (\ 1\ )$.
+\end{tasks}
+\item Line 6 = $\theta\ (\ n_{2}\ )$.  
+\begin{tasks}
+\task Line 7 = $\theta\ (\ 1\ )$.
+\end{tasks}
+\item Line 8, 9 = $\theta\ (\ 1\ )$. {\Large\hspace{3.5cm}$\Longrightarrow$}
+\item Line 10 = $\theta\ (\ r\ -\ p\ +\ 1\ )$ = $\theta\ (\ n_{3}\ )$.
+\begin{tasks}
+\task Line 11 = $\theta\ (\ 1\ )$.
+\task Line 12 = $\theta\ (\ 1\ )$.
+\task Line 13 = $\theta\ (\ 1\ )$.
+\task Line 14 = $\theta\ (\ 1\ )$.
+\task Line 15 = $\theta\ (\ 1\ )$.
+\end{tasks}
+\end{enumerate}
+\hfill \break \break \break \break \break
+
+\begin{enumerate}
+\item Line 1, 2, 3 = $\theta\ (\ 1\ )$.
+\item Line 4 - 5 = $\theta\ (\ n_{1}\ *\ 1\ )$ = $\theta\ (\ n_{1}\  )$.
+\item Line 6 - 7 = $\theta\ (\ n_{2}\ *\ 1\ )$ = $\theta\ (\ n_{2}\  )$.
+\item Line 8, 9 = $\theta\ (\ 1\ )$. 
+\item Line 10 - 11 - 12 - 13 - 14 - 15 = $\theta\ (\ n\ *\ 1\ *\ 1\ *\ 1\ *\ 1\ *\ 1\ )$ = $\theta\ (\ n_{3}\  )$.
+\end{enumerate}
+\hfill \break \break \break \break \break  
+\end{itemize} 
+\end{multicols} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Then, from all lines:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+T\ (\ n\ )\ =\ \theta\ (\ n_{1}\ +\ n_{2}\ +\ n_{3}\ +\ 1\ +\ 1\ )\ =\ \theta\ (\ n\ )
+\end{align}
+\end{ceqn} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Finally:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+Merge\ \in\ \theta\ (\ n\ )
+\end{align}
+\end{ceqn}
+\pagebreak

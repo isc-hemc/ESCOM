@@ -1,0 +1,25 @@
+\section{Basic Concepts:}
+
+\subsection{Divide-and-Conquer Paradigm:}
+
+The divide-and-conquer paradigm involves three steps at each level of the recursion:
+
+\begin{itemize}
+\item {\bfseries\itshape Divide:} Divide the problem into a number of sub-problems that are smaller instances of the same problem.
+\item {\bfseries\itshape Conquer:} Conquer the sub-problems by solving them recursively. If the sub-problem sizes are small enough, however, just solve the sub-problems in a straightforward manner.
+\item {\bfseries\itshape Combine:} Combine the solutions to the sub-problems into the solution for the original problem.
+\end{itemize}
+
+\subsection{Merge-Sort Algorithm:}
+
+The {\bfseries\itshape merge sort algorithm} closely follows the divide-and-conquer paradigm. In- tuitively, it operates as follows.
+
+\begin{tasks}
+\task {\bfseries\itshape Divide:} Divide the n-element sequence to be sorted into two sub-sequences of n=2 elements each.
+\task {\bfseries\itshape Conquer:} Sort the two sub-sequences recursively using merge sort.
+\task {\bfseries\itshape Combine:} Merge the two sorted sub-sequences to produce the sorted answer.
+\end{tasks}
+
+The recursion “bottoms out” when the sequence to be sorted has length 1, in which case there is no work to be done, since every sequence of length 1 is already in sorted order. The key operation of the merge sort algorithm is the merging of two sorted sequences in the “combine” step. 
+
+\pagebreak

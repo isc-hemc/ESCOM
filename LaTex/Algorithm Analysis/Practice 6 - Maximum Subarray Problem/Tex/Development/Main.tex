@@ -1,0 +1,60 @@
+\subsection{Main.py}
+
+This module has the $\_\_main\_\_$ implementation, as we can see in the code bellow, in line 2 calls the method {\bfseries create ( ... )} and stores the returning value in a variable {\bfseries A} which is nothing more than an array. The variables {\bfseries high} and {\bfseries mid} stores the length of {\bfseries A} and the length divided by 2 respectively, then, in lines 7, 11, 15 we call the 3 algorithms to find the {\itshape Maximum Subarray} ( See section 3.2 ), and for each algorithm its result will be shown on the screen thanks to the {	\bfseries printer ( ... )} method. Finally, to plot the temporal complexity for the 3 algorithms we call the method {\bfseries plot ( ... )} ( 	See section 3.3 and 3.4 ). \hfill \break
+
+\begin{lstlisting}
+if ( __name__ == "__main__" ):
+    A = create ( )
+    high = int ( len ( A ) )
+    mid = int ( high / 2 )
+    
+    # Find the maximum subarray using a Brute-Force Algorithm.
+    max_left, max_right, result = brute_force ( A )
+    printer ( A, max_left, max_right, result, 1 )
+    
+    # Find the maximum subarray usign a Crossing Algorithm.
+    max_left, max_right, result = crossing ( A, 0, mid, high )
+    printer ( A, max_left, max_right, result, 2 )
+    
+    # Find the maximum subarray usign a Recurrence Algorithm.
+    max_left, max_right, result = recurrence ( A, 0, high )
+    printer ( A, max_left, max_right, result, 3 )
+    
+    plot ( )
+\end{lstlisting} \hfill
+
+Above there were mentioned 2 methods: {\bfseries create ( ... )} and {\bfseries printer ( ... )}. The first one as it name says, creates and returns an array of size $2^{10}$ of random positive and negative integers. \hfill \break
+
+\begin{lstlisting}
+def create ( ):
+    n = 2 ** 10
+    A = [ random.randint ( -n, n ) for i in range ( n ) ]
+    return A
+\end{lstlisting} \hfill
+
+The second method only displays on screen the input array, the maximum subarray found and the sum of this last. As we can see in line 1, the function receive as parameter a variable {\bfseries flag} which stores a integer. If it's equals to 1, then, the program will know that the other parameters received are from the {\bfseries Brute-Force} solution, if it's equals to 2, then, are from the {\bfseries Crossing} solution, and for any other case, are from the {\bfseries Recursive} implementation. \hfill \break
+
+\begin{lstlisting}
+def printer ( A, max_left, max_right, result, flag ):
+    if ( flag == 1 ):
+        print ( __FORMAT_1 )
+        print ( "\n\tArray: {}".format ( A ) )
+    elif ( flag == 2 ):
+        print ( __FORMAT_2 )
+    else:
+        print ( __FORMAT_3 )
+    print ( "\n\tMaximum Subarray: {}".format ( A [ max_left : max_right + 1 ] ) )
+    print ( "\n\tSum: {}\n\n".format ( result ) )
+\end{lstlisting} \hfill
+
+In the latest code, we can see in lines 3, 6, 8 a call to the method {\itshape print} that has as parameter 3 variables:
+
+\begin{itemize}
+\item {\bfseries $\_\_$FORMAT$\_$1}.
+\item {\bfseries $\_\_$FORMAT$\_$2}.
+\item {\bfseries $\_\_$FORMAT$\_$3}.
+\end{itemize}
+
+This variables only store a {\itshape String} to give format to our output.
+
+\pagebreak

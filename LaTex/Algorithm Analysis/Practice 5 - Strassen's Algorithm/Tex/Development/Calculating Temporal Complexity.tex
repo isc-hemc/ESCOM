@@ -1,0 +1,135 @@
+\subsection{Calculating The Temporal Complexity:}
+
+For calculate the temporal complexity of Strassen's or IJK algorithms it's necessary to put a counter in each line of the codes and store the results in a list, where each element it's a tuple that in its first element stores the size of the matrices and in the second element stores the counter. In {\bfseries\itshape global$\_$variables.py} are declared the variables that we will use for this purpose: \hfill
+
+\begin{tasks}
+\task {\bfseries parameters}: List that store the parameters of the points to plot for Strassen´s algorithm. Each element it's a tuple that stores the length of the matrices, and the time that the algorithm takes to calculate the product.
+
+\task {\bfseries $\_$parameters}: List that store the parameters of the points to plot for ijk-Algorithm. Each element it's a tuple that stores the length of the matrices, and the time that the algorithm takes to calculate the product.
+
+\task {\bfseries time}: Counter that stores the computational time that Strassen´s Algorithm takes to calculate the product of two matrices. 
+
+\task {\bfseries $\_$time}: Counter that stores the computational time that the ijk-Algorithm takes to calculate the product of two matrices.
+\end{tasks} \hfill
+
+As we mention, the variable ( iv ) stores the time that IJK-Algorithm takes to accomplish it process, then, putting the counter in each line: \hfill \break
+
+\begin{lstlisting}
+def ijk_product ( A, B ):
+    # Validates the condition of matrices of [ 2^n x 2^n ] size.
+    assert len ( A ) == len ( A [ 0 ] ) == len ( B ) == len ( B [ 0 ] )
+    assert type ( A ) == list and type ( B ) == list
+
+    gb._time += 1
+    n = len ( A )
+    gb._time += 1
+    C = [ [ 0 for i in range ( n ) ] for j in range ( n ) ]
+    gb._time += 1
+    for i in range ( n ):
+        gb._time += 1
+        for j in range ( n ):
+            gb._time += 1
+            for k in range ( n ):
+                gb._time += 1
+                C [ i ] [ j ] += A [ i ] [ k ] * B [ k ] [ j ]
+                gb._time += 1
+            gb._time += 1
+        gb._time += 1
+    gb._time += 1
+    # Return statement.
+    gb._time += 1
+    return C
+\end{lstlisting}
+
+\pagebreak
+
+Very similar with the variable ( iii ): \hfill \break
+
+\begin{lstlisting}
+def strassen ( A, B ):
+    # Validates the condition of matrices of [ 2^n x 2^n ] size.
+    assert len ( A ) == len ( A [ 0 ] ) == len ( B ) == len ( B [ 0 ] )
+    assert type ( A ) == list and type ( B ) == list
+
+    # Usual matrix product.
+    gb.time += 1
+    if ( len ( A ) == 1 ):
+        gb.time += 1
+        return [ [ A [ 0 ] [ 0 ] * B [ 0 ] [ 0 ] ] ]
+    else:
+    # Strassen algorithm.
+        gb.time += 1
+        n = int ( len ( A ) / 2 )
+        gb.time += 1
+        # Divide de matrices A and B in eigth sub-matrices of size 2^n/2.
+        A11, A12, A21, A22, B11, B12, B21, B22 = split_in_sub_matrices ( A, B, n )
+        gb.time += 1
+        # S1 = strassen ( ( A11 + A22 ), ( B11 + B22 ) )
+        S1 = strassen ( add ( A11, A22 ), add ( B11, B22 ) )
+        gb.time += 1
+        # S2 = strassen ( ( A21 + A22 ), ( B11 ) )
+        S2 = strassen ( add ( A21, A22 ), B11 )
+        gb.time += 1
+        # S3 = strassen ( ( A11 ), ( B12 - B22 ) )
+        S3 = strassen ( A11, subtrack ( B12, B22 ) )
+        gb.time += 1
+        # S4 = strassen ( ( A22 ), ( B21 - B11 ) )
+        S4 = strassen ( A22, subtrack ( B21, B11 ) )
+        gb.time += 1
+        # S5 = strassen ( ( A11 + A12 ), ( B22 ) )
+        S5 = strassen ( add ( A11, A12 ), B22 )
+        gb.time += 1
+        # S6 = strassen ( ( A21 - A11 ), ( B11 + B12 ) )
+        S6 = strassen ( subtrack ( A21, A11 ), add ( B11, B12 ) )
+        gb.time += 1
+        # S7 = strassen ( ( A12 - A22 ), ( B21 + B22 ) )
+        S7 = strassen ( subtrack ( A12, A22 ), add ( B21, B22 ) )
+
+        # Expressing Cij in terms of Sk, where C it's the resulting matrix.
+        gb.time += 1
+        # C11 = S1 + S4 - S5 + S7
+        C11 = subtrack ( add ( add ( S1, S4 ), S7 ), S5 )
+        gb.time += 1
+        # C12 = S3 + S5
+        C12 = add ( S3, S5 )
+        gb.time += 1
+        # C21 = S2 + S4
+        C21 = add ( S2, S4 )
+        gb.time += 1
+        # C22 = S1 - S2 + S3 + S6
+        C22 = add ( subtrack ( S1, S2 ), add ( S3, S6 ) )
+        # Joining all the resulting sub-matrices
+        gb.time += 1
+        return join_sub_matrices ( C11, C12, C21, C22, n * 2 )
+\end{lstlisting}
+
+\pagebreak
+
+With the counters now set, running the program we can visualize that the value of them for matrices of size $2^{0}, 2^{1},\ 2^{2},\ 2^{3},\ ...\ ,\ 2^{n}$ will always be the same, then, if we want to calculate the time that the algorithm takes to solve a product of matrices of size $2^{n}$ we send first the previous sizes until reaching the expected one, for example: If we want the time for matrices of size $2^{4}$, first we calculate the complexity for matrices of size $2^{0},\ 2^{1},\ 2^{2},\ 2^{3}$ and finally $2^{4}$. For each iteration we settle the counters in 0, and the size of the resulting matrix and the time that the algorithms takes to solve the product will be stored in the lists {\bfseries\itshape parameters} and {\bfseries\itshape $\_$parameters} as a tuple [ ( size, time ) ]. Finally with this process we will get the point for plotting both Strassen's and IJK algorithms. \hfill \break
+
+The process explained above will be executed by modifying the main method, from lines 5 to 16 we can see that the for loop iterates from 1 to the value of the variable {\bfseries power}, where {\itshape power} will be the nth-power of 2. In lines 10 and 11 we store the tuple in the variable {\itshape parameters} and restart the counter {\itshape time}, as we mention, this variables belongs to Strassen's algorithm. The same process it's repeated in lines 15 and 16 for IJK-Algorithm in case of satisfying the condition. \hfill \break
+
+\begin{lstlisting}
+if ( __name__ == "__main__" ):
+    power = int ( input ( "\n\tAdd an nth-power: " ) )
+    if ( power >= 8 ):
+        gb.flag = True
+    for i in range ( 1, power + 1 ):
+        # Strassen algorithm.
+        n = int ( math.pow ( 2, i ) )
+        A, B = create ( n )
+        C = strassen ( A, B )
+        gb.parameters.append ( ( n, gb.time ) )
+        gb.time = 0
+        # For big matrices compare the Strassen's algorithm with the ijk algorithm.
+        if ( gb.flag == True ):
+            _C = ijk_product ( A, B )
+            gb._parameters.append ( ( n, gb._time ) )
+            gb._time = 0
+    printer ( A, B, C )
+    plot ( )
+\end{lstlisting} \hfill
+
+The stored values in the variables {\bfseries parameters} and {\bfseries $\_$parameters} can be visualized in Figures 4.2.0 and 4.2.2.
+
+\pagebreak

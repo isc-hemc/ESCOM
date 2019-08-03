@@ -1,0 +1,61 @@
+\subsection{Inverting Zero-Crossing Level Detector With Hysteresis:}
+
+The circuit that we are going to analyze it's the one in Figure 3.3.0 using the following parameters: \hfill \break
+
+{\bfseries
+\begin{itemize}
+\item $V_{ent}$ = 16 $V_{pp}$.
+\item $V_{sat}$ = 12 V.
+\item $R_{1}$ = 2.2 K $\Omega$.
+\item $R_{2}$ = 3.9 K $\Omega$.
+\end{itemize}} \hfill
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item For VUS:
+\end{itemize}}} 
+
+\begin{flushright}
+{\bfseries\itshape\color{carmine}{Formula: VUS = $\frac{(\ V_{sat}\ )(\ R_{1}\ )}{R_{1}\ + R_{2}}$.}} \hfill \break
+\end{flushright}
+
+\begin{ceqn}
+\begin{align*}
+VUS\ &=\ \frac{(\ 12\ V\ )(\ 2.2\ K\ \Omega\ )}{2.2\ K\ \Omega\ + 3.9\ K\ \Omega} \\ \\
+&=\ 4.32\ V.
+\end{align*}
+\end{ceqn} \hfill \break
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item For VUI:
+\end{itemize}}} 
+
+\begin{flushright}
+{\bfseries\itshape\color{carmine}{Formula: VUS = $\frac{(\ -V_{sat}\ )(\ R_{1}\ )}{R_{1}\ + R_{2}}$.}} \hfill \break
+\end{flushright}
+
+\begin{ceqn}
+\begin{align*}
+VUS\ &=\ \frac{(\ -12\ V\ )(\ 2.2\ K\ \Omega\ )}{2.2\ K\ \Omega\ + 3.9\ K\ \Omega} \\ \\
+&=\ -4.32\ V.
+\end{align*}
+\end{ceqn} \hfill \break
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item For the Hysteresis voltage $V_{H}$:
+\end{itemize}}} 
+
+\begin{flushright}
+{\bfseries\itshape\color{carmine}{Formula: $V_{H}$ = $\abs{VUS}$ + $\abs{VUI}$.}} \hfill \break
+\end{flushright}
+
+\begin{ceqn}
+\begin{align*}
+V_{H}\ &=\ \abs{4.32\ V_{p}}\ +\ \abs{-4.32\ V_{p}} \\ \\
+&=\ 8.64\ V.
+\end{align*}
+\end{ceqn} \hfill \break
+
+\pagebreak

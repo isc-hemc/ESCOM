@@ -1,0 +1,29 @@
+\section{Basic Concepts:}
+
+\subsection{Counting Number of Parenthesizations:}
+
+Before solving the matrix-chain multiplication problem by dynamic programming, let us convince ourselves that exhaustively checking all possible parenthesizations does not yield an efficient algorithm. Denote the number of alternative parenthesizations of a sequence of {\bfseries n} matrices by {\bfseries P(n)}. When {\itshape n = 1}, we have just one matrix and therefore only one way to fully parenthesize the matrix product. When $n \geq 2$, a fully parenthesized matrix product is the product of two fully parenthesized matrix sub-products, and the split between the two sub-products may occur between the k-th and ( k + 1 )st matrices for any {\itshape k = 1, 2, ..., n - 1}. Thus, we obtain the recurrence: \hfill \break
+
+\begin{ceqn}
+\begin{align}
+P(\ n\ ) = \left\{
+\begin{array}{ll}
+1 & \mathrm {if\ } n\ =\ 1, \\
+\sum_{k = 1}^{n - 1}\ P(\ k\ )P(\ n\ -\ k\ ) & \mathrm {if\ } n\ \geq\ 2.\\
+\end{array}
+\right.
+\end{align}
+\end{ceqn}
+
+\subsection{Dynamic Programming:}
+
+We shall use the dynamic-programming method to determine how to optimally parenthesize a matrix chain. In so doing, we shall follow the four-step sequence:
+
+\begin{itemize}
+\item Characterize the structure of an optimal solution.
+\item Recursively define the value of an optimal solution.
+\item Compute the value of an optimal solution.
+\item Construct an optimal solution from computed information.
+\end{itemize}
+
+\pagebreak

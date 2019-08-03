@@ -1,0 +1,27 @@
+\section{Introduction}
+
+Our next example of dynamic programming is an algorithm that solves the problem of matrix-chain multiplication. We are given a sequence (chain) $\langle\ A_{1},\ A_{2},\ ...\ ,\ A_{n}\ \rangle$ of {\bfseries\itshape n} matrices to be multiplied, and we wish to compute the product: \hfill \break
+
+\begin{ceqn} 
+\begin{align}
+A_{1}\ \cdot\ A_{2}\ \cdot\ ...\ \cdot\ A_{n}
+\end{align} 
+\end{ceqn} \hfill
+
+We can evaluate the expression ( 1 ) using the standard algorithm for multiplying pairs of matrices as a subroutine once we have parenthesized it to resolve all ambiguities in how the matrices are multiplied together. Matrix multiplication is associative, and so all parenthesizations yield the same product. A product of matrices is {\bfseries\itshape fully parenthesized} if it is either a single matrix or the product of two fully parenthesized matrix products, surrounded by parentheses. For example, if the chain of matrices is $\langle\ A_{1},\ A_{2},\ A_{3},\ A_{4}\ \rangle$, then we can fully parenthesize the product $A_{1}\ \cdot\ A_{2}\ \cdot\ A_{3}\ \cdot\ A_{4}$ in five distinct ways: \hfill \break
+
+\begin{ceqn}
+\begin{align*}
+&(\ A_{1}\ (\ A_{2}\ (\ A_{3}\ A_{4}\ )\ )\ ), \\
+&(\ A_{1}\ (\ (\ A_{2}\ A_{3}\ )\ A_{4}\ )\ ), \\
+&(\ (\ A_{1}\ A_{2}\ )\ (\ A_{3}\ A_{4}\ )\ ), \\
+&(\ (\ A_{1}\ (\ A_{2}\ A_{3}\ )\ )\ A_{4}\ ), \\
+&(\ (\ (\ A_{1}\ A_{2}\ )\ A_{3}\ )\ A_{4}\ ).
+\end{align*}
+\end{ceqn} \hfill
+
+How we parenthesize a chain of matrices can have a dramatic impact on the cost of evaluating the product. Consider first the cost of multiplying two matrices. As we have known the usual-matrix-product it's O ( $n^{3}$ ) while the Strassen's algorithm it's O ( $n^{2.81}$ ). We can multiply two matrices {\bfseries A} and {\bfseries B} only if they are compatible: the number of columns of {\bfseries A} must equal the number of rows of {\bfseries B}. If {\bfseries A} is a {\itshape p x q} matrix and {\bfseries B} is {\itshape q x r} matrix, and resulting matrix {\bfseries C} is a {\itshape p x r} matrix. The time to compute {\bfseries C} is dominated by the number of scalar multiplications, which is {\itshape p x q x r}. In what follows, we shall express costs in terms of the number of scalar multiplications. \hfill \break
+
+We state the {\bfseries matrix-chain multiplication} problem as follows: given a chain $\langle\ A_{1},\ A_{2},\ ...\ ,\ A_{n}\ \rangle$ of {\itshape\bfseries n} matrices, where for {\itshape i = 1, 2, ..., n}, matrix {\itshape $A_{i}$} has dimension {\bfseries $p_{i-1}$ x $p_{i}$}, fully parenthesize the product $A_{1}\ \cdot\ A_{2}\ \cdot\ ...\ \cdot\ A_{n}$ in a way that minimizes the number of scalar multiplications. Note that in the {\bfseries matrix-chain multiplication} problem, we are not actually multiplying matrices. Our goal is only to determine an order for multiplying matrices that has the lowest cost. Typically, the time invested in determining this optimal order is more than paid for by the time saved later on when actually performing the matrix multiplication.
+
+\pagebreak

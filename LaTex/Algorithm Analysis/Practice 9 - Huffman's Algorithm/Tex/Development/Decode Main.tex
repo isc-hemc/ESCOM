@@ -1,0 +1,11 @@
+\subsubsection{Setting All Together:}
+
+Finally we can make the respectively methods call in the order previously explained, this work it's executed by the {\bfseries main} method. As we can see in the code bellow, in line 2 we get the parameters for the decompression and in line 3 we make the call to the method decode that returns the input text decoded. Finally, in lines 4 - 5 we store the decoded text in a file with the name "Decoded File.txt". \hfill \break
+
+\begin{lstlisting}
+def main ( ):
+    compressed, dictionary = getParameters ( )
+    decompressed = decode ( dictionary, compressed )
+    with ( open ( "Files/Decoded File.txt", "w" ) ) as f:
+        f.write ( decompressed )
+\end{lstlisting}

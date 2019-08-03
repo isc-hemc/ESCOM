@@ -1,0 +1,53 @@
+\subsection{Test 2:}
+
+The second test consists to prove that the {\bfseries Hamiltonian-Cycle} in Figure 4.2.0 is actually one ( {\itshape C = [ 1, 4, 8, 7, 5, 6, 3, 2, 1 ]} ). Once we have declared the graph and the certificate, we run the program and see the console output ( Figure 4.2.1 ) and the plot of the computational time of the algorithm ( Figure 4.2.2 ). Finally the table 2 describe the point of Figure 4.2.2. \hfill \break
+
+\begin{figure}[H]
+\includegraphics[height = 6cm, width = 8cm]{11.png}
+\centering \linebreak \linebreak {\small Figure 4.2.0: Graph to analyze.}
+\end{figure} \hfill \break
+
+\begin{lstlisting}
+graph = { 1: [ 2, 4, 3, 5 ], 2: [ 1, 3, 4 ], 3: [ 1, 2, 4, 5, 6, 7, 8 ],
+              4: [ 1, 2, 3, 7, 8 ], 5: [ 1, 3, 7, 6 ], 6: [ 5, 3, 7 ],
+              7: [ 8, 4, 3, 5, 6 ], 8: [ 4, 3, 7 ] }
+    certificate = [ 1, 4, 8, 7, 5, 6, 3, 2, 1 ]
+    verify_hamiltonian ( graph, certificate )
+\end{lstlisting} \hfill \break
+
+\begin{figure}[H]
+\includegraphics[height = 1.5cm, width = 16.5cm]{11c.png}
+\centering \linebreak \linebreak {\small Figure 4.2.1: Console output.}
+\end{figure} \hfill \break
+
+\begin{figure}[H]
+\includegraphics[height = 8cm, width = 16.5cm]{11g.png}
+\centering \linebreak \linebreak {\small Figure 4.2.2: Plot of the algorithm.}
+\end{figure} \hfill \break
+
+\begin{center}
+\begin{tabular}{c c}
+\toprule \toprule
+\hspace{100px} Graph Size \hspace{90px} & \hspace{100px} Time \hspace{90px} \\
+\midrule \midrule
+0 & 7 \\
+\midrule
+1 & 10 \\
+\midrule
+2 & 10 \\
+\midrule
+3 & 11 \\
+\midrule
+4 & 15 \\
+\midrule
+5 & 15 \\
+\midrule
+6 & 17 \\
+\midrule
+7 & 18 \\
+\bottomrule
+\end{tabular}
+\centering \linebreak \linebreak Table 2.
+\end{center}
+
+\pagebreak

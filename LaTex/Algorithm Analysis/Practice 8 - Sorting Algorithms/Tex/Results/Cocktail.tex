@@ -1,0 +1,127 @@
+\subsection{Cocktail-Sort Algorithm:}
+
+First test of {\bfseries Cocktail-Sort} algorithm. The program will plot the time that the algorithm takes to sort three lists of size {\itshape n = 10}. The first list will have the elements already sorted, the second will have the elements in random order, and the third list will have the elements sorted but in decreasing order. With this we will corroborate the complexity of this algorithm presented in section 2. Each list represents its {\itshape best, random and worst} case. \hfill \break
+
+\begin{figure}[H]
+\includegraphics[width = 16.5cm, height = 8cm]{Cocktail-output-10.png}
+\centering \linebreak \linebreak {\small Figure 4.2.0: Cocktail-Sort console output.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width = 16.5cm, height = 8cm]{Cocktail-10.png}
+\centering \linebreak \linebreak {\small Figure 4.2.1: Cocktail-Sort graph for the lists in Figure 4.2.0.}
+\end{figure} \pagebreak
+
+Table 3 illustrate the plotting points of Figure 4.2.1 graphs, the first column represents the size of the list to sort, the second, third and fourth, the time that takes to sort that list in its best, random and worst case of the algorithm. \hfill \break
+
+{\small
+\begin{center} 
+\begin{tabular}[.5cm]{ c c c c } 
+\toprule \toprule
+\hspace {5px} Size ( n ) \hspace {5px} & \hspace {15px} Best Case Time ( t ) \hspace {15px} & \hspace {15px} Random Case Time ( t ) \hspace {15px} & \hspace {15px} Worst Case Time ( t ) \hspace {15px} \\ 
+\midrule \midrule
+2 & 5 & 5 & 13 \\ 
+\cmidrule {1-4} 
+3 & 6 & 22 & 26 \\ 
+\cmidrule {1-4} 
+4 & 7 & 25 & 45 \\ 
+\cmidrule {1-4} 
+5 & 8 & 28 & 68 \\ 
+\cmidrule {1-4} 
+6 & 9 & 43 & 97 \\ 
+\cmidrule {1-4} 
+7 & 10 & 78 & 130 \\ 
+\cmidrule {1-4} 
+8 & 11 & 83 & 169 \\ 
+\cmidrule {1-4} 
+9 & 12 & 88 & 212 \\ 
+\cmidrule {1-4} 
+10 & 13 & 105 & 261 \\ 
+\bottomrule 
+\linebreak 
+\end{tabular} 
+\linebreak \linebreak Table 3.
+\end{center}}
+
+{\bfseries\itshape\color{carmine}{Observation:}} {\itshape\color{carmine}{In Figure 4.2.1 there are 3 graphs, the one on the left represent the algorithm's best case, analogously the middle and right ones represents the random and worst case, in each graph, there is a {\bfseries pointed} stroke, this it's an asymptotic function for the main plot.}}
+
+\pagebreak
+
+Second test of {\bfseries Cocktail-Sort} algorithm. The program will plot the time that the algorithm takes to sort three lists of size {\itshape n = 20}. The first list will have the elements already sorted, the second will have the elements in random order, and the third list will have the elements sorted but in decreasing order. With this we will corroborate the complexity of this algorithm presented in section 2. Each list represents its {\itshape best, random and worst} case. \hfill \break
+
+\begin{figure}[H]
+\includegraphics[width = 16.5cm, height = 8cm]{Cocktail-output-20.png}
+\centering \linebreak \linebreak {\small Figure 4.2.2: Cocktail-Sort console output.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width = 16.5cm, height = 8cm]{Cocktail-20.png}
+\centering \linebreak \linebreak {\small Figure 4.2.3: Cocktail-Sort graph for the lists in Figure 4.2.2.}
+\end{figure} \pagebreak
+
+Table 4 illustrate the plotting points of Figure 4.2.3 graphs, the first column represents the size of the list to sort, the second, third and fourth, the time that takes to sort that list in its best, random and worst case of the algorithm. \hfill \break
+
+{\small
+\begin{center} 
+\begin{tabular}[.5cm]{ c c c c } 
+\toprule \toprule
+\hspace {5px} Size ( n ) \hspace {5px} & \hspace {15px} Best Case Time ( t ) \hspace {15px} & \hspace {15px} Random Case Time ( t ) \hspace {15px} & \hspace {15px} Worst Case Time ( t ) \hspace {15px} \\ 
+\midrule \midrule
+2 & 5 & 5 & 13 \\ 
+\cmidrule {1-4} 
+3 & 6 & 15 & 26 \\ 
+\cmidrule {1-4} 
+4 & 7 & 21 & 45 \\ 
+\cmidrule {1-4} 
+5 & 8 & 44 & 68 \\ 
+\cmidrule {1-4} 
+6 & 9 & 61 & 97 \\ 
+\cmidrule {1-4} 
+7 & 10 & 86 & 130 \\ 
+\cmidrule {1-4} 
+8 & 11 & 95 & 169 \\ 
+\cmidrule {1-4} 
+9 & 12 & 104 & 212 \\ 
+\cmidrule {1-4} 
+10 & 13 & 121 & 261 \\ 
+\cmidrule {1-4} 
+11 & 14 & 167 & 314 \\ 
+\cmidrule {1-4} 
+12 & 15 & 221 & 373 \\ 
+\cmidrule {1-4} 
+13 & 16 & 228 & 436 \\ 
+\cmidrule {1-4} 
+14 & 17 & 281 & 505 \\ 
+\cmidrule {1-4} 
+15 & 18 & 346 & 578 \\ 
+\cmidrule {1-4} 
+16 & 19 & 375 & 657 \\ 
+\cmidrule {1-4} 
+17 & 20 & 444 & 740 \\ 
+\cmidrule {1-4} 
+18 & 21 & 483 & 829 \\ 
+\cmidrule {1-4} 
+19 & 22 & 494 & 922 \\ 
+\cmidrule {1-4} 
+20 & 23 & 513 & 1021 \\ 
+\bottomrule 
+\linebreak 
+\end{tabular} 
+\linebreak \linebreak Table 4.
+\end{center}}
+
+\pagebreak
+
+Our last test for this algorithm consist in plotting the complexity of lists of sizes {\itshape n = 500} and {\itshape n = 1000} as we can see in Figures 4.2.4 and 4.2.5 respectively. In this examples we can visualize clearly that the algorithm in its best case will be {\bfseries $\mathcal{O}(n)$}, otherwise {\bfseries $\mathcal{O}(n^{2})$} time. \hfill \break
+
+\begin{figure}[H]
+\includegraphics[width = 16.5cm, height = 8cm]{Cocktail-500.png}
+\centering \linebreak \linebreak {\small Figure 4.2.4: Cocktail-Sort complexity for lists of size n = 500.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width = 16.5cm, height = 8cm]{Cocktail-1000.png}
+\centering \linebreak \linebreak {\small Figure 4.2.5: Cocktail-Sort complexity for lists of size n = 1000.}
+\end{figure}
+
+\pagebreak

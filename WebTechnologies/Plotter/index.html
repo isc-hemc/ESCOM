@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plotter</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/nouislider.css">
+    <link rel="stylesheet" href="./materialize/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper teal lighten-2">
+            <a href="#" class="brand-logo center">Plotter</a>
+        </div>
+    </nav>
+    <div class="container z-depth-3 add-top">
+        <div class="row">
+            <div class="input-field col s12 m6 l4 offset-l2">
+                <select id="func_sel">
+                    <option value="sin">sin(x)</option>
+                    <option value="cos">cos(x)</option>
+                    <option value="tan">tan(x)</option>
+                    <option value="log">log(x)</option>
+                    <option value="exp">exp(x)</option>
+                    <option value="f">f(x)</option>
+                </select>
+                <label>Funciones</label>
+            </div>
+            <div class="input-field col s12 m6 l4">
+                <input type="text" id="argument" class="validate" placeholder="x">
+                <label for="argument">Argumento</label>
+            </div>
+        </div>
+        <div class="row">
+            <div id="test-slider" class="col s12 m10 l6 offset-m1 offset-l3"></div>
+        </div>
+        <div class="row">
+            <a onclick="plot()" class="waves-effect waves-light btn-large col l4 s6 m6 offset-m3 offset-l4 offset-s3"><i class="material-icons right">show_chart</i>Graficar</a>
+        </div>
+        <div class="row">
+            <div class="col s12 m10 l8 offset-m1 offset-l2">
+                <div id="chartContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/canvasjs.min.js"></script>
+    <script src="./materialize/js/materialize.min.js"></script>
+    <script src="./js/nouislider.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

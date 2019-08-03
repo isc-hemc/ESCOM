@@ -1,0 +1,85 @@
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pines.ucf -p xc7a100t-csg324-3 "escomips_main.ngc" escomips_main.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o escomips_main_map.ncd escomips_main.ngd escomips_main.pcf 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pines.ucf -p xc7a100t-csg324-3 "escomips_main.ngc" escomips_main.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o escomips_main_map.ncd escomips_main.ngd escomips_main.pcf 
+par -w -intstyle ise -ol high -mt off escomips_main_map.ncd escomips_main.ncd escomips_main.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml escomips_main.twx escomips_main.ncd -o escomips_main.twr escomips_main.pcf -ucf pines.ucf 
+bitgen -intstyle ise -f escomips_main.ut escomips_main.ncd 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pines.ucf -p xc7a100t-csg324-3 "escomips_main.ngc" escomips_main.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o escomips_main_map.ncd escomips_main.ngd escomips_main.pcf 
+par -w -intstyle ise -ol high -mt off escomips_main_map.ncd escomips_main.ncd escomips_main.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml escomips_main.twx escomips_main.ncd -o escomips_main.twr escomips_main.pcf -ucf pines.ucf 
+bitgen -intstyle ise -f escomips_main.ut escomips_main.ncd 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS -SUM/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS -SUM/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pines.ucf -p xc7a100t-csg324-3 "escomips_main.ngc" escomips_main.ngd  
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pines.ucf -p xc7a100t-csg324-3 "escomips_main.ngc" escomips_main.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o escomips_main_map.ncd escomips_main.ngd escomips_main.pcf 
+par -w -intstyle ise -ol high -mt off escomips_main_map.ncd escomips_main.ncd escomips_main.pcf 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pines.ucf -p xc7a100t-csg324-3 "escomips_main.ngc" escomips_main.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o escomips_main_map.ncd escomips_main.ngd escomips_main.pcf 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/ESCOMIPS - FIBONACCI/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pines.ucf -p xc7a100t-csg324-3 "escomips_main.ngc" escomips_main.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o escomips_main_map.ncd escomips_main.ngd escomips_main.pcf 
+par -w -intstyle ise -ol high -mt off escomips_main_map.ncd escomips_main.ncd escomips_main.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml escomips_main.twx escomips_main.ncd -o escomips_main.twr escomips_main.pcf -ucf pines.ucf 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+xst -intstyle ise -ifn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.xst" -ofn "C:/Users/David Martinez/Desktop/Arquitectura de computadoras - ESCOMIPS/ESCOMIPS/ESCOMIPS/escomips_main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pines.ucf -p xc7a100t-csg324-3 "escomips_main.ngc" escomips_main.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o escomips_main_map.ncd escomips_main.ngd escomips_main.pcf 
+par -w -intstyle ise -ol high -mt off escomips_main_map.ncd escomips_main.ncd escomips_main.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml escomips_main.twx escomips_main.ncd -o escomips_main.twr escomips_main.pcf -ucf pines.ucf 
+bitgen -intstyle ise -f escomips_main.ut escomips_main.ncd 

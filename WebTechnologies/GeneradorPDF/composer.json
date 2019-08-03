@@ -1,0 +1,6 @@
+{
+    "require": {
+        "mpdf/mpdf": "^7.1",
+        "spatie/pdf-to-text": "^1.1"
+    }
+}

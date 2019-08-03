@@ -1,0 +1,23 @@
+# PlanAhead Generated physical constraints 
+
+# Inputs.
+NET "clear" LOC = V10 | IOSTANDARD = LVCMOS33;
+NET "clock" LOC = E3 | IOSTANDARD = LVCMOS33;
+
+# Outputs.
+NET "escomips_output[15]" LOC = V11 | IOSTANDARD = LVCMOS33;
+NET "escomips_output[14]" LOC = V12 | IOSTANDARD = LVCMOS33;
+NET "escomips_output[13]" LOC = V14 | IOSTANDARD = LVCMOS33;
+NET "escomips_output[12]" LOC = V15 | IOSTANDARD = LVCMOS33;
+NET "escomips_output[11]" LOC = T16 | IOSTANDARD = LVCMOS33;
+NET "escomips_output[10]" LOC = U14 | IOSTANDARD = LVCMOS33;
+NET "escomips_output[9]" LOC = T15 | IOSTANDARD = LVCMOS33;
+NET "escomips_output[8]" LOC = V16 | IOSTANDARD = LVCMOS33;
+NET "escomips_output[7]" LOC = U16 | IOSTANDARD = LVCMOS33;
+NET "escomips_output[6]" LOC = U17 | IOSTANDARD = LVCMOS33;
+NET "escomips_output[5]" LOC = V17 | IOSTANDARD = LVCMOS33;
+NET "escomips_output[4]" LOC = R18 | IOSTANDARD = LVCMOS33;
+NET "escomips_output[3]" LOC = N14 | IOSTANDARD = LVCMOS33;
+NET "escomips_output[2]" LOC = J13 | IOSTANDARD = LVCMOS33;
+NET "escomips_output[1]" LOC = K15 | IOSTANDARD = LVCMOS33;
+NET "escomips_output[0]" LOC = H17 | IOSTANDARD = LVCMOS33;

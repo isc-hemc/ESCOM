@@ -1,0 +1,130 @@
+\subsection{Full-Wave Center-taped Rectifier With Filter:}
+
+Calculate the Voltage in $R_{L}$ ( $V_{0}$ ), the current in $R_{L}$ ( $I_{0}$ ), the Peak-Voltage ( $V_{p}$ ) at the output of the Transformer $V_{T}$, the Ripple-Voltage ( $\Delta V$ ) and $V_{p}$ - $V_{D}$:
+
+\begin{figure}[H]
+\includegraphics[scale=.8]{fwctf.png}
+\centering \linebreak \linebreak Figure 5.5.0: Full-wave center-taped rectifier with filter.
+\end{figure}
+
+{\bfseries\itshape Where:
+\begin{tasks}
+\task $R_{L}$ = 100 $\Omega$
+\task $V_{D}$ = 0.7 V
+\task $V_{T}$ = 12 V
+\task f = 120Hz 
+\end{tasks}} \hfill
+
+{\bfseries\itshape\color{Maroon}{Solution:}} \hfill \break
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{For peak voltage at the transformer output:}} \hfill \break
+{\bfseries\itshape\color{Brown}{
+\begin{tasks}
+\task Where: $V_{p}$ = $\frac{(\ \sqrt{2}\ )(\ V_{rms}\ )}{2}$.
+\end{tasks}}}
+\end{itemize}
+
+\begin{ceqn}
+\begin{align}
+V_{p} = \frac{(\ \sqrt{2}\ )(\ V_{T}\ )}{2} = \frac{(\ \sqrt{2}\ )(\ 12 V\ )}{2} = 8.4 V.
+\end{align}
+\end{ceqn}
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Finally $V_{p}$ - $V_{D}$:}} \hfill \break
+\end{itemize}
+
+\begin{ceqn}
+\begin{align}
+V_{p} - V_{D} = 8.4 V - 0.7V = 7.7 V
+\end{align}
+\end{ceqn}
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Using 470$\mu F$ capacitor:}} \hfill \break
+{\bfseries\itshape\color{Brown}{
+\begin{tasks}
+\task Where Ripple-Voltage: $\Delta V = (\ \frac{1}{[\ 2\ (\ f\ )(\ R_{L}\ )(\ C\ )\ ]}\ )[\ V_{p} - V_{D}\ ]:$
+\end{tasks}}}
+\end{itemize}
+
+\begin{ceqn}
+\begin{align}
+\Delta V = (\ \frac{1}{[\ 2\ (\ 60Hz\ )(\ 100\Omega\ )(\ 470\mu F\ )\ ]}\ )[\ 7.7 V\ ] = 1.36 V
+\end{align}
+\end{ceqn}
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{For $V_{0}$:}} \hfill \break
+{\bfseries\itshape\color{Brown}{
+\begin{tasks}
+\task Where $V_{0} = [ 1 - \frac{1}{[\ 2\ (\ f\ )(\ R_{L}\ )(\ C\ )\ ] }][\ V_{p} - V_{D}\ ]$
+\end{tasks}}}
+\end{itemize}
+
+\begin{ceqn}
+\begin{align}
+V_{0} = [ 1 - \frac{1}{[\ 2\ (\ 60Hz\ )(\ 100\Omega\ )(\ 470\mu F\ )\ ] }][\ 7.7 V\ ] = 6.33 V
+\end{align}
+\end{ceqn}
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{For $I_{0}$:}} \hfill \break
+{\bfseries\itshape\color{Brown}{
+\begin{tasks}
+\task Using Ohm's Law: $I$ = $\frac{V}{R}$.
+\end{tasks}}}
+\end{itemize}
+
+\begin{ceqn}
+\begin{align}
+I_{0} = \frac{V_{0}}{R_{L}} = \frac{6.33V}{100\Omega} = 0.063 A.
+\end{align}
+\end{ceqn}
+
+\pagebreak
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Using 2200$\mu F$ capacitor:}} \hfill \break
+{\bfseries\itshape\color{Brown}{
+\begin{tasks}
+\task Where Ripple-Voltage: $\Delta V = (\ \frac{1}{[\ 2\ (\ f\ )(\ R_{L}\ )(\ C\ )\ ]}\ )[\ V_{p} - V_{D}\ ]:$
+\end{tasks}}}
+\end{itemize}
+
+\begin{ceqn}
+\begin{align}
+\Delta V = (\ \frac{1}{[\ 2\ (\ 60Hz\ )(\ 100\Omega\ )(\ 2200\mu F\ )\ ]}\ )[\ 7.7 V\ ] = 291 mV
+\end{align}
+\end{ceqn}
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{For $V_{0}$:}} \hfill \break
+{\bfseries\itshape\color{Brown}{
+\begin{tasks}
+\task Where $V_{0} = [ 1 - \frac{1}{[\ 2\ (\ f\ )(\ R_{L}\ )(\ C\ )\ ] }][\ V_{p} - V_{D}\ ]$
+\end{tasks}}}
+\end{itemize}
+
+\begin{ceqn}
+\begin{align}
+V_{0} = [ 1 - \frac{1}{[\ 2\ (\ 60Hz\ )(\ 100\Omega\ )(\ 2200\mu F\ )\ ] }][\ 7.7 V\ ] = 7.4 V
+\end{align}
+\end{ceqn}
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{For $I_{0}$:}} \hfill \break
+{\bfseries\itshape\color{Brown}{
+\begin{tasks}
+\task Using Ohm's Law: $I$ = $\frac{V}{R}$.
+\end{tasks}}}
+\end{itemize}
+
+\begin{ceqn}
+\begin{align}
+I_{0} = \frac{V_{0}}{R_{L}} = \frac{7.4V}{100\Omega} = 0.074 A.
+\end{align}
+\end{ceqn}
+
+\pagebreak

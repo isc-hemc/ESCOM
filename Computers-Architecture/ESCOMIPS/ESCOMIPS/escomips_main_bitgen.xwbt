@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\ESCOMIPS\escomips_main.ncd
+OUTFILE=C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\ESCOMIPS\escomips_main.bit
+FAMILY=Artix7
+PART=xc7a100t-3csg324
+WORKINGDIR=C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\ESCOMIPS
+LICENSE=WebPack
+USER_INFO=211493050_0_0_053

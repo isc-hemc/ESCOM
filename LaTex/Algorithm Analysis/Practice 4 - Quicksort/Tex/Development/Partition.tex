@@ -1,0 +1,56 @@
+\subsection{Partition.py}
+
+This module implements the algorithm {\bfseries\itshape partition}, as we mention in section 2.2. Quicksort rearrange the array {\bfseries\itshape A [p...r]} into two (possibly empty) subarrays {\bfseries\itshape A [p...q-1]} and {\bfseries\itshape A [q+1...r]}. Partition receive one of this subarrays, such that each element of {\bfseries\itshape A [p...q-1]} is less than or equal to {\bfseries\itshape A [q]}, which is, in turn, less than or equal to each element of {\bfseries\itshape A [q+1...r]}. In this case the algorithm will exchange elements, thus, everything at the left of {\bfseries\itshape A [q]} will be less to this element, and all at the right of {\bfseries\itshape A [q]} will be greater to this element, also compute the index {\bfseries\itshape q} as part of this partitioning procedure. \hfill \break
+
+\begin{lstlisting}
+def partition ( n, p, r ):
+    x = n [ r ] # 	Pivot
+    i = p # Border
+    for j in range ( p, r ):
+        if ( n [ j ] < x ):
+            aux = n [ j ]
+            n [ j ] = n [ i ]
+            n [ i ] = aux
+            i += 1
+    aux = n [ i ]
+    n [ i ] = n [ r ]
+    n [ r ] = aux
+    return i
+\end{lstlisting} \hfill
+
+For calculate the temporal complexity of this algorithm, it's necessary to add the counter {\bfseries\itshape $\_$time} in each line of our code, as we can see, in line 26, we will sum {\bfseries\itshape $\_$time} to the counter {\bfseries\itshape time}, because, as we mention in section 3.3, {\bfseries\itshape time} stores the temporal complexity for {\bfseries\itshape Quicksort} and {\bfseries\itshape Partition} it's part of this algorithm. In line 27 the program make a comparison, if the last element added it's fewer than {\bfseries\itshape r} then append another element to {\bfseries\itshape $\_$parameters} i.e The list only stores the computational time of the first time that {\bfseries\itshape Quicksort} calls {\bfseries\itshape Partition}. In line 29, {\bfseries\itshape $\_$time} it's restarted. \hfill \break
+
+\begin{lstlisting}
+def partition ( n, p, r ):
+    x = n [ r ] # pivot
+    gb._time += 1
+    i = p # border
+    gb._time += 1
+    for j in range ( p, r ):
+        gb._time += 1
+        if ( n [ j ] < x ):
+            aux = n [ j ]
+            gb._time += 1
+            n [ j ] = n [ i ]
+            gb._time += 1
+            n [ i ] = aux
+            gb._time += 1
+            i += 1
+            gb._time += 1
+    gb._time += 1
+    aux = n [ i ]
+    gb._time += 1
+    n [ i ] = n [ r ]
+    gb._time += 1
+    n [ r ] = aux
+    gb._time += 1
+    # Sum the temporal complexity of Partition '_time' to the temporal
+    # complexity of Quicksort 'time'.
+    gb.time += gb._time
+    if ( r > gb._parameters [ len ( gb._parameters ) - 1 ][ 0 ] ):
+        gb._parameters.append ( ( r, gb._time ) )
+    gb._time = 0
+    return i
+\end{lstlisting} \hfill
+
+\pagebreak

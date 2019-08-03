@@ -1,0 +1,55 @@
+\subsection{Maximum Subarray-Brute Force}
+
+Proposed algorithm for maximum subarray using Brute-Force. \hfill \break
+
+{\bfseries\color{Violet}{function}}  BRUTE-FORCE-MAXIMUM-SUBARRAY (A)
+\begin{lstlisting}[mathescape=true]
+max = -$\infty$
+for i = 0 to A.lenght
+	sum = 0
+	for j = i to A.lenght
+		sum += A[j]
+		if ( sum > max )
+			max = sum 
+return max
+\end{lstlisting} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{carmine}{Demonstration:}} 
+\end{itemize} 
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Analyzing the complexity of each line:}}
+\begin{enumerate}
+\item Line 1 = $\theta\ (\ 1\ )$.
+\item Line 2 = $\theta\ (\ n\ )$.
+\begin{tasks}
+\task line 3 = $\theta\ (\ 1\ )$.
+\task line 4 = $\theta\ (\ n\ )$.
+\task line 5, 6, 7 = $\theta\ (\ 1\ )$.
+\end{tasks}
+\item Line 8 = $\theta\ (\ 1\ )$.  
+\end{enumerate}
+\end{itemize} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Then, from all lines we can conclude:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+T\ (\ n\ )\ =\ \theta\ (\ n\ (\ 1\ +\ n\ +\ 1\ )\ )\ =\ \theta\ (\ n^{2}\ )\
+\end{align}
+\end{ceqn} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Finally:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+ Brute-Force\ Maximum\ Subarray\  \in\ O\ (\ n^{2}\ )
+\end{align}
+\end{ceqn}
+
+\pagebreak

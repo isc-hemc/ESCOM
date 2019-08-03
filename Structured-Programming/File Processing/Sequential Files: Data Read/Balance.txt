@@ -1,0 +1,15 @@
+
+	FILE PROCESSING:
+
+
+	Account:			User:							Balance:
+
+
+	1000				FirstTest							$ 2000.00
+
+
+	2000				SecondTest							$ 4000.00
+
+
+	8000				ThirdTest							$ 1600.00
+

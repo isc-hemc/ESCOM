@@ -1,0 +1,975 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.28 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.28 secs
+ 
+--> Reading design: escomips_main.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "escomips_main.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "escomips_main"
+Output Format                      : NGC
+Target Device                      : xc7a100t-3-csg324
+
+---- Source Options
+Top Module Name                    : escomips_main
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\ESCOMIPS\control_unit_package.vhd" into library work
+Parsing package <control_unit_package>.
+Parsing package body <control_unit_package>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\state_register.vhd" into library work
+Parsing entity <state_register>.
+Parsing architecture <ar_stregister> of entity <state_register>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\operation_memory.vhd" into library work
+Parsing entity <operation_memory>.
+Parsing architecture <ar_opmemory> of entity <operation_memory>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\level.vhd" into library work
+Parsing entity <level>.
+Parsing architecture <ar_level> of entity <level>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\function_memory.vhd" into library work
+Parsing entity <function_memory>.
+Parsing architecture <ar_functmemory> of entity <function_memory>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\decoder.vhd" into library work
+Parsing entity <decoder>.
+Parsing architecture <ar_decoder> of entity <decoder>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\condition.vhd" into library work
+Parsing entity <condition>.
+Parsing architecture <ar_condition> of entity <condition>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\asm.vhd" into library work
+Parsing entity <asm>.
+Parsing architecture <ar_asm> of entity <asm>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\ESCOMIPS\escomips_package.vhd" into library work
+Parsing package <escomips_package>.
+Parsing package body <escomips_package>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\stack.vhd" into library work
+Parsing entity <stack>.
+Parsing architecture <ar_stack> of entity <stack>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\rom.vhd" into library work
+Parsing entity <rom>.
+Parsing architecture <ar_rom> of entity <rom>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\register_file.vhd" into library work
+Parsing entity <register_file>.
+Parsing architecture <arq_register_file> of entity <register_file>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\ram.vhd" into library work
+Parsing entity <ram>.
+Parsing architecture <ar_ram> of entity <ram>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\digital_clock.vhd" into library work
+Parsing entity <digital_clock>.
+Parsing architecture <ar_digital_clock> of entity <digital_clock>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\digital_clear.vhd" into library work
+Parsing entity <digital_clear>.
+Parsing architecture <ar_digital_clear> of entity <digital_clear>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\control_unit.vhd" into library work
+Parsing entity <control_unit>.
+Parsing architecture <ar_control_unit> of entity <control_unit>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\alu.vhd" into library work
+Parsing entity <alu>.
+Parsing architecture <arq_alu> of entity <alu>.
+Parsing VHDL file "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\ESCOMIPS\escomips_main.vhd" into library work
+Parsing entity <escomips_main>.
+Parsing architecture <ar_escomips> of entity <escomips_main>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <escomips_main> (architecture <ar_escomips>) with generics from library <work>.
+
+Elaborating entity <control_unit> (architecture <ar_control_unit>) with generics from library <work>.
+
+Elaborating entity <state_register> (architecture <ar_stregister>) with generics from library <work>.
+
+Elaborating entity <operation_memory> (architecture <ar_opmemory>) with generics from library <work>.
+
+Elaborating entity <condition> (architecture <ar_condition>) with generics from library <work>.
+WARNING:HDLCompiler:1127 - "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\condition.vhd" Line 19: Assignment to flag_n ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\condition.vhd" Line 20: Assignment to flag_ov ignored, since the identifier is never used
+
+Elaborating entity <function_memory> (architecture <ar_functmemory>) with generics from library <work>.
+
+Elaborating entity <level> (architecture <ar_level>) from library <work>.
+
+Elaborating entity <decoder> (architecture <ar_decoder>) from library <work>.
+
+Elaborating entity <asm> (architecture <ar_asm>) from library <work>.
+
+Elaborating entity <stack> (architecture <ar_stack>) with generics from library <work>.
+
+Elaborating entity <register_file> (architecture <arq_register_file>) with generics from library <work>.
+
+Elaborating entity <alu> (architecture <arq_alu>) with generics from library <work>.
+
+Elaborating entity <ram> (architecture <ar_ram>) with generics from library <work>.
+
+Elaborating entity <rom> (architecture <ar_rom>) with generics from library <work>.
+
+Elaborating entity <digital_clock> (architecture <ar_digital_clock>) with generics from library <work>.
+
+Elaborating entity <digital_clear> (architecture <ar_digital_clear>) from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <escomips_main>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\ESCOMIPS\escomips_main.vhd".
+        n = 16
+        m = 7
+INFO:Xst:3210 - "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\ESCOMIPS\escomips_main.vhd" line 40: Output port <sp_output> of the instance <Stack_Block> is unconnected or connected to loadless signal.
+    Summary:
+	inferred   8 Multiplexer(s).
+Unit <escomips_main> synthesized.
+
+Synthesizing Unit <control_unit>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\control_unit.vhd".
+        n = 4
+        m = 20
+        k = 32
+    Summary:
+	inferred   2 Multiplexer(s).
+Unit <control_unit> synthesized.
+
+Synthesizing Unit <state_register>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\state_register.vhd".
+        n = 4
+    Found 4-bit register for signal <flags_out>.
+    Summary:
+	inferred   4 D-type flip-flop(s).
+Unit <state_register> synthesized.
+
+Synthesizing Unit <operation_memory>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\operation_memory.vhd".
+        k = 32
+        m = 20
+    Found 32x20-bit Read Only RAM for signal <output>
+    Summary:
+	inferred   1 RAM(s).
+Unit <operation_memory> synthesized.
+
+Synthesizing Unit <condition>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\condition.vhd".
+        n = 4
+WARNING:Xst:647 - Input <flags<3:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <condition> synthesized.
+
+Synthesizing Unit <function_memory>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\function_memory.vhd".
+        k = 32
+        m = 20
+    Found 16x20-bit Read Only RAM for signal <output>
+    Summary:
+	inferred   1 RAM(s).
+Unit <function_memory> synthesized.
+
+Synthesizing Unit <level>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\level.vhd".
+    Found 1-bit register for signal <nclock>.
+    Found 1-bit register for signal <pclock>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <level> synthesized.
+
+Synthesizing Unit <decoder>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\decoder.vhd".
+    Summary:
+	inferred  10 Multiplexer(s).
+Unit <decoder> synthesized.
+
+Synthesizing Unit <asm>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\Control Unit\Components\asm.vhd".
+WARNING:Xst:647 - Input <clock> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <clear> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	inferred  13 Multiplexer(s).
+Unit <asm> synthesized.
+
+Synthesizing Unit <stack>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\stack.vhd".
+        n = 16
+        m = 7
+    Found 16-bit register for signal <pc<1>>.
+    Found 16-bit register for signal <pc<2>>.
+    Found 16-bit register for signal <pc<3>>.
+    Found 16-bit register for signal <pc<4>>.
+    Found 16-bit register for signal <pc<5>>.
+    Found 16-bit register for signal <pc<6>>.
+    Found 16-bit register for signal <pc<7>>.
+    Found 16-bit register for signal <pc<0>>.
+    Found 3-bit register for signal <sp>.
+    Found 3-bit adder for signal <sp[2]_GND_17_o_add_17_OUT> created at line 39.
+    Found 16-bit adder for signal <GND_17_o_GND_17_o_add_38_OUT> created at line 44.
+    Found 16-bit adder for signal <sp[2]_GND_17_o_add_58_OUT> created at line 47.
+    Found 3-bit subtractor for signal <GND_17_o_GND_17_o_sub_37_OUT<2:0>> created at line 43.
+    Found 16-bit 8-to-1 multiplexer for signal <n0197> created at line 44.
+    Found 16-bit 8-to-1 multiplexer for signal <n0199> created at line 47.
+    Found 16-bit 8-to-1 multiplexer for signal <pc_output> created at line 51.
+    Summary:
+	inferred   4 Adder/Subtractor(s).
+	inferred 131 D-type flip-flop(s).
+	inferred  69 Multiplexer(s).
+Unit <stack> synthesized.
+
+Synthesizing Unit <register_file>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\register_file.vhd".
+        n = 16
+    Found 16-bit register for signal <registers_file<1>>.
+    Found 16-bit register for signal <registers_file<2>>.
+    Found 16-bit register for signal <registers_file<3>>.
+    Found 16-bit register for signal <registers_file<4>>.
+    Found 16-bit register for signal <registers_file<5>>.
+    Found 16-bit register for signal <registers_file<6>>.
+    Found 16-bit register for signal <registers_file<7>>.
+    Found 16-bit register for signal <registers_file<8>>.
+    Found 16-bit register for signal <registers_file<9>>.
+    Found 16-bit register for signal <registers_file<10>>.
+    Found 16-bit register for signal <registers_file<11>>.
+    Found 16-bit register for signal <registers_file<12>>.
+    Found 16-bit register for signal <registers_file<13>>.
+    Found 16-bit register for signal <registers_file<14>>.
+    Found 16-bit register for signal <registers_file<15>>.
+    Found 16-bit register for signal <registers_file<0>>.
+    Found 16-bit shifter logical right for signal <read_reg_1[3]_shamt[3]_shift_right_34_OUT> created at line 32
+    Found 16-bit shifter logical left for signal <read_reg_1[3]_shamt[3]_shift_left_69_OUT> created at line 35
+INFO:Xst:3019 - HDL ADVISOR - 256 flip-flops were inferred for signal <registers_file>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+INFO:Xst:3019 - HDL ADVISOR - 256 flip-flops were inferred for signal <registers_file>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+    Found 16-bit 16-to-1 multiplexer for signal <read_data_1> created at line 40.
+    Found 16-bit 16-to-1 multiplexer for signal <read_data_2> created at line 41.
+    Summary:
+	inferred 256 D-type flip-flop(s).
+	inferred  98 Multiplexer(s).
+	inferred   2 Combinational logic shifter(s).
+Unit <register_file> synthesized.
+
+Synthesizing Unit <alu>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\alu.vhd".
+        n = 16
+    Found 1-bit 4-to-1 multiplexer for signal <output<0>> created at line 28.
+    Found 1-bit 4-to-1 multiplexer for signal <output<1>> created at line 28.
+    Found 1-bit 4-to-1 multiplexer for signal <output<2>> created at line 28.
+    Found 1-bit 4-to-1 multiplexer for signal <output<3>> created at line 28.
+    Found 1-bit 4-to-1 multiplexer for signal <output<4>> created at line 28.
+    Found 1-bit 4-to-1 multiplexer for signal <output<5>> created at line 28.
+    Found 1-bit 4-to-1 multiplexer for signal <output<6>> created at line 28.
+    Found 1-bit 4-to-1 multiplexer for signal <output<7>> created at line 28.
+    Found 1-bit 4-to-1 multiplexer for signal <output<8>> created at line 28.
+    Found 1-bit 4-to-1 multiplexer for signal <output<9>> created at line 28.
+    Found 1-bit 4-to-1 multiplexer for signal <output<10>> created at line 28.
+    Found 1-bit 4-to-1 multiplexer for signal <output<11>> created at line 28.
+    Found 1-bit 4-to-1 multiplexer for signal <output<12>> created at line 28.
+    Found 1-bit 4-to-1 multiplexer for signal <output<13>> created at line 28.
+    Found 1-bit 4-to-1 multiplexer for signal <output<14>> created at line 28.
+    Found 1-bit 4-to-1 multiplexer for signal <output<15>> created at line 28.
+    Summary:
+	inferred  32 Multiplexer(s).
+Unit <alu> synthesized.
+
+Synthesizing Unit <ram>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\ram.vhd".
+        n = 6
+WARNING:Xst:3015 - Contents of array <memory> may be accessed with an index that does not cover the full array size or with a negative index. The RAM size is reduced to the index upper access or for only positive index values.
+    Found 64x16-bit single-port RAM <Mram_memory> for signal <memory>.
+    Summary:
+	inferred   1 RAM(s).
+Unit <ram> synthesized.
+
+Synthesizing Unit <rom>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\rom.vhd".
+        n = 6
+    Found 64x25-bit Read Only RAM for signal <output>
+    Summary:
+	inferred   1 RAM(s).
+Unit <rom> synthesized.
+
+Synthesizing Unit <digital_clock>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\digital_clock.vhd".
+        n = 26
+    Found 27-bit register for signal <aux>.
+    Found 27-bit adder for signal <aux[26]_GND_22_o_add_0_OUT> created at line 25.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  27 D-type flip-flop(s).
+Unit <digital_clock> synthesized.
+
+Synthesizing Unit <digital_clear>.
+    Related source file is "C:\Users\David Martinez\Desktop\Arquitectura de computadoras - ESCOMIPS\ESCOMIPS\Components\digital_clear.vhd".
+    Found 1-bit register for signal <clear_output>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <digital_clear> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 4
+ 16x20-bit single-port Read Only RAM                   : 1
+ 32x20-bit single-port Read Only RAM                   : 1
+ 64x16-bit single-port RAM                             : 1
+ 64x25-bit single-port Read Only RAM                   : 1
+# Adders/Subtractors                                   : 5
+ 16-bit adder                                          : 2
+ 27-bit adder                                          : 1
+ 3-bit adder                                           : 1
+ 3-bit subtractor                                      : 1
+# Registers                                            : 30
+ 1-bit register                                        : 3
+ 16-bit register                                       : 24
+ 27-bit register                                       : 1
+ 3-bit register                                        : 1
+ 4-bit register                                        : 1
+# Multiplexers                                         : 232
+ 1-bit 2-to-1 multiplexer                              : 39
+ 1-bit 4-to-1 multiplexer                              : 16
+ 16-bit 16-to-1 multiplexer                            : 2
+ 16-bit 2-to-1 multiplexer                             : 167
+ 16-bit 8-to-1 multiplexer                             : 3
+ 20-bit 2-to-1 multiplexer                             : 1
+ 3-bit 2-to-1 multiplexer                              : 2
+ 4-bit 2-to-1 multiplexer                              : 1
+ 5-bit 2-to-1 multiplexer                              : 1
+# Logic shifters                                       : 2
+ 16-bit shifter logical left                           : 1
+ 16-bit shifter logical right                          : 1
+# Xors                                                 : 82
+ 1-bit xor2                                            : 82
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:2677 - Node <flags_out_2> of sequential type is unconnected in block <StateRegister>.
+WARNING:Xst:2677 - Node <flags_out_3> of sequential type is unconnected in block <StateRegister>.
+
+Synthesizing (advanced) Unit <digital_clock>.
+The following registers are absorbed into counter <aux>: 1 register on signal <aux>.
+Unit <digital_clock> synthesized (advanced).
+
+Synthesizing (advanced) Unit <function_memory>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_output> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 20-bit                    |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <addr_bus>      |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <output>        |          |
+    -----------------------------------------------------------------------
+Unit <function_memory> synthesized (advanced).
+
+Synthesizing (advanced) Unit <operation_memory>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_output> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 20-bit                    |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <addr_bus>      |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <output>        |          |
+    -----------------------------------------------------------------------
+Unit <operation_memory> synthesized (advanced).
+
+Synthesizing (advanced) Unit <ram>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_memory> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 64-word x 16-bit                    |          |
+    |     clkA           | connected to signal <clock>         | rise     |
+    |     weA            | connected to signal <wd>            | high     |
+    |     addrA          | connected to signal <addr>          |          |
+    |     diA            | connected to signal <data_in>       |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <ram> synthesized (advanced).
+
+Synthesizing (advanced) Unit <rom>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_output> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 64-word x 25-bit                    |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <addr_bus>      |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <output>        |          |
+    -----------------------------------------------------------------------
+Unit <rom> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 4
+ 16x20-bit single-port distributed Read Only RAM       : 1
+ 32x20-bit single-port distributed Read Only RAM       : 1
+ 64x16-bit single-port distributed RAM                 : 1
+ 64x25-bit single-port distributed Read Only RAM       : 1
+# Adders/Subtractors                                   : 4
+ 16-bit adder                                          : 2
+ 3-bit adder                                           : 1
+ 3-bit subtractor                                      : 1
+# Counters                                             : 1
+ 27-bit up counter                                     : 1
+# Registers                                            : 394
+ Flip-Flops                                            : 394
+# Multiplexers                                         : 262
+ 1-bit 16-to-1 multiplexer                             : 32
+ 1-bit 2-to-1 multiplexer                              : 39
+ 1-bit 4-to-1 multiplexer                              : 16
+ 16-bit 2-to-1 multiplexer                             : 167
+ 16-bit 8-to-1 multiplexer                             : 3
+ 20-bit 2-to-1 multiplexer                             : 1
+ 3-bit 2-to-1 multiplexer                              : 2
+ 4-bit 2-to-1 multiplexer                              : 1
+ 5-bit 2-to-1 multiplexer                              : 1
+# Logic shifters                                       : 2
+ 16-bit shifter logical left                           : 1
+ 16-bit shifter logical right                          : 1
+# Xors                                                 : 82
+ 1-bit xor2                                            : 82
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2677 - Node <StateRegister/flags_out_3> of sequential type is unconnected in block <control_unit>.
+WARNING:Xst:2677 - Node <StateRegister/flags_out_2> of sequential type is unconnected in block <control_unit>.
+
+Optimizing unit <escomips_main> ...
+
+Optimizing unit <control_unit> ...
+
+Optimizing unit <stack> ...
+
+Optimizing unit <register_file> ...
+
+Optimizing unit <alu> ...
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_0> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_1> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_2> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_3> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_4> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_5> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_6> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_7> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_8> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_9> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_10> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_11> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_12> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_13> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_14> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_10_15> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_0> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_1> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_2> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_3> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_4> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_5> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_6> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_7> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_8> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_9> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_10> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_11> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_12> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_13> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_14> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_11_15> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_0> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_1> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_2> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_3> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_4> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_5> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_6> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_7> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_8> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_9> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_10> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_11> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_12> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_13> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_14> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_8_15> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_0> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_1> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_2> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_3> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_4> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_5> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_6> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_7> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_8> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_9> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_10> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_11> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_12> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_13> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_14> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_9_15> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_0> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_1> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_2> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_3> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_4> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_5> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_6> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_7> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_8> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_9> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_10> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_11> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_12> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_13> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_14> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_13_15> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_0> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_1> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_2> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_3> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_4> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_5> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_6> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_7> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_8> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_9> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_10> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_11> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_12> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_13> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_14> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_15_15> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_0> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_1> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_2> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_3> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_4> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_5> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_6> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_7> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_8> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_9> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_10> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_11> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_12> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_13> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_14> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_14_15> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_0> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_1> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_2> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_3> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_4> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_5> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_6> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_7> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_8> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_9> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_10> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_11> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_12> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_13> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_14> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RegisterFile/registers_file_12_15> (without init value) has a constant value of 0 in block <escomips_main>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block escomips_main, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 291
+ Flip-Flops                                            : 291
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : escomips_main.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 1692
+#      GND                         : 1
+#      INV                         : 3
+#      LUT1                        : 54
+#      LUT2                        : 4
+#      LUT3                        : 98
+#      LUT4                        : 34
+#      LUT5                        : 302
+#      LUT6                        : 954
+#      MUXCY                       : 56
+#      MUXF7                       : 94
+#      MUXF8                       : 32
+#      VCC                         : 1
+#      XORCY                       : 59
+# FlipFlops/Latches                : 291
+#      FD_1                        : 1
+#      FDC                         : 159
+#      FDC_1                       : 1
+#      FDCE                        : 128
+#      FDCE_1                      : 2
+# RAMS                             : 16
+#      RAM64X1S                    : 16
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 17
+#      IBUF                        : 1
+#      OBUF                        : 16
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7a100tcsg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             291  out of  126800     0%  
+ Number of Slice LUTs:                 1465  out of  63400     2%  
+    Number used as Logic:              1449  out of  63400     2%  
+    Number used as Memory:               16  out of  19000     0%  
+       Number used as RAM:               16
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   1469
+   Number with an unused Flip Flop:    1178  out of   1469    80%  
+   Number with an unused LUT:             4  out of   1469     0%  
+   Number of fully used LUT-FF pairs:   287  out of   1469    19%  
+   Number of unique control sets:        12
+
+IO Utilization: 
+ Number of IOs:                          18
+ Number of bonded IOBs:                  18  out of    210     8%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                2  out of     32     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clock                              | BUFGP                  | 28    |
+DigitalClock/aux_26                | BUFG                   | 279   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 22.284ns (Maximum Frequency: 44.876MHz)
+   Minimum input arrival time before clock: 0.288ns
+   Maximum output required time after clock: 8.310ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'DigitalClock/aux_26'
+  Clock period: 22.284ns (frequency: 44.876MHz)
+  Total number of paths / destination ports: 316308221257 / 521
+-------------------------------------------------------------------------
+Delay:               11.142ns (Levels of Logic = 36)
+  Source:            ControlUnit/StateRegister/flags_out_1 (FF)
+  Destination:       Stack_Block/pc_7_15 (FF)
+  Source Clock:      DigitalClock/aux_26 falling
+  Destination Clock: DigitalClock/aux_26 rising
+
+  Data Path: ControlUnit/StateRegister/flags_out_1 to Stack_Block/pc_7_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE_1:C->Q           2   0.364   0.384  ControlUnit/StateRegister/flags_out_1 (ControlUnit/StateRegister/flags_out_1)
+     LUT5:I3->O            2   0.097   0.384  ControlUnit/Control_Unit/Mmux_sdopc33 (ControlUnit/Control_Unit/Mmux_sdopc32)
+     LUT5:I3->O           16   0.097   0.364  ControlUnit/Control_Unit/Mmux_sdopc34 (ControlUnit/sdopc)
+     LUT6:I5->O            1   0.097   0.295  ControlUnit/Mmux_microcode71_1 (ControlUnit/Mmux_microcode71)
+     LUT3:I2->O           16   0.097   0.348  Mmux_BUS_SR231 (BUS_SR2<2>)
+     MUXF7:S->O            1   0.335   0.000  RegisterFile/mux26_4_f7 (RegisterFile/mux26_4_f7)
+     MUXF8:I0->O           4   0.218   0.309  RegisterFile/mux26_2_f8 (READ_DATA_2<4>)
+     LUT4:I3->O            5   0.097   0.398  Arithmetic_Logic_Unit/Mxor_mux_b<4>_xo<0>1 (Arithmetic_Logic_Unit/mux_b<4>)
+     LUT5:I3->O            2   0.097   0.516  Arithmetic_Logic_Unit/Mmux_carry<4>11_SW1 (N23)
+     LUT6:I3->O           10   0.097   0.337  Arithmetic_Logic_Unit/Mmux_carry<5>11 (Arithmetic_Logic_Unit/carry<5>)
+     LUT5:I4->O           16   0.097   0.348  Mmux_BUS_SDMD61 (BUS_SDMD<5>)
+     RAM64X1S:A5->O       10   0.097   0.337  Data_Memory/Mram_memory2 (escomips_output_1_OBUF)
+     LUT5:I4->O            2   0.097   0.561  Stack_Block/Mmux_pc[7][15]_pc[7][15]_mux_35_OUT81 (Stack_Block/pc[7][15]_pc[7][15]_mux_35_OUT<1>)
+     LUT6:I2->O            1   0.097   0.000  Stack_Block/Mmux_n0197_37 (Stack_Block/Mmux_n0197_37)
+     MUXF7:I1->O           1   0.279   0.295  Stack_Block/Mmux_n0197_2_f7_6 (Stack_Block/n0197<1>)
+     LUT1:I0->O            1   0.097   0.000  Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<1>_rt (Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<1>_rt)
+     MUXCY:S->O            1   0.353   0.000  Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<1> (Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<2> (Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<3> (Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<4> (Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<5> (Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<5>)
+     MUXCY:CI->O           1   0.023   0.000  Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<6> (Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<6>)
+     MUXCY:CI->O           1   0.023   0.000  Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<7> (Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<7>)
+     MUXCY:CI->O           1   0.023   0.000  Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<8> (Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<8>)
+     MUXCY:CI->O           1   0.023   0.000  Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<9> (Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<9>)
+     MUXCY:CI->O           1   0.023   0.000  Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<10> (Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<10>)
+     MUXCY:CI->O           1   0.023   0.000  Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<11> (Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<11>)
+     MUXCY:CI->O           1   0.023   0.000  Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<12> (Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<12>)
+     MUXCY:CI->O           1   0.023   0.000  Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<13> (Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_cy<13>)
+     XORCY:CI->O           8   0.370   0.328  Stack_Block/Madd_GND_17_o_GND_17_o_add_38_OUT_xor<14> (Stack_Block/GND_17_o_GND_17_o_add_38_OUT<14>)
+     LUT6:I5->O            2   0.097   0.561  Stack_Block/Mmux_pc[6][15]_pc[6][15]_mux_55_OUT61 (Stack_Block/pc[6][15]_pc[6][15]_mux_55_OUT<14>)
+     LUT6:I2->O            1   0.097   0.000  Stack_Block/Mmux_n0199_35 (Stack_Block/Mmux_n0199_35)
+     MUXF7:I1->O           1   0.279   0.295  Stack_Block/Mmux_n0199_2_f7_4 (Stack_Block/n0199<14>)
+     LUT1:I0->O            1   0.097   0.000  Stack_Block/Madd_sp[2]_GND_17_o_add_58_OUT_cy<14>_rt (Stack_Block/Madd_sp[2]_GND_17_o_add_58_OUT_cy<14>_rt)
+     MUXCY:S->O            0   0.353   0.000  Stack_Block/Madd_sp[2]_GND_17_o_add_58_OUT_cy<14> (Stack_Block/Madd_sp[2]_GND_17_o_add_58_OUT_cy<14>)
+     XORCY:CI->O           8   0.370   0.327  Stack_Block/Madd_sp[2]_GND_17_o_add_58_OUT_xor<15> (Stack_Block/sp[2]_GND_17_o_add_58_OUT<15>)
+     LUT6:I5->O            1   0.097   0.000  Stack_Block/Mmux_pc[1][15]_pc[1][15]_mux_69_OUT71 (Stack_Block/pc[1][15]_pc[1][15]_mux_69_OUT<15>)
+     FDC:D                     0.008          Stack_Block/pc_1_15
+    ----------------------------------------
+    Total                     11.142ns (4.757ns logic, 6.385ns route)
+                                       (42.7% logic, 57.3% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clock'
+  Clock period: 2.277ns (frequency: 439.130MHz)
+  Total number of paths / destination ports: 405 / 54
+-------------------------------------------------------------------------
+Delay:               1.139ns (Levels of Logic = 0)
+  Source:            DigitalClear/clear_output (FF)
+  Destination:       DigitalClock/aux_0 (FF)
+  Source Clock:      clock falling
+  Destination Clock: clock rising
+
+  Data Path: DigitalClear/clear_output to DigitalClock/aux_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD_1:C->Q           290   0.364   0.426  DigitalClear/clear_output (DigitalClear/clear_output)
+     FDC:CLR                   0.349          DigitalClock/aux_0
+    ----------------------------------------
+    Total                      1.139ns (0.713ns logic, 0.426ns route)
+                                       (62.6% logic, 37.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clock'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              0.288ns (Levels of Logic = 1)
+  Source:            clear (PAD)
+  Destination:       DigitalClear/clear_output (FF)
+  Destination Clock: clock falling
+
+  Data Path: clear to DigitalClear/clear_output
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.001   0.279  clear_IBUF (clear_IBUF)
+     FD_1:D                    0.008          DigitalClear/clear_output
+    ----------------------------------------
+    Total                      0.288ns (0.009ns logic, 0.279ns route)
+                                       (3.1% logic, 96.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'DigitalClock/aux_26'
+  Total number of paths / destination ports: 4732328 / 16
+-------------------------------------------------------------------------
+Offset:              8.310ns (Levels of Logic = 15)
+  Source:            Stack_Block/pc_4_1 (FF)
+  Destination:       escomips_output<7> (PAD)
+  Source Clock:      DigitalClock/aux_26 rising
+
+  Data Path: Stack_Block/pc_4_1 to escomips_output<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.361   0.703  Stack_Block/pc_4_1 (Stack_Block/pc_4_1)
+     LUT6:I0->O            1   0.097   0.000  Stack_Block/Mmux_pc_output_37 (Stack_Block/Mmux_pc_output_37)
+     MUXF7:I1->O          18   0.279   0.762  Stack_Block/Mmux_pc_output_2_f7_6 (escomips_output_9_OBUF)
+     LUT5:I0->O           25   0.097   0.789  Program_Memory/Mram_output241 (ROM_OUTPUT<24>)
+     LUT5:I0->O            2   0.097   0.561  ControlUnit/Control_Unit/Mmux_sdopc31 (ControlUnit/Control_Unit/Mmux_sdopc3)
+     LUT5:I1->O           16   0.097   0.364  ControlUnit/Control_Unit/Mmux_sdopc34 (ControlUnit/sdopc)
+     LUT6:I5->O            1   0.097   0.295  ControlUnit/Mmux_microcode71_1 (ControlUnit/Mmux_microcode71)
+     LUT3:I2->O           16   0.097   0.348  Mmux_BUS_SR231 (BUS_SR2<2>)
+     MUXF7:S->O            1   0.335   0.000  RegisterFile/mux26_4_f7 (RegisterFile/mux26_4_f7)
+     MUXF8:I0->O           4   0.218   0.309  RegisterFile/mux26_2_f8 (READ_DATA_2<4>)
+     LUT4:I3->O            5   0.097   0.398  Arithmetic_Logic_Unit/Mxor_mux_b<4>_xo<0>1 (Arithmetic_Logic_Unit/mux_b<4>)
+     LUT5:I3->O            2   0.097   0.515  Arithmetic_Logic_Unit/Mmux_carry<4>11_SW1 (N23)
+     LUT6:I3->O           10   0.097   0.337  Arithmetic_Logic_Unit/Mmux_carry<5>11 (Arithmetic_Logic_Unit/carry<5>)
+     LUT5:I4->O           16   0.097   0.348  Mmux_BUS_SDMD61 (BUS_SDMD<5>)
+     RAM64X1S:A5->O       10   0.097   0.321  Data_Memory/Mram_memory1 (escomips_output_0_OBUF)
+     OBUF:I->O                 0.000          escomips_output_0_OBUF (escomips_output<0>)
+    ----------------------------------------
+    Total                      8.310ns (2.260ns logic, 6.050ns route)
+                                       (27.2% logic, 72.8% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock DigitalClock/aux_26
+-------------------+---------+---------+---------+---------+
+                   | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock       |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-------------------+---------+---------+---------+---------+
+DigitalClock/aux_26|   13.659|   11.142|    9.004|         |
+clock              |         |    1.139|    1.139|         |
+-------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clock
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clock          |    2.059|    1.139|         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 54.00 secs
+Total CPU time to Xst completion: 54.06 secs
+ 
+--> 
+
+Total memory usage is 404468 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  138 (   0 filtered)
+Number of infos    :    7 (   0 filtered)
+

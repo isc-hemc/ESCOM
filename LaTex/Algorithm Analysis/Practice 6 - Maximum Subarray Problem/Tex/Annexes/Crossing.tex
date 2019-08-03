@@ -1,0 +1,59 @@
+\subsection{Maximum Crossing Subarray:}
+
+Demonstration that maximum crossing subarray has linear complexity: {\bfseries\itshape T ( n ) = ( n ) } order. \hfill \break
+
+{\bfseries\color{Violet}{function}} FIND-MAX-CROSSING-SUBARRAY (A, low, mid, high)
+\begin{lstlisting}[mathescape=true]
+left_sum = -$\infty$
+sum = 0
+for i = mid downto low
+	sum = sum + A[i]
+	if sum > left_sum
+		left_sum = sum
+		max_left = i
+rigth_sum = -$\infty$
+sum = 0
+for j = mid + 1 to high 
+	sum = sum + A[j]
+	if sum > right_sum
+		right_sum = sum
+		max_right = j
+return ( max_left, max_right, left_sum + right_sum )
+\end{lstlisting} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{carmine}{Demonstration:}} 
+\end{itemize} 
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Analyzing the complexity of each line:}}
+\begin{enumerate}
+\item Line 1, 2 = $\theta\ (\ 1\ )$.
+\item Line 3, 4, 5, 6, 7 = $\theta\ (\ \frac{n}{2}\ )$.
+\item Line 8, 9 = $\theta\ (\ 1\ )$.
+\item Line 10, 11, 12, 13, 14 = $\theta\ (\ \frac{n}{2}\ )$.
+\item Line 15 = $\theta\ (\ 1\ )$.
+\end{enumerate}
+\end{itemize} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Then, from all lines:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+T\ (\ n\ )\ =\ \theta\ (\ \frac{n}{2}\ +\ \frac{n}{2}\ )\ =\ \theta\ (\ n\ )
+\end{align}
+\end{ceqn} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Finally:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+Maximum\ Crossing\ Subarray\ \in\ \theta\ (\ n\ )
+\end{align}
+\end{ceqn}
+\pagebreak
+

@@ -1,0 +1,8 @@
+Release 14.7 Drc P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Thu Jun 07 21:13:10 2018
+
+drc -z escomips_main.ncd escomips_main.pcf
+
+DRC detected 0 errors and 0 warnings.

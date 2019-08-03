@@ -1,0 +1,80 @@
+\subsection{Maximum$\_$subarray.py}
+
+Has we have mentioned this module implements 3 different algorithms to find a solution to the {\itshape Maximum Subarray Problem}.
+
+\subsubsection{A Brute-Force Solution:}
+
+This algorithm has a running time of $\theta\ (\ n^{2}\ )$. As we can see in the code bellow, this algorithm only tries every possible combination thanks to the {\itshape for} loops declared in lines 10 and 11. \hfill \break
+
+\begin{lstlisting}
+def brute_force ( A ):
+    sums = [ 0 ]
+    for i in A:
+        sums.append ( sums [ -1 ] + i )
+        
+    max_sum = int ( -1e100 )
+    left_index = -1
+    right_index = -1
+    # Search for the maximum subarray indexes.
+    for i in range ( len ( A ) ):
+        for j in range ( i, len ( A ) ):
+            if ( sums [ j + 1 ] - sums [ i ] > max_sum ):
+                max_sum = sums [ j + 1 ] - sums [ i ]
+                left_index = i
+                right_index = j
+    # Return statement.
+    return left_index, right_index, max_sum
+\end{lstlisting}
+
+\subsubsection{A Crossing Solution:}
+
+The following code in line 1 receive as parameters the input array {\bfseries A} and the lowest, middle and highest positions of A and it returns a tuple containing the indices demarcating a maximum subarray that crosses the midpoint, along with the sum of the values in a maximum subarray. \hfill \break
+
+\begin{lstlisting}
+def crossing ( A, low, mid, high ):
+    left_sum = int ( -1e100 )
+    _sum = 0
+    for i in range ( mid - 1, low - 1, -1 ):
+        _sum = _sum + A [ i ]
+        if ( _sum > left_sum ):
+            left_sum = _sum
+            max_left = i
+
+    right_sum = int ( -1e100 )
+    _sum = 0
+    for i in range ( mid, high ):
+        _sum = _sum + A [ i ]
+        if ( _sum > right_sum ):
+            right_sum = _sum
+            max_right = i
+    # Return statement.
+    return max_left, max_right, right_sum + left_sum
+
+\end{lstlisting} \hfill
+
+This procedure works as follows. Lines 2 - 8 find a maximum subarray of the left half, A [ low ... mid ]. Since this subarray must contain A [ mid ], the {\bfseries for} loop of lines 4 - 8 starts the index {\itshape i} at mid and works down to low, so that every subarray it considers is of the form A [ i ... mid ]. Lines 2 - 3 initialize the variables {\itshape left$\_$sum}, which holds the greatest sum found so far, and sum, holding the sum of the entries in A [ i ... mid ]. Whenever we find, in line 6, a subarray A [ i ... mid ], with a sum of values greater than {\itshape left$\_$sum}, we update {\itshape left$\_$sum} to this subarray’s sum in line 7, and in line 8 we update the variable {\itshape max$\_$left} to record this index {\itshape i}. Lines 10 - 16 work analogously for the right half, A [ mid + 1 ... high ]. Here, the {\bfseries for} loop of lines 12 - 16 starts the index {\itshape j } at {\itshape mid + 1} and works up to {\itshape high}, so that every subarray it considers is of the form A [ mid + 1 ... j ]. Finally, line 18 returns the indices {\itshape max$\_$left} and {\itshape max$\_$right} that demarcate a maximum subarray crossing the midpoint, along with the sum {\itshape left$\_$sum + right$\_$sum} of the values of the subarray A [ max$\_$left ... max$\_$right ].
+
+\subsubsection{A Divide-and-Conquer Solution:}
+
+The initial call to RECURRENCE ( A, 1, A.length ) will find a maximum subarray of A [ 1 ... n ]. Similar to CROSSING, the recursive procedure RECURRENCE returns a tuple containing the indices that demarcate a maximum subarray, along with the sum of the values in a maximum subarray. \hfill \break
+
+\begin{lstlisting}
+def recurrence ( A, low, high ):
+    if ( high == low + 1 ):
+        return low, high, A [ low ]
+    else:
+        mid = int ( ( low + high ) / 2 )
+        left_low, left_high, left_sum = recurrence( A, low, mid )
+        right_low, right_high, right_sum = recurrence ( A, mid, high )
+        cross_low, cross_high, cross_sum = crossing ( A, low, mid, high )
+        if ( left_sum >= right_sum and left_sum >= cross_sum ):
+            return left_low, left_high, left_sum
+        elif ( right_sum >= left_sum and right_sum >= cross_sum ):
+            return right_low, right_high, right_sum
+        else:
+            return cross_low, cross_high, cross_sum
+\end{lstlisting} \hfill
+
+Line 2 tests for the base case, where the subarray has just one element. A subarray with just one element has only one subarray - itself - and so line 3 returns a tuple with the starting and ending indices of just the one element, along with its value. Lines 5 - 14 handle the recursive case. Line 5 does the divide part, computing the index mid of the midpoint. Let’s refer to the subarray A [ low ... mid ] as the {\bfseries\itshape left-subarray} and to A [ mid + 1 ... high ] as the {\bfseries\itshape right-subarray}. Because we know that the subarray A [ low ... high ] contains at least two elements, each of the left and right subarrays must have at least one element. Lines 6 and 7 conquer by recursively finding maximum subarrays within the left and right subarrays, respectively. Lines 9 - 14 form the combine part. Line 8 finds a maximum subarray that crosses the midpoint. ( Recall that because line 8 solves a subproblem that is not a smaller instance of the original problem, we consider it to be in the combine part.) Line 9 tests whether the left subarray contains a subarray with the maximum sum, and line 10 returns that maximum subarray. Otherwise, line 11 tests whether the right subarray contains a subarray with the maximum sum, and line 12 returns that maximum subarray. If neither the left nor right subarrays contain a subarray achieving the maximum sum, then a maximum subarray must cross the midpoint, and line 14 returns it.
+
+\pagebreak

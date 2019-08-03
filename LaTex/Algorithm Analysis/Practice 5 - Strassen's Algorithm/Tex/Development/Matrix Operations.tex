@@ -1,0 +1,26 @@
+\subsection{Matrix$\_$operations.py}
+
+This module has 2 methods: 
+
+\begin{itemize}
+\item {\bfseries add ( ... )}.
+\item {\bfseries subtract ( ... )}.
+\end{itemize} 
+
+Each method realize a very simply operation, {\bfseries add ( A, B )} as its name says, add/sum the matrices {\bfseries A} and {\bfseries B} and {\bfseries subtract ( A, B )}, subtract both matrices and both methods return the resulting matrix {\bfseries C}.  \hfill \break
+
+\begin{lstlisting}
+def add ( A, B ):
+    n = len ( A )
+    C = [ [ A [ i ] [ j ] + B [ i ] [ j ] for j in range ( n ) ] for i in range ( n ) ]
+    # Return statement.
+    return C
+
+def subtract ( A, B ):
+    n = len ( A )
+    C = [ [ A [ i ] [ j ] - B [ i ] [ j ] for j in range ( n ) ] for i in range ( n ) ]
+    # Return statement.
+    return C
+\end{lstlisting}
+
+\pagebreak

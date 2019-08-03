@@ -1,0 +1,39 @@
+\subsection{Menu.py}
+
+This module display on screen two options:
+
+\begin{itemize}
+\item Create a list {\bfseries\itshape A} of random elements.
+\item Create a list {\bfseries\itshape A} with all the element sorted in decreasing order. 
+\end{itemize}
+
+\begin{flushleft}
+{\bfseries\itshape\color{armygreen}{Observation:}} {\itshape\color{armygreen}{The second option it's the worst case for the algorithm {\bfseries quicksort}.}} \hfill \break
+
+{\bfseries\itshape\color{armygreen}{Observation:}} {\itshape\color{armygreen}{Before create {\bfseries\itshape A}, the program will display another option asking for its length.}} \hfill \break
+\end{flushleft}
+
+\begin{lstlisting}
+def menu ( ):
+    ans, length = -1, -1
+    # Menu option 1: User must select if create a list of random numbers or
+    # a list in the worst case for the algorithm, sorted in decreasing order.
+    while ( ans != 1 and ans != 2 ):
+        print ( "\n\n\t\t\tQUICK-SORT\n\n\t Select one of the following options." )
+        print ( "\n\t1.- Random case." )
+        print ( "\t2.- Worst case." )
+        ans = int ( input ( "\tAnswer: " ) )
+    # Menu option 2: User must choose the length of the list.
+    while ( length < 0 ):
+        print ( "\n\tLength of the list: " )
+        length = int ( input ( "\tAnswer: " ) )
+    # Create a list of random numbers. Otherwise a list in decreasing
+    # order from 'length' to 0, on intervals of 1.
+    if ( ans == 1 ):
+        gb.n = list ( np.random.randint ( 0, 100, size = length ) )
+    else:
+        gb.n = list ( range ( length, 0, -1 ) )
+        gb.flag = True
+    print ( "\n\tList to sort: ", gb.n )
+\end{lstlisting} \hfill
+

@@ -1,0 +1,16 @@
+\subsubsection{Setting All Together:}
+
+Finally we can make the respectively methods call in the order previously explained, this work it's executed by the {\bfseries main} method. As we can see in the code bellow, in line 2 we get the input text, then we create an object of the class {\bfseries Huffman} by passing the text as parameter in its constructor. Then in line 4 we set the frequency of appearance of each symbol. In line 5 we create the coding tree and in line 6 we extract from each leaf the respective code for its {\itshape symbol}. In line 7 we encode the input text and finally we store in our file system the resulting encoded binary string, the dictionary for decoding if it's required and the tables of frequencies and codes for each {\itshape symbol} ( This files will be presented in section 4 ). \hfill \break
+
+\begin{lstlisting}
+def main ( ):
+    txtin = getText ( )
+    huffman = Huffman ( txtin )
+    huffman.setFrequency ( )
+    huffman.setTree ( )
+    huffman.setCodes ( )
+    huffman.encode ( )
+    store ( huffman.result, huffman.frequency, huffman.probability, huffman.codes )
+\end{lstlisting}
+
+\pagebreak

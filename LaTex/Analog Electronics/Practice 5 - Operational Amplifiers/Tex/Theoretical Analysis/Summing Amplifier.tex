@@ -1,0 +1,62 @@
+\subsection{Summing Amplifier:}
+
+The circuit that we are going to analyze it's the one in Figure 3.4.0 using the following parameters: \hfill \break
+
+{\bfseries
+\begin{itemize}
+\item $R_{f}$ = 560 K $\Omega$
+\item $R_{1}$ = 100 K $\Omega$
+\item $R_{2}$ = 100 K $\Omega$
+\item $R_{div\ 1}$ = 560 $\Omega$
+\item $R_{div\ 2}$ = 1 K $\Omega$
+\item $R_{div\ 3}$ = 15 K $\Omega$
+\end{itemize}} \hfill
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item For $E_{2}$ using a voltage divider:
+\end{itemize}}} 
+
+\begin{flushright}
+{\bfseries\itshape\color{carmine}{Formula: $E_{n}\ =\ (\ \frac{(	\ R_{n\ )(\ E\ )}}{R_{1}\ +\ R_{2}\ +\ ...\ +\ R_{n}}\ )$:}} \hfill \break
+\end{flushright}
+
+\begin{ceqn}
+\begin{align*}
+E_{2}\ &=\ \frac{(\ R_{div\ 1}\ ) \cdot (\ 12\ V\ )}{R_{div\ 1}\ +\ R_{div\ 2}\ +\ R_{div\ 3}} \\ \\
+&=\ \frac{(\ 560\ \Omega\ ) \cdot (\ 12\ V\ )}{560 \Omega\ +\ 1\ K\ \Omega\ +\ 15\ K\ \Omega} \\ \\
+&=\ 405.79\ mV
+\end{align*}
+\end{ceqn} \hfill \break
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item For $E_{1}$ using a voltage divider:
+\end{itemize}}} 
+
+\begin{ceqn}
+\begin{align*}
+E_{1}\ &=\ E_{2}\ +\ \frac{(\ R_{div\ 2}\ ) \cdot (\ 12\ V\ )}{R_{div\ 1}\ +\ R_{div\ 2}\ +\ R_{div\ 3}} \\ \\
+&=\ 405.79\ mV\ +\ \frac{(\ 1\ K\ \Omega\ ) \cdot (\ 12\ V\ )}{560 \Omega\ +\ 1\ K\ \Omega\ +\ 15\ K\ \Omega} \\ \\
+&=\ 405.79\ mV\ +\ \frac{(\ 1\ K\ \Omega\ ) \cdot (\ 12\ V\ )}{560 \Omega\ +\ 1\ K\ \Omega\ +\ 15\ K\ \Omega} \\ \\
+&=\ 1.13\ V
+\end{align*}
+\end{ceqn} \hfill \break
+
+{\bfseries\itshape\color{Violet}{
+\begin{itemize}
+\item Then, for $V_{sal}$:
+\end{itemize}}} 
+
+\begin{flushright}
+{\bfseries\itshape\color{carmine}{Formula: $V_{sal}\ =\ -\ R_{f}\ (\ \frac{E_{1}}{R_{1}}\ +\ \frac{E_{2}}{R_{2}}\ +\ ...\ +\ \frac{E_{n}}{R_{n}}\ )$:}} \hfill \break
+\end{flushright}
+
+\begin{ceqn}
+\begin{align*}
+V_{sal}\ &=\ -\ 560\ K\ \Omega\ (\ \frac{1.13\ V}{100\ K\ \Omega}\ +\ \frac{405.79\ mV}{100\ K\ \Omega}\ ) \\ \\
+&=\ -\ 8.6 V
+\end{align*}
+\end{ceqn} \hfill \break
+
+\pagebreak

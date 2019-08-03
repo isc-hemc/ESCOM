@@ -1,0 +1,29 @@
+\subsection{Step 2: A Recursive Solution.}
+
+Next, we define the cost of an optimal solution recursively in terms of the optimal solutions to sub-problems. For the {\bfseries matrix-chain multiplication} problem, we pick as our sub-problems the problems of determining the minimum cost of parenthesizing $A_{i} A_{i+1} ... A_{j}$ for 1 $\leq$ i $\leq$ j $\leq$ n. Let m [ i, j ] be the minimum number of scalar multiplications needed to compute the matrix $A_{i...j}$; for the full problem, the lowest-cost way to compute $A_{1...n}$ would thus be m [ 1, n ]. \hfill \break
+
+We can define m [ i, j ]  recursively as follows. If {\itshape i = j} , the problem is trivial; the chain consists of just one matrix $A_{i...i}$ = $A_{i}$, so that no scalar multiplications are necessary to compute the product. Thus, m [ i, i ] = 0 for {\itshape i = 1, 2, ..., n}. To compute m [ i,  j ] when i $<$ j, we take advantage of the structure of an optimal solution from step 1. Let us assume that to optimally parenthesize, we split the product $A_{i} A_{i+1} ... A_{j}$ between $A_{k}$ and $A_{k+1}$, where i $\leq$ k $<$ j. The m [ i, j ] equals the minimum cost for computing the sub-products $A_{i...k}$ and $A_{k+1...j}$, plus the cost of multiplying these two matrices together. Recalling that each matrix $A_{i}$ is {\itshape $p_{i-1}$ x $p_{i}$},we see that computing the matrix product $A_{k}$ and $A_{k+1}$ takes {\itshape $p_{i-1}$ x $p_{k}$ x $p_{j}$} scalar multiplications. Thus, we obtain: \hfill \break
+
+\begin{ceqn}
+\begin{align*}
+m\ [\ i,\ j\ ]\ =\ m\ [\ i,\ k\ ]\ +\ m\ [\ k\ +\ 1\ ,\ j\ ]\ +\ p_{i-1} p_{k} p_{j}.
+\end{align*}
+\end{ceqn} \hfill \break
+
+This recursive equation assumes that we know the value of k, which we do not. There are only j - i possible values for k, however, namely {\itshape k = i, i + 1, ..., j - 1}. Since the optimal parenthesization must use one of these values for k, we need only check them all to find the best. Thus, our recursive definition for the minimum costof parenthesization the product $A_{i} A_{i+1} ... A_{j}$ becomes: \hfill \break
+
+\begin{ceqn}
+\begin{align}
+m\ [\ i,\ j\ ]\ =\ \left\{
+\begin{array}{ll}
+0 & \mathrm {if\ } i\ =\ j, \\
+min_{i \leq k < j}\ \lbrace\ m\ [\ i,\ k\ ]\ +\ m\ [\ k\ +\ 1,\ j\ ]\ +\ p_{i-1} p_{k} p_{j}\ \rbrace & \mathrm {if\ } i\ <\ j.\\
+\end{array}
+\right.
+\end{align}
+\end{ceqn} \hfill \break
+
+The m [ i, j ] values give the costs of optimal solutions to subproblems, but they do not provide all the information we need to construct an optimal solution. To help us do so, we define s [ i, j ] to be a value of {\itshape k} at which we split the product $A_{i} A_{i+1} ... A_{j}$ in an optimal parenthesization. That is, s [ i, j ] equals a value {\itshape k} such that $m\ [\ i,\ j\ ]\ =\ m\ [\ i,\ k\ ]\ +\ m\ [\ k\ +\ 1\ ,\ j\ ]\ +\ p_{i-1} p_{k} p_{j}$.
+
+\pagebreak
+

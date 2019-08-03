@@ -1,0 +1,47 @@
+\section{Basic Concepts:}
+
+The following 3 algorithms are the ones that we are going to analyze in the following sections.
+
+\subsection{Heap-Sort:}
+
+{\itshape Heapsort} is a much more efficient version of selection sort. It also works by determining the largest (or smallest) element of the list, placing that at the end (or beginning) of the list, then continuing with the rest of the list, but accomplishes this task efficiently by using a data structure called a heap, a special type of binary tree. Once the data list has been made into a heap, the root node is guaranteed to be the largest (or smallest) element. When it is removed and placed at the end of the list, the heap is rearranged so the largest element remaining moves to the root. Using the heap, finding the next largest element takes {\bfseries $\mathcal{O}(\log{}n)$} time, instead of {\bfseries $\mathcal{O}(n)$} for a linear scan as in simple selection sort. This allows Heapsort to run in {\bfseries $\mathcal{O}(n\log{}n)$} time, and this is also the worst case complexity.
+
+\subsection{Shell-Sort:}
+
+Shell sort was invented by Donald Shell in 1959. It improves upon bubble sort and insertion sort by moving out of order elements more than one position at a time. One implementation can be described as arranging the data sequence in a two-dimensional array and then sorting the columns of the array using insertion sort.
+
+\subsection{Cocktail-Sort:}
+
+Each iteration of the algorithm is broken up into two stages: 
+
+\begin{itemize}
+\item The first stage loops through the data set from bottom to top, just like the Bubble Sort. During the loop, adjacent items are compared. If at any point the value on the left is greater than the value on the right, the items are swapped. At the end of the first iteration, the largest number will reside at the end of the set.
+
+\item The second stage loops through the data set in the opposite direction - starting from the item just before the most recently sorted item, and moving back towards the start of the list. Again, adjacent items are swapped if required.
+\end{itemize}
+
+The Cocktail Sort also fits in the category of Exchange Sorts due to the manner in which elements are moved inside the data set during the sorting process.
+
+\subsection{Theoretical Complexity:}
+
+The algorithms that we are going to analyze have different running time in different cases that the programmer submit it. For this 3 algorithms its best case it's when the list it's already sorted, and the worst case it's when the list it's sorted but in decreasing order. The Table 0 will indicate the complexity of each algorithm: \hfill \break
+
+{\small
+\begin{center} 
+\begin{tabular}[.5cm]{ c c c c } 
+\toprule \toprule
+\hspace{20px} Algorithm \hspace{20px} & \hspace{30px} Best Case \hspace{30px} & \hspace{30px} Random Case \hspace{30px} & \hspace{30px} Worst Case \hspace{30px} \\ 
+\midrule \midrule
+Heap-Sort & $\mathcal{O}(n\log(n))$ & $\mathcal{O}(n\log(n))$ & $\mathcal{O}(n\log(n))$ \\
+\cmidrule{1-4}
+Cocktail-Sort & $\mathcal{O}(n))$ & $\mathcal{O}(n^{2})$ & $\mathcal{O}(n^{2})$ \\
+\cmidrule{1-4}
+Shell-Sort & $\mathcal{O}(n)$ & $\mathcal{O}(n^{\frac{3}{2}})$ or $\mathcal{O}(n\log^{2}(n))$ & $\mathcal{O}(n^{\frac{3}{2}})$ or $\mathcal{O}(n\log^{2}(n))$ \\
+\bottomrule 
+\linebreak 
+\end{tabular} 
+\linebreak \linebreak Table 0.
+\end{center}}
+
+
+\pagebreak

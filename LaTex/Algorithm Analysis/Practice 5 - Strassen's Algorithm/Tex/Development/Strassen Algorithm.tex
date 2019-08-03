@@ -1,0 +1,59 @@
+\subsection{Strassen.py:}
+
+{\small This module is probably the most important, implements the Strassen's algorithm and return the product of the matrices A and B. As we can see in the code bellow, the line 3 validates that both arrays and rows had the same size, this corroborates that A and B are {\bfseries square matrices}. And line 4 validates that both A and B are of type {\bfseries list}. \hfill \break
+
+From line 7 to 39 the algorithm is implemented. In case that the condition is fulfilled, then the program will call the method {\bfseries\itshape usual$\_$matrix$\_$product ( A, B )} and will return the product of A and B. This method it's more like an usual scalar product between two vectors of size 1 because the matrices are of that size. In other words, the matrices only have one element stored. \hfill \break
+
+{\bfseries\itshape\color{carmine}{Observation:}} {\itshape\color{carmine}{It's negligible which matrix is evaluated in the if condition since both are of the same size.}} \hfill \break
+
+In other case, in line 11 the program will calculate the size $\frac{n}{2}$ and will store it in the variable {\bfseries\itshape n} then, according to sub-section's 2.2 step 1, will split the input matrices in 4 sub-matrices of size $\frac{n}{2}$ x $\frac{n}{2}$ each one. \hfill \break
+
+From line 15 to 27 we can easily visualize the sub-subsection's 2.2 step 3, but nested in each recursive function we can see that the parameters call the methods {\bfseries\itshape add ( ... )} and {\bfseries\itshape subtract ( ... )}, we can say that this nested step is actually sub-subsection's 2.2 step 2. \hfill \break
+
+{\bfseries\itshape\color{carmine}{Observation:}} {\itshape\color{carmine}{The recursive functions may be in different order than the ones in sub-section 2.2, but are the same.}} \hfill \break
+
+Finally, from lines 31 to 39 we can see the sub-section's 2.2 step 4 implemented, and the algorithm will return the sub-matrices $C_{11},\ C_{12},\ C_{21},\ C_{22}$ joined in a resulting matrix {\bfseries C}. \hfill \break}
+
+\begin{lstlisting}
+def strassen ( A, B ):
+    # Validates the condition of matrices of [ 2^n x 2^n ] size.
+    assert len ( A ) == len ( A [ 0 ] ) == len ( B ) == len ( B [ 0 ] )
+    assert type ( A ) == list and type ( B ) == list
+
+    # Usual matrix product.
+    if ( len ( A ) == 1 ):
+        return usual_matrix_product ( A, B )
+    else:
+    # Strassen algorithm.
+        n = int ( len ( A ) / 2 )
+        # Divide de matrices A and B in eigth sub-matrices of size 2^n/2.
+        A11, A12, A21, A22, B11, B12, B21, B22 = split_in_sub_matrices ( A, B, n )
+        # S1 = strassen ( ( A11 + A22 ), ( B11 + B22 ) )
+        S1 = strassen ( add ( A11, A22 ), add ( B11, B22 ) )
+        # S2 = strassen ( ( A21 + A22 ), ( B11 ) )
+        S2 = strassen ( add ( A21, A22 ), B11 )
+        # S3 = strassen ( ( A11 ), ( B12 - B22 ) )
+        S3 = strassen ( A11, subtract ( B12, B22 ) )
+        # S4 = strassen ( ( A22 ), ( B21 - B11 ) )
+        S4 = strassen ( A22, subtract ( B21, B11 ) )
+        # S5 = strassen ( ( A11 + A12 ), ( B22 ) )
+        S5 = strassen ( add ( A11, A12 ), B22 )
+        # S6 = strassen ( ( A21 - A11 ), ( B11 + B12 ) )
+        S6 = strassen ( subtract ( A21, A11 ), add ( B11, B12 ) )
+        # S7 = strassen ( ( A12 - A22 ), ( B21 + B22 ) )
+        S7 = strassen ( subtract ( A12, A22 ), add ( B21, B22 ) )
+
+        # Expressing Cij in terms of Sk, where C it's the resulting matrix.
+        # C11 = S1 + S4 - S5 + S7
+        C11 = subtract ( add ( add ( S1, S4 ), S7 ), S5 )
+        # C12 = S3 + S5
+        C12 = add ( S3, S5 )
+        # C21 = S2 + S4
+        C21 = add ( S2, S4 )
+        # C22 = S1 - S2 + S3 + S6
+        C22 = add ( subtract ( S1, S2 ), add ( S3, S6 ) )
+        # Joining all the resulting sub-matrices
+        return join_sub_matrices ( C11, C12, C21, C22, n * 2 )
+\end{lstlisting} \hfill
+
+\pagebreak

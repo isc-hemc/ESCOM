@@ -1,0 +1,84 @@
+\subsection{Quicksort Demonstration:}
+
+Demonstrate that Quicksort algorithm has {\bfseries\itshape T ( n ) = ( n ) ( log ( n ) )} order:  \hfill \break
+
+{\bfseries\color{Violet}{function}} Quicksort ( A, p, r ):
+\begin{lstlisting}
+if ( p < r )
+	q = partition ( a, p, r )
+	Quicksort ( A, p, q )
+	Quicksort ( A, q + 1, r )
+\end{lstlisting}
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Maroon}{Demonstration:}} \hfill
+\end{itemize}
+
+Although the pseudocode for Quicksort works correctly, our recurrence-based analysis is simplified if we assume that the original problem size is a power of 2, the {\bfseries\itshape pivot} always will split the array in the middle and {\bfseries\itshape Partition} has order {$\theta$ ( n )} ( see section 5.2 for the demonstration), we can use the following equation: \hfill \break
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Quicksort recurrence equation:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+T( n ) = \left\{
+\begin{array}{ll}
+c & \mathrm {if\ } n = 1 \\
+2T ( \frac{n}{2} ) + cn & \mathrm {if\ } n > 1 \\
+\end{array}
+\right.
+\end{align}
+\end{ceqn} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Let k = $log_{2}( n )$, then $n = 2^{k}$, substituting:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+T (\ n\ ) &= 2T (\ \frac{n}{2}\ ) + cn \\
+&= 2T ( 2^{k-1} ) + c(\ 2^{k}\ ) \\
+&= 2^{2}T (\ 2^{k-2}\ ) + 2c(\ 2^{k}\ ) \\
+&= 2^{3}T (\ 2^{k-3}\ ) + 3c(\ 2^{k}\ ) \\
+\end{align}
+\end{ceqn} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Then:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+T (\ n\ ) &= 2^{i}T (\ 2^{k-i}\ ) + ic(\ 2^{k}\ ) \\
+\end{align}
+\end{ceqn} 
+
+\pagebreak
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Let k - i = 0, then k = i:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+T (\ n\ ) &= 2^{k}T (\ 1\ ) + (\ kc\ )\ (\ 2^{k}\ ) \\
+&= (\ c\ )\ (\ 2^{k}\ )\ +\ (\ kc\ )\ (\ 2^{k}\ ) \\
+&= (\ c\ )\ (\ 2^{k}\ )\ [\ 1\ +\ k\ ] \\
+&= (\ cn\ )\ [\ log_{2}(\ n\ )\ +\ 1\ ] \\
+&= cn\ log_{2}(\ n\ )\ +\  cn \\
+&= c\ [\ n\ log_{2}(\ n\ )\ +\ n\ ]
+\end{align}
+\end{ceqn} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Finally:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+Quicksort \in \theta\ (\ n\ log_{2} (\ n\ )\ )\ ).
+\end{align}
+\end{ceqn}
+
+\pagebreak

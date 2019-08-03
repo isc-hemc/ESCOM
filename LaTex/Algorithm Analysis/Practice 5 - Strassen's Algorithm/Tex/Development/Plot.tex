@@ -1,0 +1,40 @@
+\subsection{Plot.py}
+
+This method, as its name says, plot the Strassen's algorithm complexity for a given $2^{n}$ size. In line 13 we can see an {\bfseries\itshape if} sentence, as we mention in sub-section 3.6, in case that the input matrices have a size bigger than $2^{8}$ then the program will compare the complexities of both algorithms, in other case, we propose an asymptotic function {\itshape g ( n ) = $\frac{3}{2}\ \cdot\ n^{2.81}$}. \hfill \break
+
+\begin{lstlisting}
+def plot ( ):
+    global function, _function
+    # Window title.
+    plt.figure ( "Strassen's Algorithm", figsize = ( 14, 7 ) )
+    # Graph title.
+    plt.title ( "Strassen ( " + str ( gb.parameters [ -1 ] [ 0 ] ) + ", " 
+    	+ str ( gb.parameters [ -1 ] [ 1 ] ) + " ):", color = ( 0.3, 0.4, 0.6 ), 
+    		weight = "bold" )
+    # Parameters S ( n ) -size- of the graph.
+    s = list ( map ( lambda x: x [ 0 ], gb.parameters ) )
+    # Parameters T ( t ) -time- of the graph for Strassen.
+    t = list ( map ( lambda x: x [ 1 ], gb.parameters ) )
+    if ( gb.flag == True ):
+        # Compares the complexities of Strassen against ijk algorithms.
+        # Parameters T ( t ) -time- of the graph for ijk.
+        _t = list ( map ( lambda x: x [ 1 ], gb._parameters ) )
+        _function = "ijk-Algorithm function: g ( n ) = n^3"
+    else:
+        # In other case, we propose an asymptotic function g ( n ) = 3/2 n^2.81
+        # Parameters T ( t ) -time- of the graph.
+        _t = list ( map ( lambda x: ( 3/2 ) * x [ 1 ], gb.parameters ) )
+        _function = "Proposed asymptotic function: g ( n ) = 3/2 ( n^2.81 )"
+    # Axes names.
+    plt.xlabel ( "Size ( n )", color = ( 0.3, 0.4, 0.6 ), family = "cursive", 
+    	size = "large" )
+    plt.ylabel ( "Time ( t )", color = ( 0.3, 0.4, 0.6 ), family = "cursive", 
+    	size = "large" )
+    # Plot.
+    plt.plot ( s, t, "#778899", linewidth = 3, label = function )
+    plt.plot ( s, _t, "#800000", linestyle = "--", label = _function )
+    plt.legend ( loc = "upper left" )
+    plt.show ( )
+\end{lstlisting}
+
+\pagebreak

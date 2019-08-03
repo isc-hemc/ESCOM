@@ -1,0 +1,53 @@
+.card-title{
+  font-weight: bold;
+  text-align: center;
+}
+.card{
+	min-height: 300px;
+}
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+.content .container{
+    min-height: 100%;
+    width: 80%;
+    background-color: white;
+    margin-bottom: 50px;
+}
+.navbar{
+    background-color: #1A1A1D;
+}
+.card-header{
+    background-color: #C3073F;
+}
+.modal-header{
+    background-color: #C3073F;
+    color: white;
+}
+.close{
+    color: white;
+}
+.modal .fas{
+    color: #d2323f;
+}
+.modal .fab{
+    color: #d2323f;
+}
+.content {
+  background-image : url("./../media/background.jpg");
+  min-height: 100%;
+}
+html,
+body {
+  height: 100%;
+  background-color: #333;
+}
+.footer{
+  height: 50px;
+  margin-top: -50px;
+}
+.mensaje{
+  visibility: hidden;
+}

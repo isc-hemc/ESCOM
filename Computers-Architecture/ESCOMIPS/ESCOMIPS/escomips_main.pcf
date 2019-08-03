@@ -1,0 +1,25 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Thu Jun 07 21:00:38 2018
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "escomips_output<5>" LOCATE = SITE "V17" LEVEL 1;
+COMP "escomips_output<6>" LOCATE = SITE "U17" LEVEL 1;
+COMP "escomips_output<7>" LOCATE = SITE "U16" LEVEL 1;
+COMP "escomips_output<8>" LOCATE = SITE "V16" LEVEL 1;
+COMP "escomips_output<9>" LOCATE = SITE "T15" LEVEL 1;
+COMP "escomips_output<0>" LOCATE = SITE "H17" LEVEL 1;
+COMP "escomips_output<1>" LOCATE = SITE "K15" LEVEL 1;
+COMP "escomips_output<2>" LOCATE = SITE "J13" LEVEL 1;
+COMP "escomips_output<3>" LOCATE = SITE "N14" LEVEL 1;
+COMP "escomips_output<4>" LOCATE = SITE "R18" LEVEL 1;
+COMP "clear" LOCATE = SITE "V10" LEVEL 1;
+COMP "clock" LOCATE = SITE "E3" LEVEL 1;
+COMP "escomips_output<15>" LOCATE = SITE "V11" LEVEL 1;
+COMP "escomips_output<12>" LOCATE = SITE "V15" LEVEL 1;
+COMP "escomips_output<11>" LOCATE = SITE "T16" LEVEL 1;
+COMP "escomips_output<14>" LOCATE = SITE "V12" LEVEL 1;
+COMP "escomips_output<13>" LOCATE = SITE "V14" LEVEL 1;
+COMP "escomips_output<10>" LOCATE = SITE "U14" LEVEL 1;
+SCHEMATIC END;
+

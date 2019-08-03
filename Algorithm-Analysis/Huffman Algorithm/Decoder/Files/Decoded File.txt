@@ -1,0 +1,35 @@
+#include "Library.h"
+
+void *ProducerZero ( void *argument ) {
+
+  struct sembuf buf;
+  char string_a [ 20 ];
+  int *ThreadNumber;
+  int counter = 1;
+
+  ThreadNumber = ( int * ) argument;
+  strcpy ( string_a, "aaaaaaaaaaaaaaaaaaa" );
+
+  do {
+    for ( int secondCounter = 0 ; secondCounter < 10 ; secondCounter++ ) {
+      Wait ( &buf, secondCounter );
+      if ( blocks [ secondCounter ].identifier == -1 ) {
+        Wait ( &buf, 11 ); // Productor
+        blocks [ secondCounter ].identifier = *ThreadNumber;
+        strcpy ( blocks [ secondCounter ].string, string_a );
+        printf ( "\na = %d.", counter );
+        counter++;
+        Signal ( &buf, 10 );
+      } /* End of if. */
+      Signal ( &buf, secondCounter );
+      if ( counter > Limit) {
+        pthread_exit ( NULL );
+      } /* End of if. */
+    } /* End of for. */
+  } while ( counter <= Limit );
+
+  //printf ( "\n\n\tThread Number: %d.\tString: %s.", *ThreadNumber, string_a );
+
+  return NULL;
+
+} /* End of ProducerZero Threads. */

@@ -1,0 +1,23 @@
+\subsection{ijk$\_$Algorithm.py}
+
+This module implements the usual matrix product also know as {\bfseries\itshape ijk-algorithm}. This algorithms implements 3 {\bfseries for} loops, and its complexity it's $\theta\ (\ n^{3}\ )$. In our code this method it's only called when the matrices are bigger or equal than {\bfseries n = $2^{8}$}, when this condition it's fulfilled, then the program will compare the complexity of both algorithms by making the product of matrices {\bfseries A} and {\bfseries B}.  \hfill \break
+
+In lines 3 and 4 the code validates that the input matrices are of the same size, in case that don't accomplish the condition the program will throw an error, same as in the Strassen's algorithm implementation. Then, in line 7 we initialize our resulting matrix and from line 8 to 11 the {\bfseries\itshape ijk-algorithm} it's implemented. \hfill \break
+
+\begin{lstlisting}
+def ijk_product ( A, B ):
+    # Validates the condition of matrices of [ 2^n x 2^n ] size.
+    assert len ( A ) == len ( A [ 0 ] ) == len ( B ) == len ( B [ 0 ] )
+    assert type ( A ) == list and type ( B ) == list
+
+    n = len ( A )
+    C = [ [ 0 for i in range ( n ) ] for j in range ( n ) ]
+    for i in range ( n ):
+        for j in range ( n ):
+            for k in range ( n ):
+                C [ i ] [ j ] += A [ i ] [ k ] * B [ k ] [ j ]
+    # Return statement.
+    return C
+\end{lstlisting}
+
+\pagebreak

@@ -1,0 +1,24 @@
+\subsubsection{Setting The Parameters:}
+
+As we have mention, the first step it's to charge to the program memory the {\itshape dictionary} of codes and the resulting binary string. The process work as follows, we import the module {\bfseries pickle} that it's designed for binary inputs and outputs. So, in line 3 we read the {\itshape Encoded} file. In line 5 we create a variable of type FILE and read the codes dictionary, but as we are going the decode, we are going to make the inverse process, so, we create an auxiliary dictionary as we can see in line 8, this dictionary will have as {\itshape keys} the codes and as {\itshape elements} the respectively {\itshape symbols}. In lines 9 - 10 we exchange the {\itshape keys} and {\itshape elements}. Finally, the dictionary should look like this: \hfill \break
+
+\begin{center}
+dictionary = $\lbrace$ 0: "a", 10: "b", 111: "c", 110: "END" $\rbrace$
+\end{center} \hfill \break
+
+\begin{lstlisting}
+def getParameters ( ):
+    # Get the compressed binary sequence.
+    compressed = pickle.load ( open ( "../Encoder/Files/Encoded File.txt", "rb" ) )
+    # Get the dictionary with the coding of each symbol.
+    f = open ( "../Encoder/Files/Dictionary.dic", "r" )
+    dictionary = f.read ( )
+    dictionary = ast.literal_eval ( dictionary )
+    aux = { }
+    for key, element in dictionary.items ( ):
+        aux [ element ] = key
+    f.close ( )
+    return compressed, aux
+\end{lstlisting}
+
+\pagebreak

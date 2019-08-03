@@ -1,0 +1,69 @@
+\section{Introduction:}
+
+In computer science, a sorting algorithm is an algorithm that puts elements of a list in a certain order. The
+most-used orders are numerical order and lexicographical order. Efficient sorting is important for optimizing the use of other algorithms (such as search and merge algorithms) that require sorted lists to work correctly; it is also often useful for canonizing data and for producing human-readable output. More formally, the output must satisfy two conditions: \hfill \break
+
+\begin{itemize}
+\item The output is in nondecreasing order ( each element is no smaller than the previous element according to the desired total order ).
+\item The output is a permutation, or reordering, of the input.
+\end{itemize} \hfill
+
+Since the dawn of computing, the sorting problem has attracted a great deal of research, perhaps due to the
+complexity of solving it efficiently despite its simple, familiar statement. For example, bubble sort was analyzed as
+early as 1956. Although many consider it a solved problem, useful new sorting algorithms are still being invented
+(for example, library sort was first published in 2004). Sorting algorithms are prevalent in introductory computer
+science classes, where the abundance of algorithms for the problem provides a gentle introduction to a variety of
+core algorithm concepts, such as big $\mathcal{O}$ notation, divide and conquer algorithms, data structures, randomized algorithms, best, worst and average case analysis, time-space trade-offs, and lower bounds. 
+
+\subsection{Classification:}
+
+Sorting algorithms used in computer science are often classified by:
+
+\begin{itemize}
+\item Computational complexity (worst, average and best behaviour) of element comparisons in terms of the size of the list ( {\bfseries n} ). For typical sorting algorithms good behavior is {\bfseries $\mathcal{O}(n\log{}n)$} and bad behavior is {\bfseries $\mathcal{O}(n^{2})$}. Ideal behavior for a sort is {\bfseries $\mathcal{O}(n)$}, but this is not possible in the average case. Comparison-based sorting algorithms, which evaluate the elements of the list via an abstract key comparison operation, need at least {\bfseries $\mathcal{O}(n\log{}n)$} comparison for most inputs.
+
+\item Memory usage (and use of other computer resources). In particular, some sorting algorithms are "in place". This means that they need only {\bfseries $\mathcal{O}(1)$} or {\bfseries $\mathcal{O}(n\log{}n)$} memory beyond the items being sorted and they don't need to create auxiliary locations for data to be temporarily stored, as in other sorting algorithms.
+
+\item Recursion. Some algorithms are either recursive or non-recursive, while others may be both ( e.g. merge sort ).
+
+\item Stability: stable sorting algorithms maintain the relative order of records with equal keys ( i.e. values ).
+
+\item General method: insertion, exchange, selection, merging, etc.. Exchange sorts include bubble sort and quicksort. Selection sorts include shaker sort and heapsort.
+
+\item Adaptability: Whether or not the presortedness of the input affects the running time. Algorithms that take this into account are known to be adaptive.
+\end{itemize} \pagebreak
+
+\subsection{Stability:}
+
+Stable sorting algorithms maintain the relative order of records with equal keys. If all keys are different then this
+distinction is not necessary. But if there are equal keys, then a sorting algorithm is stable if whenever there are two records (let's say R and S) with the same key, and R appears before S in the original list, then R will always appear before S in the sorted list. When equal elements are indistinguishable, such as with integers, or more generally, any data where the entire element is the key, stability is not an issue. However, assume that the following pairs of numbers are to be sorted by their first component: \hfill \break
+
+\begin{center}
+( 4, 2 ), ( 3, 7 ), ( 3, 1 ), ( 5, 6 ).
+\end{center} \hfill \break
+
+In this case, two different results are possible, one which maintains the relative order of records with equal keys, and one which does not: \hfill \break
+
+\begin{center}
+( 3, 7 ), ( 3, 1 ), ( 4, 2 ), ( 5, 6 ) -Order maintained-. \linebreak \linebreak
+( 3, 1 ), ( 3, 7 ), ( 4, 2 ), ( 5, 6 ) -Order changed-.
+\end{center} \hfill \break
+
+Unstable sorting algorithms may change the relative order of records with equal keys, but stable sorting algorithms never do so. Unstable sorting algorithms can be specially implemented to be stable. One way of doing this is to artificially extend the key comparison, so that comparisons between two objects with otherwise equal keys are decided using the order of the entries in the original data order as a tie-breaker. Remembering this order, however, often involves an additional computational cost. Sorting based on a primary, secondary, tertiary, etc. sort key can be done by any sorting method, taking all sort keys into account in comparisons (in other words, using a single composite sort key). If a sorting method is stable, it is also possible to sort multiple times, each time with one sort key. In that case the keys need to be applied in order of increasing priority. \hfill \break
+
+Example: sorting pairs of numbers as above by second, then first component: \hfill \break
+
+\begin{center}
+( 4, 2 ), ( 3, 7 ), ( 3, 1 ), ( 5, 6 ) -Original-. \linebreak \linebreak
+( 3, 1 ), ( 4, 2 ), ( 5, 6 ), ( 3, 7 ) -After sorting by second component-. \linebreak \linebreak
+( 3, 1 ), ( 3, 7 ), ( 4, 2 ), ( 5, 6 ) -After sorting by first component-.
+\end{center} \hfill \break
+
+On the other hand: \hfill \break
+
+\begin{center}
+( 3, 7 ), ( 3, 1 ), ( 4, 2 ), ( 5, 6 ) -After sorting by first component-. \linebreak \linebreak
+( 3, 1 ), ( 4, 2 ), ( 5, 6 ), ( 3, 7 ) -After sorting by second component-.
+\end{center}
+
+\pagebreak

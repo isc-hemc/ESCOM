@@ -1,0 +1,51 @@
+\subsection{Sub$\_$matrices.py}
+
+This module has two methods:
+
+\begin{itemize}
+\item {\bfseries\itshape split$\_$in$\_$sub$\_$matrices ( ... ).}
+\item {\bfseries\itshape join$\_$sub$\_$matrices ( ... ).}
+\end{itemize} 
+
+According to sub-section's 2.2 step 1, first it's necessary to split the input matrices in sub-matrices of size $\frac{n}{2}\ x\ \frac{n}{2}$. The sub-matrices are declared in lines 2 and 3, from lines 6 to 14 are filled. \hfill \break
+
+This method return the sub-matrices: $A_{11},\ A_{12},\ A_{21},\ A_{22},\ B_{11},\ B_{12},\ B_{21},\ B_{22}$. \hfill \break
+
+\begin{lstlisting}
+def split_in_sub_matrices ( A, B, n ):
+    # Initialize the sub-matrices.
+    A11, A12, A21, A22 = [ ], [ ], [ ], [ ]
+    B11, B12, B21, B22 = [ ], [ ], [ ], [ ]
+    # Fill the sub-matrices.
+    for i in range ( n ):
+        A11.append ( A [ i ] [ :n ] )
+        A12.append ( A [ i ] [ n: ] )
+        A21.append ( A [ n + i ] [ :n ] )
+        A22.append ( A [ n + i ] [ n: ] )
+        B11.append ( B [ i ] [ :n ] )
+        B12.append ( B [ i ] [ n: ] )
+        B21.append ( B [ n + i ] [ :n ] )
+        B22.append ( B [ n + i ] [ n: ] )
+    # Return statement.
+    return A11, A12, A21, A22, B11, B12, B21, B22
+\end{lstlisting} \hfill 
+
+The next method, as its name says, join the sub-matrices {\bfseries $C_{11},\ C_{12}.\ C_{21},\ C_{22}$} in a resulting matrix {\bfseries C}. When the recursive process finished this matrix of size {\itshape n x n} it's the product of {\bfseries A $\cdot$ B}. This method it's basically the implementation of sub-section's 2.2 step 4. \hfill \break
+
+\begin{lstlisting}
+def join_sub_matrices ( C11, C12, C21, C22, n ):
+    sub_size = int ( n / 2 )
+    C = [ [ None for i in range ( n ) ] for j in range ( n ) ]
+    for i in range ( sub_size ):
+        for j in range ( sub_size ):
+            C [ i ] [ j ] = C11 [ i ] [ j ]
+            C [ i ] [ j + sub_size ] = C12 [ i ] [ j ]
+            C [ i + sub_size ] [ j ] = C21 [ i ] [ j ]
+            C [ i + sub_size ] [ j + sub_size ] = C22 [ i ] [ j ]
+    # Return statement.
+    return C
+\end{lstlisting} \hfill
+
+{\bfseries\itshape\color{carmine}{Observation:}} {\itshape\color{carmine}{{\bfseries None} in Python is similar to {\bfseries NULL} in C or {\bfseries null} in java.}} 
+
+\pagebreak

@@ -1,0 +1,140 @@
+\subsection{Merge:}
+
+Basically it's the very same program of {\bfseries\itshape Merge-Sort} but with some modifications. Still, we will explain the functionality of it. The program it's divided in four python modules to have a better control of the code:
+
+\begin{itemize}
+\item {\bfseries\itshape main.py:} Control the execution sequence, as well generate the list to sort.
+\item {\bfseries\itshape mergesort.py:} Contains the {\bfseries\itshape Merge-Sort} algorithm.
+\item {\bfseries\itshape merge.py:} Contains the {\bfseries\itshape Merge} algorithm.
+\item {\bfseries\itshape graph.py:} Plot {\bfseries\itshape length of the 'list'} against the {\bfseries\itshape time} that the algorithm {\bfseries\itshape Merge} takes to sort it. 
+\end{itemize} 
+
+\subsubsection{Main.py:}
+
+As well as Section 3.1.1, this program has a {\bfseries\itshape menu ( )} method that does exactly the same. The difference between this {\bfseries\itshape main.py} and the one seen previously it's what {\bfseries\itshape mergesort ( ... )} returns. \hfill \break
+
+\begin{lstlisting}
+def main ( ):
+    n = menu ( )
+    print ( "\n\tList to sort: ", n )
+    n, parameters = mergesort ( n )
+    print ( "\n\tSorted list:  ", n )
+    print ( "\n\tMerge Parameters: ( ", parameters [ 0 ], ", ", 
+    	parameters [ 1 ] - 1, " )\n" )
+    graph ( parameters )
+main ( )
+\end{lstlisting} \hfill
+
+As we can see, {\bfseries\itshape mergesort ( ... )} also receive a 'list' {\bfseries\itshape A} and returns two variables, in this case, we won't need a {\itshape for loop} because this time we are calculating the time that {\bfseries\itshape Merge} takes to sort {\itshape one} simply 'list' and not the time that {\bfseries\itshape MergeSort} takes to sort a 'list' doing recursive calls. The first returned variable it's {\bfseries\itshape A} sorted, and the second one it's only a tuple with two variables: The {\bfseries\itshape Length} of {\bfseries\itshape A} and the {\bfseries\itshape computational time} that {\bfseries\itshape Merge} takes to sort {\bfseries\itshape A}. So then, let {\bfseries\itshape Parameters ( Size ( n ), Time ( t ) )}, where {\bfseries\itshape 'n' = A} and {\bfseries\itshape t} it's the computational time. 
+
+\begin{figure}[H]
+\includegraphics[scale=.8]{parameters1.png}
+\centering \linebreak \linebreak Figure 4.2.1.0: {\bfseries\itshape Parameters} tuple, where the first element it's the {\bfseries\itshape size} of {\bfseries\itshape A} and the second element it's the {\bfseries\itshape computation time} that {\bfseries\itshape Merge} takes to sort and combine this list. For this example {\bfseries\itshape A} it's of size {\bfseries\itshape n = 10} as we can see.
+\end{figure}
+  
+\pagebreak
+
+\subsubsection{Graph.py}
+
+{\bfseries\itshape Graph ( ... )} plot {\bfseries\itshape Size ( n )} where {\bfseries\itshape 'n'} it's the length of the 'list' {\bfseries\itshape A}, against {\bfseries\itshape Time ( t )} where {\bfseries\itshape t} it's the computational time that {\bfseries\itshape Merge} takes to sort this list. As we can see, the function receive the tuple {\bfseries\itshape parameters}, as we said, stores 2 elements the {\itshape size} and the {\itshape time}, well, this tuple will gave us indirectly the points to plot, so, the only thing rest to do is divide {\itshape parameters} into two lists, one for the size, and another one for the computational time, this process is performed in the lines 8 and 10.  \hfill \break
+
+\begin{lstlisting}
+def graph ( parameters ):
+    # Window title.
+    plt.figure ( "Merge Algorithm" )
+    # Plot title.
+    plt.title ( "Merge ( size, time ): ( " + str ( parameters [ 0 ] ) + ", " 
+    	+ str ( parameters [ 1 ] - 1 ) + " )" )
+    # Parameter Time ( t ).
+    t = np.arange ( 0, parameters [ 1 ] + 1, int ( ( parameters [ 1 ] ) / ( parameters [ 0 ] ) ) )
+    # Parameter Size ( n ).
+    n = np.arange ( 0, parameters [ 0 ] + 1 )
+    # Proposed function g ( n ) = ( 3/2 ) n.
+    _t = list ( map ( lambda x: ( 3/2 ) * x, t ) )
+    # Names of the axes.
+    plt.ylabel ( "Time ( t )", color = ( 0.3, 0.4, 0.6 ), family = "cursive", size = "large" )
+    plt.xlabel ( "Size ( n )", color = ( 0.3, 0.4, 0.6 ), family = "cursive", size = "large" )
+    # Plot.
+    plt.plot ( n, t, "#778899", linewidth = 3, label = "T( n ) = n " )
+    plt.plot ( n, _t, "#800000", linestyle = "--", label = "g( n ) = ( 3/2 )( n )" )
+    plt.legend ( loc = "upper left" )
+    plt.show ( )
+\end{lstlisting} \hfill
+
+{\bfseries\itshape\color{armygreen}{Observation:}} {\itshape\color{armygreen}{In the tuple parameters always the {\bfseries time} value will be bigger than the {\bfseries size} of {\bfseries\itshape A} so, to have the correctly points to plot we will need that the lists {\bfseries t} and {\bfseries n} in lines 8 and 10 respectively, be of the same size, for this the list {\bfseries t} will be from {\bfseries '0' to 'k'} in intervals of {\bfseries ( k / l )} where {\bfseries k} will be the computational time and {\bfseries l} the length of {\bfseries A}. }} \hfill \break
+
+{\bfseries\itshape\color{armygreen}{Observation:}} {\itshape\color{armygreen}{We propose a function {\bfseries g( n ) = ( 3/2 ) ( n )}. In line 12, we take the elements of {\bfseries t} and multiply each one for ( 3/2 ), for later plot {\bfseries $t_{g( n )}$} against {\bfseries size ( n )}.}}
+
+\pagebreak
+
+\subsubsection{Mergesort.py}
+
+This algorithm it's the same showed in section 3.1.4, but with some modifications in the return statement. The algorithm does the same process explained above, but with the difference that in the lines 7 and 8, the variable parameters doesn't store the {\bfseries computational time} of {\bfseries\itshape mergesort}, but rather the {\bfseries computational time} of {\bfseries\itshape merge} and the size of {\bfseries\itshape A} where {\bfseries\itshape A} it's the list to sort. \hfill \break
+
+\begin{lstlisting}
+def mergesort ( n ):
+    # If the list has at most 1 element, return that list.
+    if ( len ( n ) <= 1 ):
+        return n, ( len ( n ), 0 )
+    # middle: Stores the integer part of the list length divided over 2.
+    middle = int ( len ( n ) / 2 )
+    left, parameters = mergesort ( n [ :middle ] )
+    right, parameters = mergesort ( n [ middle: ] )
+    # 'merge' convine and sort the left and right parts of the original list.
+    return merge ( left, right )
+\end{lstlisting}
+
+\pagebreak
+
+\subsubsection{Merge.py}
+
+This it's the principal algorithm for this section, {\bfseries\itshape merge} will receive as parameter two 'list' -Lets name this 'lists' {\bfseries\itshape B} and {\bfseries\itshape C}-, which are the {\bfseries\itshape left} and {\bfseries\itshape right} halves of a 'list' {\bfseries\itshape A}. \hfill \break
+
+\begin{lstlisting}
+def merge ( left, right ):
+    m, i, j = [ ], 0, 0
+    # Convine and sort the lists 'left' and 'right'.
+    while ( i < len ( left ) and j < len ( right ) ):
+        if ( left [ i ] <= right [ j ] ):
+            m.append ( left [ i ] )
+            i += 1
+        else:
+            m.append ( right [ j ] )
+            j += 1
+    # The loop may break before all the rest of the elements in the lists
+    # 'left' and 'right' are appended, hence, append the remaining elements.
+    m.extend ( left [ i: ] )
+    m.extend ( right [ j: ] )
+    return m
+\end{lstlisting} \hfill
+
+The principal function of this algorithm it's to sort {\bfseries\itshape A} using the {\bfseries\itshape divide-and-conquer} paradigm, of course, this algorithm works perfectly with {\bfseries\itshape mergesort}. To calculate the computation time that this algorithm takes to sort a list of length {\bfseries\itshape 'n'} it's necessary to put a counter in each line -Lets call this counter {\bfseries\itshape time}-, after finishing the algorithm process the program will store {\bfseries\itshape time} in a tuple along with the length of {\bfseries\itshape A}, together will conform the tuple that we have already been talking about. \hfill \break
+
+\begin{lstlisting}
+def merge ( left, right ):
+    m, i, j, time = [ ], 0, 0, 1
+    # Convine and sort the lists 'left' and 'right'.
+    while ( i < len ( left ) and j < len ( right ) ):
+        time += 1
+        if ( left [ i ] <= right [ j ] ):
+            m.append ( left [ i ] )
+            time += 1
+            i += 1
+            time += 1
+        else:
+            m.append ( right [ j ] )
+            time += 1
+            j += 1
+            time += 1
+    time += 1
+    # The loop may break before all the rest of the elements in the lists
+    # 'left' and 'right' are appended, hence, append the remaining elements.
+    m.extend ( left [ i: ] )
+    time += 1
+    m.extend ( right [ j: ] )
+    time += 1
+    #print ( "\nArray: ", m, "\tCounter: ", count )
+    return m, ( len ( m ), time )
+\end{lstlisting} \hfill
+
+\pagebreak

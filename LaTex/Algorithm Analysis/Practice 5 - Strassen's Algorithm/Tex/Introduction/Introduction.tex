@@ -1,0 +1,31 @@
+\section{Introduction}
+
+If you have seen matrices before, then you probably know how to multiply them. If A = $a_{i\ j}$ and B = $b_{i\ j}$ are square {\bfseries\itshape n x n} matrices, then in the product C = $A \bullet B$ we define the entry $c_{i\ j}$ for i, j = 1, 2, ..., n, by
+
+\begin{ceqn}
+\begin{align}
+c_{i\ j} = \sum_{k\ =\ 1}^{n} a_{ik} \bullet b_{kj}
+\end{align}
+\end{ceqn}
+
+We must compute $n^{2}$ matrix entries, and each is the sum of n values. The following procedure takes {\bfseries\itshape n x n} matrices A and B and multiplies them, returning their {\bfseries\itshape n x n} product C . We assume that each matrix has an attribute rows, giving the number of rows in the matrix. \hfill \break
+
+\begin{lstlisting}
+def SQUARE-MATRIX-MULTIPLY ( A, B ):
+	n = A.rows
+	let C be a new n x n matrix
+	for i = 1 to n do:
+		for j = 1 to n do:
+			Cij = 0
+			for k = 1 to n do:
+				Cij = Cij + aik * bkj
+	return C
+\end{lstlisting} \hfill
+
+The {\bfseries SQUARE-MATRIX-MULTIPLY} procedure works as follows. The {\bfseries\itshape for} loop of lines 4 $-$ 8 computes the entries of each row {\bfseries\itshape i}, and within a given row {\bfseries\itshape i}, the {\bfseries\itshape for} loop of lines 5 $-$ 8 computes each of the entries $c_{ij}$  for each column {\bfseries\itshape j}. Line 6 initializes $c_{ij}$ to 0 as we start computing the sum given in equation 1, and each iteration of the {\bfseries\itshape for} loop of lines 7 $-$ 8 adds in one more term of equation 1. \hfill \break
+
+Because each of the triply-nested for loops runs exactly n iterations, and each execution of line 8 takes constant time, the {\bfseries SQUARE-MATRIX-MULTIPLY} procedure takes $\theta\ (\ n^{3}\ )$ time. \hfill \break
+
+You might at first think that any matrix multiplication algorithm must take $\Omega\ (\ n^{3}\ )$ time, since the natural definition of matrix multiplication requires that many multiplications. You would be incorrect, however: we have a way to multiply matrices in $O\ (\ n^{3}\ )$. In this practice, we shall see Strassen’s remarkable recursive algorithm for multiplying {\bfseries\itshape n x n} matrices. It runs in $\Omega\ (\ n^{log_{2}(7)}\ )$. Since $log_{2}(7)$ lies between 2.80 and 2.81, Strassen’s algorithm runs in $O\ (\ n^{2.81}\ )$. Which is asymptotically better than the simple {\bfseries SQUARE-MATRIX-MULTIPLY} procedure.
+
+\pagebreak

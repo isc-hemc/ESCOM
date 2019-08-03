@@ -1,0 +1,37 @@
+\subsubsection{Decode:}
+
+As we are going to work at bits level, we will be shifting along the input binary-string. Remember that the first element of the string it's an extra "1", so in line 3 we calculate the length of the binary-string but subtracting one unit. In line 5 we verify that the first element it's a "1" otherwise the file is corrupted. Then, we set a flag named {\itshape done} as {\bfseries False} as the name of the variable, this flag will help the program to know when the decoding process is completed. In line 8 there is a {\bfseries while} loop. In line 9 we create a variable {\itshape shift} that will store the number of positions that we will be {\itshape shifting} in each iteration ( we are going to analyze bit by bit ). \hfill \break
+
+{\bfseries\itshape\color{carmine}{Observation:}} {\itshape\color{carmine}{In python the binary-strings are represented like this {\bfseries 0b10000101010111111110} so, initially the variable length stores the value "19" and shift "18", for this example.}} \hfill \break
+
+In line 11 there is an infinite {\bfseries while} loop, in line 12 we shift into out binary-string 18 positions to the right, so, the variable {\bfseries num} should store "0b10" ( continuing with the {\itshape observation} example ), as we can see, there is a useless "0b" character and the extra "1" added in the encoding process, so in line 14 we delete this extra characters and store the result in the variable {\bfseries bitnum} that at the moment should store the value of "0". Then we evaluate if {\bfseries bitnum} it's in the dictionary, if isn't, then we decrease the {\bfseries shift} variable and continue searching in the next iteration, otherwise we extract the respective symbol, and appended in the list {\bfseries result} as we can see in line 22. Finally in lines 23 and 24 we modified the variables {\bfseries binary} and {\bfseries length} by preparing them for the next iteration. \hfill \break
+
+{\bfseries\itshape\color{carmine}{Observation:}} {\itshape\color{carmine}{The {\bfseries while} loop will change the {\bfseries done} flag until the program finds the codes for the END symbol.}} \hfill \break
+
+\begin{lstlisting}
+def decode ( dictionary, binary ):
+    result = [ ]
+    length = binary.bit_length ( ) - 1
+    # First character must be 1, otherwise there is an error.
+    if ( binary >> length != 1 ):
+        raise ( "Error: Corrupt file." )
+    done = False
+    while ( length > 0 and ( not done ) ):
+        shift = length - 1
+        # Increase bit by bit.
+        while ( True ):
+            num = binary >> shift
+            # Delete the initial '1' and the '0b' of the format.
+            bitnum = bin ( num ) [ 3: ]
+            if ( bitnum not in dictionary ):
+                shift -= 1
+                continue
+            char = dictionary [ bitnum ]
+            if ( char == "end" ):
+                done = True
+                break
+            result.append ( char )
+            binary = binary - ( ( num - 1 ) << shift )
+            length = shift
+    return "".join ( result )
+\end{lstlisting}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+<!--The data in this file is primarily intended for consumption by Xilinx tools.
+The structure and the elements are likely to change over the next few releases.
+This means code written to parse this file will need to be revisited each subsequent release.-->
+<application name="impact" timeStamp="Mon Jun 04 22:45:34 2018">
+<section name="Project Information" visible="false">
+<property name="ProjectID" value="29dd0c51b1514b888eda07b3093066c2"/>
+<property name="ProjectIteration" value="1"/>
+</section>
+<section name="iMPACT Project Info" visible="true">
+<property name="Use Project File" value="No"/>
+<property name="Project Entry" value="ise"/>
+<property name="OS Name" value="Microsoft Windows NT (64 Bit)"/>
+<property name="User Lic. Info" value="211493050_0_0_053"/>
+</section>
+<section name="iMPACT One Step SVF File Mode" visible="true">
+<item name="Chain Summary">
+<property name="Number of device" value="1"/>
+<property name="Number of Xilinx device" value="1"/>
+<property name="Number of Non-Xilinx device" value="0"/>
+</item>
+<item name="Chain Description">
+<property name="Device1" value="artix7"/>
+<property name="Part1" value="xc7a100t"/>
+</item>
+<item name="Boundary Scan Operations Statistics">
+<property name="BSCAN Operation" value="Program -p 0
+"/>
+</item>
+<item name="Cable Summary">
+<property name="Cable Type" value="Digilent Nexys4DDR"/>
+<property name="Cable Speed" value="10000000"/>
+<property name="Port" value="Plugin Cable"/>
+<property name="Local_Server_Mode" value="Local"/>
+</item>
+</section>
+</application>
+</document>

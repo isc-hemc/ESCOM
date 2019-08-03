@@ -1,0 +1,36 @@
+\subsection{Main.py}
+
+This module has the main implementation, as we can see in the code bellow we only call 3 methods:
+
+\begin{itemize}
+\item create ( ): Create and return the matrices A and B.
+\item strassen ( ): Implements the strassen algorithm, return the resulting matrix and receive as parameters the matrices A and B.
+\item printer ( ): This method it's nested in this module, prints on screen the matrices A, B and C.
+\end{itemize}
+
+\begin{lstlisting}
+if ( __name__ == "__main__" ):
+    A, B = create ( )
+    C = strassen ( A, B )
+    printer ( A, B, C )
+\end{lstlisting} \hfill
+
+The module as we mention, has another method, {\bfseries\itshape printer ( A, B, C )} gives format to the matrices and display them in console. \hfill \break
+
+\begin{lstlisting}
+def printer ( A, B, C ):
+    assert len ( A ) == len ( B ) == len ( C )
+    print ( "\n\tStrassen Algorithm:" )
+    print ( "\n\tMatrix A:\n" )
+    list ( map ( lambda x: print ( "\t{}".format ( x ) ), A ) )
+    print ( "\n\tMatrix B:\n" )
+    list ( map ( lambda x: print ( "\t{}".format ( x ) ), B ) )
+    print ( "\n\tProduct A * B:\n" )
+    list ( map ( lambda x: print ( "\t{}".format ( x ) ), C ) )
+    n = len ( C )
+    print ( "\n\tWhere: A, B, C ∈ M [ {}x{} ] ( ℤ+ )\n".format ( n, n ) )
+\end{lstlisting} \hfill
+
+{\bfseries\itshape\color{carmine}{Observation:}} {\itshape\color{carmine}{In line 2 of the code above, the keyword {\bfseries assert} validates that both A, B and the product C has the same size, in case that the condition doesn't satisfy the program will stop the execution and throw an error.}}
+
+\pagebreak

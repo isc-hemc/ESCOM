@@ -1,0 +1,93 @@
+\subsection{Merge-Sort Demonstration:}
+
+Demonstrate that MergeSort algorithm has {\bfseries\itshape T ( n ) = ( n ) ( log ( n ) )} order:  \hfill \break
+
+{\bfseries\color{Violet}{function}} MergeSort ( A, p, r ):
+\begin{lstlisting}
+if ( p < r )
+	q = ( p + r ) / 2
+	MergeSort ( A, p, r )
+	MergeSort ( A, q + 1, r )
+	Merge ( A, p, q, r )
+\end{lstlisting}
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Maroon}{Demonstration:}} \hfill
+\end{itemize}
+
+Although the pseudocode for MERGE-SORT works correctly when the number of elements is not even, our recurrence-based analysis is simplified if we assume that the original problem size is a power of 2. Each divide step then yields two subsequences of size exactly $\frac{n}{2}$. We reason as follows to set up the recurrence for \linebreak {\bfseries\itshape T ( n )}the worst-case running time of merge sort on {\bfseries\itshape n} numbers. Merge sort on just one element takes constant time. When we have $n > 1$ elements, we break down the running time as follows.
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{From equation 1:}} \hfill
+\begin{tasks}
+\task {\bfseries\itshape Divide:} The divide step just computes the middle of the subarray, which takes constant time. Thus, $D ( n ) = \theta ( n )$. 
+\task {\bfseries\itshape Conquer:} We recursively solve two subproblems, each of size $\frac{n}{2}$ which contributes {\bfseries\itshape 2T ( $\frac{n}{2}$ )} to the running time.
+\task {\bfseries\itshape Combine:} We have already noted that the MERGE procedure on an n-element subarray takes time $\theta ( n )$ and so $C ( n ) = \theta ( n )$
+\end{tasks}
+\end{itemize} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Then, our recurrence equations is:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+T( n ) = \left\{
+\begin{array}{ll}
+c & \mathrm {if\ } n = 1 \\
+2T ( \frac{n}{2} ) + cn & \mathrm {if\ } n > 1 \\
+\end{array}
+\right.
+\end{align}
+\end{ceqn} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Let k = $log_{2}( n )$, then $n = 2^{k}$, substituting:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+T (\ n\ ) &= 2T (\ \frac{n}{2}\ ) + cn \\
+&= 2T ( 2^{k-1} ) + c(\ 2^{k}\ ) \\
+&= 2^{2}T (\ 2^{k-2}\ ) + 2c(\ 2^{k}\ ) \\
+&= 2^{3}T (\ 2^{k-3}\ ) + 3c(\ 2^{k}\ ) \\
+\end{align}
+\end{ceqn} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Then:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+T (\ n\ ) &= 2^{i}T (\ 2^{k-i}\ ) + ic(\ 2^{k}\ ) \\
+\end{align}
+\end{ceqn} 
+
+\pagebreak
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Let k - i = 0, then k = i:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+T (\ n\ ) &= 2^{k}T (\ 1\ ) + (\ kc\ )\ (\ 2^{k}\ ) \\
+&= (\ c\ )\ (\ 2^{k}\ )\ +\ (\ kc\ )\ (\ 2^{k}\ ) \\
+&= (\ c\ )\ (\ 2^{k}\ )\ [\ 1\ +\ k\ ] \\
+&= (\ cn\ )\ [\ log_{2}(\ n\ )\ +\ 1\ ] \\
+&= (\ cn\ )\ log_{2}(\ n\ )\ +\ (\ cn\ ) \\
+\end{align}
+\end{ceqn} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Finally:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+MergeSort \in \theta\ (\ (\ n\ )\ (\ log_{2} (\ n\ )\ )\ ).
+\end{align}
+\end{ceqn}
+
+\pagebreak

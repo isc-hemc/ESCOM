@@ -1,0 +1,19 @@
+\subsection{Step 4: Constructing an Optimal Solution:}
+
+Although {\bfseries matrix$\_$chain$\_$order} determines the optimal number of scalar multiplications needed to compute a matrix-chain product, it does not directly show how to multiply the matrices. The table s [ 1 ... n - 1, 2 ... n ] gives us the information we need to do so. Each entry s [ i, j ] records a value of {\itshape k} such that an optimal parenthesization of $A_{i} A_{i+1} ... A_{j}$ splits the product between $A_{k}$ and $A_{k+1}$. Thus, we know that the final matrix multiplication in computing $A_{1 ... n}$ optimally is $A_{1...s[1,n]}\ A_{s[1,n] + 1 ...n}$. We can determine the earlier matrix multiplications recursively, since {\itshape s [ 1, s [ 1, n ] ]} determines the last matrix multiplication when computing $A_{1...s[1,n]}$ and {\itshape s [ s [ 1, n ] + 1, n ]} determines the last matrix multiplication when computing $A_{s[1,n] + 1 ...n}$. The following recursive procedure prints an optimal parenthesization of $\langle\ A_{i},\ A_{i+1},\ ...,\ A_{j}\ \rangle$, given the {\itshape s} table computed by {\bfseries matrix$\_$chain$\_$order} and the indices {\itshape i} and {\itshape j}. The initial call {\bfseries print$\_$optimal$\_$parens ( s, 1, n )} prints an optimal parenthesization of $\langle\ A_{1},\ A_{2},\ ...,\ A_{n}\ \rangle$. \hfill \break
+
+\begin{lstlisting}
+def print_optimal_parens ( s, i, j ):
+    global parenthesization
+    if ( i == j ):
+        parenthesization = parenthesization + "A{}".format ( i )
+    else:
+        parenthesization = parenthesization + "("
+        print_optimal_parens ( s, i, s [ i ] [ j ] )
+        print_optimal_parens ( s, s [ i ] [ j ] + 1, j )
+        parenthesization = parenthesization + ")"
+\end{lstlisting} \hfill
+
+In the example of Figure 3.3.0 the call {\bfseries print$\_$optimal$\_$parens ( s, 1, 6 )} prints the parenthesization: \linebreak ( ( $A_{1}$ ( $A_{2}\ A_{3}$ ) ) ( ( $A_{4}\ A_{5}$ ) $A_{6}$ ) ).
+
+\pagebreak

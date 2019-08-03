@@ -1,0 +1,56 @@
+\subsection{Partition Demonstration:}
+
+Formally demonstrate that {\bfseries\itshape Partition} algorithm has linear complexity.  \hfill \break
+
+{{\bfseries\color{Violet}{Partition}} ( A, p, r ):
+\begin{lstlisting}
+	x = A[r]
+	i = P - 1
+	for  j = p to j <= r - 1 do
+		if ( A[j] <= x )
+			i ++
+			exchange ( A[i], A[j] )
+	exchange ( A[i + 1] , A[r] )
+	return i + 1;			
+\end{lstlisting} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Maroon}{Demonstration:}} 
+\end{itemize} 
+
+\begin{multicols}{2}
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Analyzing the complexity of each line:}}
+\begin{enumerate}
+\item Line 1, 2 = $\theta\ (\ 1\ )$.
+\item Line 3 = $\theta\ (\ n\ )$.
+\begin{tasks}
+\task Line 4, 5, 6 = $\theta\ (\ 1\ )$.
+\end{tasks}
+\item Line 7, 8 = $\theta\ (\ 1\ )$.  
+\end{enumerate}
+\hfill \break \break \break \break \break  
+\end{itemize} 
+\end{multicols} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Then, from all lines:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+T\ (\ n\ )\ =\ \theta\ (\ 1\ +\ (\  n\ *\ 1\ )\ +\ 1\  )\ =\ \theta\ (\ n\ )
+\end{align}
+\end{ceqn} \hfill
+
+\begin{itemize}
+\item {\bfseries\itshape\color{Violet}{Finally:}}
+\end{itemize} \hfill
+
+\begin{ceqn}
+\begin{align}
+Partition \in\ \theta\ (\ n\ )
+\end{align}
+\end{ceqn}
+
+\pagebreak

@@ -1,0 +1,48 @@
+\subsubsection{Symbol Frequency:}
+
+We will denote as a {\itshape symbol}, any character that can be found in a file, the input of the program will be a file with extension {\itshape .txt}. As we can see in the method {\bfseries getText} we open the file {\itshape Original.txt} found in the directory {\itshape Files} of our programs. In line 3 we get all the text that is on the file except the last line-break and in line 4, if the file it's empty, then the program will take the variable TEST that stores the string {\itshape "This is a test for Huffman's algorithm."}. \hfill \break
+
+
+\begin{lstlisting}
+def getText ( ):
+    with ( open ( "Files/Original.txt", "r" ) ) as f:
+        txtin = f.read ( ).rstrip ( "\n" )
+        content = TEST if ( txtin == "" ) else txtin
+    return content
+\end{lstlisting} \hfill
+
+Once we have the input - text, we create an object of the class {\bfseries Huffman} and pass to the constructor the variable returned in the method above. Then we call the method {\bfseries setFrequency}, this may be the easier part of the algorithm, in line 2 we store in {\itshape total} the total length of the input string adding one more element, this will be a "flag" that will help us to know when we have reached the END of the file when we {\itshape decompress}. in line 4 and 5 there are declared the "dictionaries" {\itshape probability} and {\itshape frequency}, the first will store the probability of appearance of each {\itshape symbol} and the second the frequency that this {\itshape symbol} has appear. From lines 6 - 8 we fill this "dictionaries" and in lines 9 - 10 we set the END {\itshape symbol}. The dictionary that we are going to use along the program it's {\bfseries frequency} the other one it's just for giving format to one of the outputs files that we will explain later. \hfill \break
+
+\begin{lstlisting}
+def setFrequency ( self ):
+        total = len ( self.txtin ) + 1
+        c = Counter ( self.txtin )
+        self.probability = {}
+        self.frequency = {}
+        for char, counter in c.items ( ):
+            self.probability [ char ] = float ( counter ) / total
+            self.frequency [ char ] = counter
+        self.probability [ "end" ] = 1.0 / total
+        self.frequency [ "end" ] = 1
+\end{lstlisting} \hfill
+
+Let's imagine that we are going to encode the string {\bfseries aaaabbbcc} then, we have the next appearance frequency: {\bfseries a} = 4, {\bfseries b} = 3 and {\bfseries c} = 2. Each {\itshape symbol} has the following distribution: {\bfseries P(a)} = 0.4 $\%$, {\bfseries P(b)} = 0.3 $\%$ and {\bfseries P(c)} = 0.2 $\%$, the rest it's assigned to the flag {\itshape symbol} {\bfseries P(END)} = 0.1 that appears 1 time. Table 1 shows this results, it should be noted that these values are stored in the dictionaries previously mentioned. \hfill \break
+
+\begin{center}
+\begin{tabular}{c c c}
+\toprule \toprule
+\hspace{50px} Symbol \hspace{50px} & \hspace{45px} Distribution \hspace{45px} & \hspace{50px} Frequency \hspace{50px} \\
+\midrule \midrule
+a & 0.4 $\%$ & 4 \\
+\midrule
+b & 0.3 $\%$ & 3 \\
+\midrule 
+c & 0.2 $\%$ & 2 \\
+\midrule
+END & 0.1 $\%$ & 1 \\
+\bottomrule
+\end{tabular}
+\linebreak \linebreak Table 1.
+\end{center}
+
+\pagebreak
