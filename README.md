@@ -1,18 +1,18 @@
 # ESCOM
 
-This repository contains everything I did during the 4 years I studied at ESCOM, I hope that people who find this material will find it useful.
+This repository contains everything I did during the 4 years I studied at ESCOM, I hope that people who finds this material will find it useful.
 
-## Courses
-
-- Programacion estructurada - Juan Vicente Garcia.
-- Estructuras de datos - Rafael Norman Saucedo.
-- Analisis de algoritmos - Benjamin Luna Benoso.
-- Aplicaciones para las comunicaciones en red - Axel Ernesto Moreno Cervantes.
-- Diseño de sistemas digitales - Nayeli Vega Garcia.
-- Arquitectura de computadoras - Nayeli Vega Garcia.
-- Sistemas operativos - Josue Rangel Gonzalez.
-- Tecnologias para la web - Jose Antonio Ortiz Ramirez.
-- Procesamiento de lenguaje natural - Olga Kolesnikova.
+|                   Course                    |            Teacher            | Qualification |
+|---------------------------------------------|-------------------------------|---------------|
+|          Programacion estructurada          |      Juan Vicente Garcia      |       8       |
+|             Estructuras de datos            |     Rafael Norman Saucedo     |       9       |
+|            Analisis de algoritmos           |     Benjamin Luna Benoso      |       10      |
+| Aplicaciones para las comunicaciones en red | Axel Ernesto Moreno Cervantes |       10      |
+|        Diseño de sistemas digitales         |      Nayeli Vega Garcia       |       10      |
+|        Arquitectura de computadoras         |      Nayeli Vega Garcia       |       10      |
+|             Sistemas operativos             |     Josue Rangel Gonzalez     |       10      |
+|           Tecnologias para la web           |   Jose Antonio Ortiz Ramirez  |       10      |
+|      Procesamiento de lenguaje natural      |        Olga Kolesnikova       |       10      |
 
 ## Authors
 
