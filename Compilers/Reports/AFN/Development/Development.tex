@@ -1,0 +1,231 @@
+\section{Desarrollo}
+
+La practica consta de desarrollar un programa que sea capaz de generar autómatas finitos no deterministas por medio de una quintupla definida como:
+
+\begin{equation}
+(Q, \Sigma, \alpha, q_{0}, F)
+\end{equation}
+
+Donde:
+
+\begin{itemize}
+\item Q: Conjunto de estados finito y no vació.
+\item $\Sigma$: Alfabeto de entrada.
+\item $\alpha$: Función de transición.
+\item $q_{0}$: Estado inicial.
+\item F: Conjunto de estados finales. 
+\end{itemize}
+
+Estas quintuplas serán almacenadas en archivos TXT de tal forma que nuestro programa pueda leer el archivo y extraer los datos de el.
+
+\subsection{Lectura del archivo}
+
+El siguiente fragmento de código nos permite leer el archivo TXT, limpiar los datos en caso de que existan símbolos como saltos de linea o espacios en blanco y construir la quintupla que nos permitira generar el autómata finito que será capaz de aceptar cadenas pertenecientes a su alfabeto y decidir si tienen un estado de aceptación:
+
+\begin{lstlisting}
+class FileHandler:
+    """File Handler.
+
+    This class handles everything that has to do with the file where the
+    automaton quintuple is located; the purpose of this class it's to read the
+    automaton quintuple file, clean it from any `special character` stored in
+    the file (like the backslash for example) and build the quintuple in a
+    comprehensive tuple for the program `(states, alphabet, start_state,
+    accept_states, transitions)`.
+
+    Attributes
+    ----------
+    path: str
+        Path where the quintuple file is located.
+
+    """
+
+    __slots__ = ("path",)
+
+    def __init__(self, path: str):
+        """Constructor."""
+        self.path: str = path
+
+    def read_file(self) -> Tuple:
+        """Read file.
+
+        Reads the file in the `path` attribute.
+
+        Returns
+        -------
+        Tuple
+            An AFN quintuple.
+
+        """
+        with open(self.path, "r") as f:
+            data: List = f.readlines()
+        data = self.clean_data(data)
+        return self.build_quintuple(data)
+
+    def build_quintuple(self, data: List) -> Tuple:
+        """Build Quintuple.
+
+        From the data collected from the file in the `path` attribute builds
+        the automata quintuple.
+
+        Parameters
+        ----------
+        data: List
+            Raw data readed for the file in the `path` attribute.
+
+        Returns
+        -------
+        Tuple
+            Automata quintuple.
+
+        """
+        states: List = data.pop(0).split(",")
+        alphabet: List = data.pop(0).split(",")
+        start_state: str = data.pop(0)
+        accept_states: List = data.pop(0).split(",")
+        transitions: List = [element.split(",") for element in data]
+        return (states, alphabet, start_state, accept_states, transitions)
+
+    def clean_data(self, data: List) -> List:
+        """Clean data.
+
+        Removes the backslash character for each element into a list.
+
+        Parameters
+        ----------
+        data: List
+            Raw data readed for the file in the `path` attribute.
+
+        Returns
+        -------
+        List
+
+        """
+        return [element.rstrip() for element in data]
+\end{lstlisting}
+
+\subsection{Algoritmo}
+
+El siguiente algoritmo recursivo es el que permitirá generar el autómata finito y determinar si la cadena entrante pertenece o no al alfabeto. La clase AFN recibe como atributos la quintupla extraída del archivo TXT con el fragmento de código mostrado anteriormente, estos datos serán utilizados por la función \textbf{validate} que recibe como parámetros la cadena a validar, un apuntador a la posición actual de la cadena, el conjunto de caminos que se han generado y el estado actual en el que se encuentra el símbolo de la cadena que esta siendo evaluado.
+
+\begin{lstlisting}
+class AFN:
+    """AFN class.
+
+    Object that contains the information of an AFN.
+
+    Attributes
+    ----------
+    states: List
+        Finite set of states.
+    alphabet: List
+        Finite set of symbols.
+    start_state: str
+        State before any input been processed.
+    accept_state: List
+        Set of states.
+    transitions: List
+        Transition function
+
+    """
+
+    __slots__ = (
+        "states",
+        "alphabet",
+        "start_state",
+        "accept_states",
+        "transitions",
+        "_result",
+        "_error",
+    )
+
+    def __init__(
+        self,
+        states: List,
+        alphabet: List,
+        start_state: str,
+        accept_states: List,
+        transitions: List,
+    ):
+        """Constructor."""
+        self.states: List = states
+        self.alphabet: List = alphabet
+        self.start_state: str = start_state
+        self.accept_states: List = accept_states
+        self.transitions: List = transitions
+        self._result: List = []
+        self._error: str = "x"
+
+    def _filter_transitions(
+        self, data: str, position: int, current: str
+    ) -> List:
+        """Obtain Transition Set.
+
+        Gets the possible next transitions that the automaton can follow for
+        the given input.
+
+        Parameters
+        ----------
+        data: str
+            Input to validate.
+        position: int
+            Pointer to the current position of the input.
+        current: str
+            Current state of the automaton in which the input is positioned.
+
+        Returns
+        -------
+        List
+            Transitions that the automaton can follow for the input in the
+            current position.
+
+        """
+        return list(
+            filter(
+                lambda x: x[0] == current and data[position] == x[1],
+                self.transitions,
+            )
+        )
+
+    def validate(
+        self,
+        data: str,
+        position: int = 0,
+        path: List = [],
+        current: Optional[str] = None,
+    ) -> List:
+        """Validate.
+
+        Validates if a given input belongs to the automaton alphabet.
+
+        Parameters
+        ----------
+        data: str
+            Input to validate.
+        position: int
+            Pointer to the current position of the input.
+        path: List
+            Route that the automaton is generating for the input.
+        current: optional, str
+            Current state of the automaton in which the input is positioned.
+
+        Returns
+        -------
+        List
+            All posible routes that the automaton generate for the input.
+
+        """
+        current = self.start_state if current is None else current
+        if len(data) < position + 1:
+            path.append(current)
+            self._result.append(path)
+            return path
+        transition_set = self._filter_transitions(data, position, current)
+        if not transition_set:
+            path.append(current)
+            self.validate(data, position + 1, path.copy(), self._error)
+        path.append(current)
+        for t in transition_set:
+            self.validate(data, position + 1, path.copy(), t[2])
+        return self._result
+\end{lstlisting}

@@ -1,0 +1,36 @@
+\section{Introducción}
+
+Un autómata finito es un modelo matemático de una máquina de estados que acepta cadenas de un lenguaje definido sobre un alfabeto. Consiste en un conjunto finito de estados y un conjunto de transiciones sobre esos estados que dependen de los símbolos de la cadena de entrada. El autómata finito acepta una cadena X si la secuencia de transiciones correspondientes a los símbolos de X conducen desde el estado inicial al estado final.
+
+\subsection{Autómata Finito Determinista}
+
+Un autómata finito determinista (AFD) se refiere al hecho de que para cada entrada solo existe uno y solo un estado al que el autómata puede hacer la transición a partir de su estado actual. La \textit{función de transición} toma como argumentos un estado y un símbolo de entrada, como resultado devuelve un estado. La función de transición se designa habitualmente como $\sigma$. Entonces, si Q es un estado y $\alpha$ es un símbolo de entrada, entonces podríamos decir que la ecuación (1) es el estado P.
+
+\begin{equation}
+\sigma(Q, \alpha)
+\end{equation}
+
+De tal forma que lo descrito anteriormente se puede describir gráficamente de la siguiente forma:
+
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm,scale = 1,transform shape]
+\node[state] (Q) {$Q$};
+\node[state] (P) [right of=Q] {$P$};
+\path (Q) edge node {$\alpha$} (P);
+\end{tikzpicture}
+\end{center}
+
+\subsection{Autómata Finito No Determinista}
+
+Un autómata finito no determinista (AFND) tiene la capacidad de estar en varios estados a la vez, es decir, posee al menos un estado tal que para un símbolo existe mas de una transición (1) posible, entonces si Q es un estado y $\alpha$ es un símbolo de entrada, tenemos:
+
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm,scale = 1,transform shape]
+\node[state] (Q) {$Q$};
+\node[state] (P) [right of=Q] {$P$};
+\path (Q) edge node {$\alpha$} (P);
+\path (Q) edge [loop left] node {$\alpha$} (Q);
+\end{tikzpicture}
+\end{center}
+
+\pagebreak
