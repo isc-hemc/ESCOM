@@ -7,5 +7,5 @@ path = "./quintuple.txt"
 handler = FileHandler(path)
 quintuple = handler.read_file()
 afn = AFN(*quintuple)
-result = afn.validate("+aa.aa")
-afn.display_acceptation_paths("+aa.aa")
+result = afn.validate("abcbb")
+afn.display_acceptation_paths("abcbb")

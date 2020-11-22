@@ -1,0 +1,189 @@
+\section{Desarrollo}
+
+La practica consta en desarrollar un programa que sea capaz de generar autómatas finitos no deterministas con transiciones $\epsilon$ por medio de una quintupla definida como: (Q, $\Sigma$, $\triangle$, $q_{0}$, F).
+
+Donde:
+
+\begin{itemize}
+\item Q: Conjunto de estados finito y no vació.
+\item $\Sigma$: Alfabeto de entrada.
+\item $\triangle$: Función de transición.
+\item $q_{0}$: Estado inicial.
+\item F: Conjunto de estados finales. 
+\end{itemize}
+
+Estas quintuplas serán almacenadas en archivos TXT de tal forma que nuestro programa pueda leer el archivo y extraer los datos de el. Ademas, de que el alumno tendrá que generar la quintupla y el autómata de las siguientes expresiones regulares:
+
+\begin{equation}
+( ( b | b^{*}a )^{*})a^{*}
+\end{equation}
+
+\begin{equation}
+( a | b | c )^{*}b^{*}
+\end{equation}
+
+Para la expresión regular (1) tenemos el siguiente autómata y tabla de transiciones:
+
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.0cm,scale = .8,transform shape]
+\node[state] (q0) {$q0$};
+\node[state] (q1) [above right of=q0] {$q1$};
+\node[state] (q2) [above right of=q1] {$q2$};
+\node[state] (q3) [right of=q1] {$q3$};
+\node[state] (q4) [above right of=q2] {$q4$};
+\node[state] (q5) [right of=q4] {$q5$};
+\node[state] (q6) [below right of=q5] {$q6$};
+\node[state] (q7) [right of=q6] {$q7$};
+\node[state] (q9) [below right of=q7] {$q9$};
+\node[state] (q8) [left of=q9] {$q8$};
+\node[state] (q10) [below right of=q9] {$q10$};
+\node[state] (q11) [right of=q10] {$q11$};
+\node[state] (q12) [above right of=q11] {$q12$};
+\node[state] (q13) [right of=q12] {$q13$};
+\node[state, accepting] (q14) [below right of=q13] {$q14$};
+
+\path (q0) edge node {$\epsilon$} (q1);
+\path (q1) edge node {$\epsilon$} (q2);
+\path (q2) edge node {$\epsilon$} (q4);
+\path (q4) edge[bend left] node {b} (q5);
+\path (q5) edge[bend left] node {$\epsilon$} (q4);
+\path (q5) edge node {$\epsilon$} (q6);
+\path (q2) edge node {$\epsilon$} (q6);
+\path (q6) edge node {a} (q7);
+\path (q7) edge node {$\epsilon$} (q9);
+
+\path (q1) edge node {$\epsilon$} (q3);
+\path (q3) edge node {b} (q8);
+\path (q8) edge node {$\epsilon$} (q9);
+
+\path (q9) edge node {$\epsilon$} (q10);
+\path (q10) edge node {$\epsilon$} (q11);
+\path (q11) edge node {$\epsilon$} (q12);
+\path (q12) edge[bend left] node {a} (q13);
+\path (q13) edge[bend left] node {$\epsilon$} (q12);
+\path (q13) edge node {$\epsilon$} (q14);
+\path (q11) edge node {$\epsilon$} (q14);
+
+\path (q9) edge[bend left=20] node {$\epsilon$} (q1);
+\path (q0) edge node {$\epsilon$} (q10);
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tabular}{c c c c}
+\toprule \toprule
+\hspace{20px} $\triangle$ \hspace{20px} & \hspace{20px} $\epsilon$ \hspace{20px} & \hspace{20px} a \hspace{20px} & \hspace{20px} b \hspace{20px}  \\
+\midrule \midrule
+$q_{0}$ & $\{q_{1}, q_{10}\}$ & - & - \\
+\cmidrule{1-4}
+$q_{1}$ & $\{q_{2}, q_{3}\}$ & - & - \\
+\cmidrule{1-4}
+$q_{2}$ & $\{q_{4}, q_{6}\}$ & - & - \\
+\cmidrule{1-4}
+$q_{3}$ & - & - & $\{q_{8}\}$ \\
+\cmidrule{1-4}
+$q_{4}$ & - & - & $\{q_{5}\}$ \\
+\cmidrule{1-4}
+$q_{5}$ & $\{q_{4}, q_{6}\}$ & - & - \\
+\cmidrule{1-4}
+$q_{6}$ & - & $\{q_{7}\}$ & - \\
+\cmidrule{1-4}
+$q_{7}$ & $\{q_{9}\}$ & - & - \\
+\cmidrule{1-4}
+$q_{8}$ & $\{q_{9}\}$ & - & - \\
+\cmidrule{1-4}
+$q_{9}$ & $\{q_{10}, q_{1}\}$ & - & - \\
+\cmidrule{1-4}
+$q_{10}$ & $\{q_{11}\}$ & - & - \\
+\cmidrule{1-4}
+$q_{11}$ & $\{q_{12}, q_{14}\}$ & - & - \\
+\cmidrule{1-4}
+$q_{12}$ & - & $\{q_{13}\}$ & - \\
+\cmidrule{1-4}
+$q_{13}$ & $\{q_{12}, q_{14}\}$ & - & - \\
+\cmidrule{1-4}
+$q_{14}$ & - & - & - \\
+\bottomrule
+\end{tabular}
+\linebreak \linebreak Tabla 1: Formalización del autómata (1).
+\end{center}
+
+Para la expresión regular (2) tenemos el siguiente autómata y tabla de transiciones:
+
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.0cm,scale = .8,transform shape]
+\node[state] (q0) {$q0$};
+\node[state] (q1) [above right of=q0] {$q1$};
+\node[state] (q2) [above right of=q1] {$q2$};
+\node[state] (q3) [right of=q1] {$q3$};
+\node[state] (q4) [below right of=q1] {$q4$};
+\node[state] (q5) [above left of=q8] {$q5$};
+\node[state] (q6) [left of=q8] {$q6$};
+\node[state] (q7) [below left of=q8] {$q7$};
+\node[state] (q8) [right of=q6] {$q8$};
+\node[state] (q9) [below right of=q8] {$q9$};
+\node[state] (q10) [right of=q9] {$q10$};
+\node[state] (q11) [above right of=q10] {$q11$};
+\node[state] (q12) [right of=q11] {$q12$};
+\node[state, accepting] (q13) [below right of=q12] {$q13$};
+
+\path (q0) edge node {$\epsilon$} (q1);
+\path (q1) edge node {$\epsilon$} (q2);
+\path (q1) edge node {$\epsilon$} (q3);
+\path (q1) edge node {$\epsilon$} (q4);
+\path (q2) edge node {a} (q5);
+\path (q3) edge node {b} (q6);
+\path (q4) edge node {c} (q7);
+\path (q5) edge node {$\epsilon$} (q8);
+\path (q6) edge node {$\epsilon$} (q8);
+\path (q7) edge node {$\epsilon$} (q8);
+\path (q8) edge[bend right=90] node {$\epsilon$} (q1);
+\path (q8) edge node {$\epsilon$} (q9);
+\path (q0) edge[bend right] node {$\epsilon$} (q9);
+\path (q9) edge node {$\epsilon$} (q10);
+\path (q10) edge node {$\epsilon$} (q11);
+\path (q11) edge[bend left] node {b} (q12);
+\path (q12) edge[bend left] node {$\epsilon$} (q11);
+\path (q10) edge node {$\epsilon$} (q13);
+\path (q12) edge node {$\epsilon$} (q13);
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tabular}{c c c c c}
+\toprule \toprule
+\hspace{20px} $\triangle$ \hspace{20px} & \hspace{20px} $\epsilon$ \hspace{20px} & \hspace{20px} a \hspace{20px} & \hspace{20px} b \hspace{20px} & \hspace{20px} c \hspace{20px}   \\
+\midrule \midrule
+$q_{0}$ & $\{q_{1}, q_{9}\}$ & - & - & - \\
+\cmidrule{1-5}
+$q_{1}$ & $\{q_{2}, q_{3}, q_{4}\}$ & - & - & - \\
+\cmidrule{1-5}
+$q_{2}$ & - & $\{q_{5}\}$ & - & - \\
+\cmidrule{1-5}
+$q_{3}$ & - & - & $\{q_{6}\}$ & - \\
+\cmidrule{1-5}
+$q_{4}$ & - & - & - & $\{q_{7}\}$ \\
+\cmidrule{1-5}
+$q_{5}$ & $\{q_{8}\}$ & - & - & - \\
+\cmidrule{1-5}
+$q_{6}$ & $\{q_{8}\}$ & - & - & - \\
+\cmidrule{1-5}
+$q_{7}$ & $\{q_{8}\}$ & - & - & - \\
+\cmidrule{1-5}
+$q_{8}$ & $\{q_{1}, q_{9}\}$ & - & - & - \\
+\cmidrule{1-5}
+$q_{9}$ & $\{q_{10}\}$ & - & - & - \\
+\cmidrule{1-5}
+$q_{10}$ & $\{q_{11}, q_{13}\}$ & - & - & - \\
+\cmidrule{1-5}
+$q_{11}$ & - & - & $\{q_{12}\}$ & -\\
+\cmidrule{1-5}
+$q_{12}$ & $\{q_{11}, q_{13}\}$ & - & - & - \\
+\cmidrule{1-5}
+$q_{13}$ & - & - & - & - \\
+\bottomrule
+\end{tabular}
+\linebreak \linebreak Tabla 2: Formalización del autómata (2).
+\end{center}
+
+\pagebreak

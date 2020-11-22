@@ -1,0 +1,102 @@
+\section{Introducción}
+
+Un autómata finito es un modelo matemático de una máquina de estados que acepta cadenas de un lenguaje definido sobre un alfabeto. Consiste en un conjunto finito de estados y un conjunto de transiciones sobre esos estados que dependen de los símbolos de la cadena de entrada. El autómata finito acepta una cadena X si la secuencia de transiciones correspondientes a los símbolos de X conducen desde el estado inicial al estado final.
+
+\subsection{Autómata Finito con Transición $\epsilon$}
+
+Existe un tipo de autómata finito que permite transiciones para $\epsilon$ (la cadena vacía). Así, un AFN puede hacer una transición espontáneamente, sin recibir un símbolo de entrada. Esta nueva capacidad no expande la clase de lenguajes que los autómatas finitos pueden aceptar, pero proporciona algunas facilidades de programación. Las transiciones $\epsilon$ están estrechamente relacionadas con las expresiones regulares y resultan útiles para demostrar la equivalencia entre las clases de lenguajes aceptados por los autómatas finitos y las expresiones regulares. Los autómatas aceptarán aquellas secuencias de etiquetas que siguen caminos desde el estado inicial a un estado de aceptación. Sin embargo, cada $\epsilon$ que se encuentra a lo largo de un camino es "invisible"; es decir, no contribuye a la cadena que se forma a lo largo del camino.
+
+\subsection{Construcción de Thompson}
+
+La construcción de Thompson genera un AFN a partir de cualquier expresión regular \textit{r} que reconoce el lenguaje definido por \textit{r}.
+
+\subsubsection{Nomenclatura de Thompson}
+
+Para la representación de una cadena vacía se utiliza el símbolo $\epsilon$:
+
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm,scale = 1,transform shape]
+\node[state] (q0) {$q0$};
+\node[state] (q1) [right of=q0] {$q1$};
+\path (q0) edge node {$\epsilon$} (q1);
+\end{tikzpicture}
+\end{center}
+
+Para representar un símbolo, se utilizan dos estados y una transición para el movimiento con el símbolo:
+
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm,scale = 1,transform shape]
+\node[state] (q0) {$q0$};
+\node[state] (q1) [right of=q0] {$q1$};
+\path (q0) edge node {a} (q1);
+\end{tikzpicture}
+\end{center}
+
+Para la concatenación de dos símbolos únicamente se unen:
+
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm,scale = 1,transform shape]
+\node[state] (q0) {$q0$};
+\node[state] (q1) [right of=q0] {$q1$};
+\node[state] (q2) [right of=q1] {$q2$};
+
+\path (q0) edge node {a} (q1);
+\path (q1) edge node {b} (q2);
+\end{tikzpicture}
+\end{center}
+
+Para la elección de alternativas, hay que crear transiciones $\epsilon$ para la unión de las transiciones:
+
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm,scale = 1,transform shape]
+\node[state] (q0) {$q0$};
+\node[state] (q1) [above right of=q0] {$q1$};
+\node[state] (q2) [below right of=q0] {$q2$};
+\node[state] (q3) [right of=q1] {$q3$};
+\node[state] (q4) [right of=q2] {$q4$};
+\node[state] (q5) [below right of=q3] {$q5$};
+
+\path (q0) edge[bend left] node {$\epsilon$} (q1);
+\path (q0) edge[bend right] node {$\epsilon$} (q2);
+\path (q1) edge node {a} (q3);
+\path (q2) edge node {b} (q4);
+\path (q3) edge[bend left] node {$\epsilon$} (q5);
+\path (q4) edge[bend right] node {$\epsilon$} (q5);
+\end{tikzpicture}
+\end{center}
+
+Para la cerradura positiva, se agregan transiciones $\epsilon$ para retornar al estado previo, permitiendo agregar 1 o mas veces el símbolo:
+
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm,scale = 1,transform shape]
+\node[state] (q0) {$q0$};
+\node[state] (q1) [right of=q0] {$q1$};
+\node[state] (q2) [right of=q1] {$q2$};
+\node[state] (q3) [right of=q2] {$q3$};
+
+\path (q0) edge node {$\epsilon$} (q1);
+\path (q1) edge[bend left] node {a} (q2);
+\path (q2) edge[bend left] node {$\epsilon$} (q1);
+\path (q2) edge node {$\epsilon$} (q3);
+\end{tikzpicture}
+\end{center}
+
+Para la cerradura de Kleene, se agrega una transición $\epsilon$ para retornar al estado previo, se crean 2 estados con una transición $\epsilon$ para saltar la transición con el símbolo que pertenece al lenguaje:
+
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm,scale = 1,transform shape]
+\node[state] (q0) {$q0$};
+\node[state] (q1) [above right of=q0] {$q1$};
+\node[state] (q2) [right of=q1] {$q2$};
+\node[state] (q3) [below right of=q2] {$q3$};
+
+\path (q0) edge[bend left] node {$\epsilon$} (q1);
+\path (q1) edge[bend left] node {a} (q2);
+\path (q2) edge[bend left] node {$\epsilon$} (q1);
+\path (q2) edge[bend left] node {$\epsilon$} (q3);
+\path (q0) edge node {$\epsilon$} (q3);
+
+\end{tikzpicture}
+\end{center}
+
+\pagebreak
