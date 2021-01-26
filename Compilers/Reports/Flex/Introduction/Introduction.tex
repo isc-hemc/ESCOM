@@ -1,0 +1,19 @@
+\section{Introducción}
+
+\textbf{Flex} es una herramienta que permite crear \textbf{escáneres} para reconocer patrones léxicos en un texto, a partir de expresiones regulares \textit{flex} busca concordancias en un fichero de entrada y ejecuta acciones asociadas a estas expresiones. Cuando se arranca el fichero ejecutable, este analiza su entrada en busca de casos de las expresiones regulares. Siempre que encuentra uno, ejecuta el código C correspondiente. El fichero de entrada de flex está compuesto de tres secciones, separadas por una línea donde aparece únicamente un $\%\%$.
+
+\begin{lstlisting}
+definiciones
+%%
+reglas
+%%
+codigo de usuario
+\end{lstlisting}
+
+La sección de definiciones contiene declaraciones de definiciones de nombres sencillos para simplificar la especificación del escáner. Las definiciones de nombre tienen la forma \textbf{nombre definición}.
+
+La sección de reglas en la entrada de flex contiene una serie de reglas de la forma \textbf{patrón acción} donde el \textit{patrón} es una expresión regular y la \textit{acción} es el código en C con las acciones a ejecutar cuando se detecta este patrón.
+
+La sección de código de usuario simplemente se copia a \textit{lex.yy.c} literalmente. Esta sección se utiliza para rutinas de complemento que llaman al escáner o son llamadas por este. La presencia de esta sección es opcional; Si se omite, el segundo $\%\%$ en el fichero de entrada se podría omitir también. En la sección de reglas, cualquier texto que aparezca antes de la primera regla podría utilizarse para declarar variables que son locales a la rutina de análisis y (después de las declaraciones) al código que debe ejecutarse siempre que se entra a la rutina de análisis.
+
+\pagebreak

@@ -1,0 +1,86 @@
+\section{Desarrollo}
+
+La practica consta en diseñar las expresiones regulares en \textbf{Flex} que reconozcan los siguientes patrones:
+
+\begin{itemize}
+\item Nombres de Variables.
+\item Números enteros con y sin signo.
+\item Números decimales con y sin signo.
+\item Potencias de números reales.
+\item Operaciones matemáticas como suma, resta, división, multiplicación y modulo.
+\end{itemize}
+
+\subsection{Archivo Lex Source Format}
+
+Con los ficheros de entrada (extensión \textit{.l}), Flex genera como salida un fichero fuente en C llamado \textbf{lex.yy.c}, que define una rutina \textbf{yylex()}. Este fichero se compila y se enlaza con la librería \textbf{-lfl} para producir un ejecutable. Dentro del fichero de entrada están definidas las expresiones regulares que cumplan con las especificaciones de la practica, estas expresiones las llamaremos \textbf{definiciones}:
+
+\begin{itemize}
+\item Expresión regular que detecta nombres de variables:
+\begin{equation}
+[a-zA-Z\_]\{1\}[a-zA-Z0-9\_]*
+\end{equation}
+\item Expresión regular que detecta números enteros con y sin signo:
+\begin{equation}
+\setminus-?[0]\{1\}|(\setminus-?)[1-9]\{1\}[0-9]*
+\end{equation}
+\item Expresión regular que detecta números decimales con y sin signo:
+\begin{equation}
+(\setminus-?)((0?\setminus.[0-9]*[1-9][0-9]*)|(([1-9]\{1\}[0-9]*)((\setminus.([0-9]*[1-9][0-9]*))|(\setminus.0)))|(0\setminus.0)\{1\})
+\end{equation}
+\item Expresión regular que detecta potencias:
+\begin{equation}
+[p|P][o|O][w|W]\setminus((\{integer\}|\{decimal\}),(\{integer\}|\{decimal\})\setminus)
+\end{equation}
+\item Expresión regular que detecta la operación modulo:
+\begin{equation}
+mod\setminus((\{integer\}|\{decimal\}),(\{integer\}|\{decimal\})\setminus)
+\end{equation}
+\end{itemize}
+
+Una ves hayamos creado las \textbf{definiciones} crearemos las \textbf{reglas} en el mismo archivo:
+
+\begin{itemize}
+\item Operaciones matemáticas:
+\begin{lstlisting}
+\= {printf("equal ");}
+\+ {printf("sum ");}
+\- {printf("minus ");}
+\* {printf("multiply ");}
+\/ {printf("division ");}
+\end{lstlisting}
+\item Variables, números, potencia y modulo:
+\begin{lstlisting}
+{variable} {printf("variable ");}
+{integer} {printf("integer_number ");}
+{decimal} {printf("decimal_number ");}
+{pow} {printf("potency ");}
+{mod} {printf("module ");}
+\end{lstlisting}
+\end{itemize}
+
+\pagebreak
+
+Finalmente, el código completo es el siguiente:
+
+\begin{lstlisting}
+variable [a-zA-z_]{1}[a-zA-Z0-9_]*
+integer \-?[0]{1}|(\-?)[1-9]{1}[0-9]*
+decimal (\-?)((0?\.[0-9]*[1-9][0-9]*)|(([1-9]{1}[0-9]*)((\.([0-9]*[1-9][0-9]*))|(\.0)))|(0\.0){1})
+pow [p|P][o|O][w|W]\(({integer}|{decimal}),({integer}|{decimal})\)
+pow1 ({decimal}|{integer})\^({decimal}|{integer})
+mod mod\(({integer}|{decimal}),({integer}|{decimal})\)
+%%
+{variable} {printf("variable ");}
+{integer} {printf("integer_number ");}
+{decimal} {printf("decimal_number ");}
+{pow} {printf("potency ");}
+{pow1} {printf("potency ");}
+{mod} {printf("module ");}
+\= {printf("equal ");}
+\+ {printf("sum ");}
+\- {printf("minus ");}
+\* {printf("multiply ");}
+\/ {printf("divition ");}
+\end{lstlisting}
+
+\pagebreak
