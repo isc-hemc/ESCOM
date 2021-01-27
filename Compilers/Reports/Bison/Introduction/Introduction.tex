@@ -1,0 +1,51 @@
+\section{Introducción}
+
+\subsection{Flex}
+
+\textbf{Flex} es una herramienta que permite crear \textbf{escáneres} para reconocer patrones léxicos en un texto, a partir de expresiones regulares \textit{flex} busca concordancias en un fichero de entrada y ejecuta acciones asociadas a estas expresiones. Cuando se arranca el fichero ejecutable, este analiza su entrada en busca de casos de las expresiones regulares. Siempre que encuentra uno, ejecuta el código C correspondiente. El fichero de entrada de flex está compuesto de tres secciones, separadas por una línea donde aparece únicamente un $\%\%$.
+
+\begin{lstlisting}
+definiciones
+%%
+reglas
+%%
+codigo de usuario
+\end{lstlisting}
+
+La sección de definiciones contiene declaraciones de definiciones de nombres sencillos para simplificar la especificación del escáner. Las definiciones de nombre tienen la forma \textbf{nombre definición}.
+
+La sección de reglas en la entrada de flex contiene una serie de reglas de la forma \textbf{patrón acción} donde el \textit{patrón} es una expresión regular y la \textit{acción} es el código en C con las acciones a ejecutar cuando se detecta este patrón.
+
+La sección de código de usuario simplemente se copia a \textit{lex.yy.c} literalmente. Esta sección se utiliza para rutinas de complemento que llaman al escáner o son llamadas por este. La presencia de esta sección es opcional; Si se omite, el segundo $\%\%$ en el fichero de entrada se podría omitir también. En la sección de reglas, cualquier texto que aparezca antes de la primera regla podría utilizarse para declarar variables que son locales a la rutina de análisis y (después de las declaraciones) al código que debe ejecutarse siempre que se entra a la rutina de análisis.
+
+\subsection{Bison}
+
+Bison es un generador de analizadores sintácticos de propósito general que convierte una descripción para una gramática independiente del contexto en un programa en C que analiza esa gramática. Un achivo fuente de Bison \textit{.y} describe una gramática. El ejecutable que se genera indica si un fichero de entrada dado pertenece o no al lenguaje generado por esa gramática. Durante la compilación ocurre lo siguiente:
+
+\begin{itemize}
+\item bison fichero.y: Compila la especificación del analizador y crea el fichero \textbf{fichero.tab.c} con el código y las tablas del analizador.
+\item bison -d fichero.y: Con la opción \textbf{-d} además del fichero \textit{.c} se genera \textbf{fichero.tab.h} con las definiciones de las constantes asociadas a los \textit{tokens}, además de variables y estructuras de datos necesarias para el analizador léxico.
+\item gcc fichero.tab.c (ficheros .c): El usuario deberá de proporcionar sus propias funciones \textbf{main()}, \textbf{yyerror()} y \textbf{yyylex()}. Dentro del código de usuario se deberá llamar a la función \textbf{yyparse()} que a su vez llamará a la función \textbf{yylex()} del analizador léxico cada vez que necesite un \textit{token}.
+\end{itemize}
+
+\subsubsection{Gramática Bison}
+
+La forma general de una gramática de Bison es la siguiente:
+
+\begin{lstlisting}
+declaraciones de Bison
+%%
+reglas y acciones gramaticales
+%%
+codigo C adicional
+\end{lstlisting}
+
+\subsubsection{Declaraciones Bison}
+
+Las declaraciones en C pueden definir tipos y variables utilizadas en las acciones. Puede también usar comandos del pre-procesador para definir macros que se utilicen ahí y utilizar \textbf{$\#$include} para incluir archivos de cabecera que realicen cualquiera de estas cosas. Las declaraciones de Bison declaran los nombres de los símbolos terminales y no terminales, así como podrían describir la precedencia de operadores y los tipos de datos de los valores semánticos de varios símbolos. Las reglas gramaticales son las producciones de la gramática, que además pueden llevar asociadas acciones, código en C, que se ejecutan cuando el analizador encuentra las reglas correspondientes. El código C adicional puede contener cualquier código C que desee utilizar. A menudo suele ir la definición del analizador léxico \textbf{yylex}, más subrutinas invocadas por las acciones en las reglas gramaticales. En un programa simple, todo el resto del programa puede ir aquí.
+
+\subsubsection{Tokens y no terminales}
+
+Los símbolos terminales de la gramática se denominan en \textit{Bison tokens} y deben declararse en la sección de definiciones. Por convención se suelen escribir los \textit{tokens} en mayúsculas y los símbolos no terminales en minúsculas. Los nombres de los símbolos pueden contener letras, dígitos (no al principio), subrayados y puntos. 
+
+\pagebreak
